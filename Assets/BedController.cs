@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class BedController : MonoBehaviour, IInteractable
+public class BedController : MonoBehaviour
 {
-    public void Interact()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        StartFade();
+        
     }
 
-    public void StartFade()
+    // Update is called once per frame
+    void Update()
     {
-        PeripheralGameManager.Instance.StartSleep();
+        
     }
 }

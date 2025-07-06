@@ -1,26 +1,20 @@
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PopUpCameraFollow : MonoBehaviour
 {
-    public FPController playerCamera;
+    public GameObject _object;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
-        playerCamera = PeripheralGameManager.Instance.returnFPController();
     }
 
     // Update is called once per frame
     void Update()
     {
         gameObject.transform.localScale = new Vector3(1, 1, 1);
-        if (playerCamera == null)
-        {
-            playerCamera = PeripheralGameManager.Instance.returnFPController();
-        }
-        Vector3 direction = transform.position - playerCamera.transform.position;
+        Vector3 direction = transform.position - _object.transform.position;
         direction.y = 0;
         
         if (direction != Vector3.zero)

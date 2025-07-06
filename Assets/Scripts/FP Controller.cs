@@ -186,7 +186,6 @@ public class FPController : MonoBehaviour
 
     void Start()
     {
-        PeripheralGameManager.Instance.SetFPController(this);
         if (inspectCamera != null)
         {
             inspectCamera.enabled = false; // Disable on start
@@ -865,11 +864,7 @@ public class FPController : MonoBehaviour
         return null;
     }
 
-
-    // public IInteractable ReturnInteractableFromRayCast()
-
-    public GameObject ReturnInteractableFromRayCast()
-
+    public IInteractable ReturnInteractableFromRayCast()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, 2f))
@@ -877,7 +872,7 @@ public class FPController : MonoBehaviour
             IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
             if (interactable != null)
             {
-                return hit.collider.gameObject;
+                return interactable;
             }
             else
             {

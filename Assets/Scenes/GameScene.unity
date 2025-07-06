@@ -6574,7 +6574,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 312845319854254810, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.46
+      value: 6.91
       objectReference: {fileID: 0}
     - target: {fileID: 312845319854254810, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6582,7 +6582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 312845319854254810, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.27
+      value: 15.93
       objectReference: {fileID: 0}
     - target: {fileID: 312845319854254810, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7255,10 +7255,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7748004341323242034, guid: d361fa0b6ac992d44a1ac03bbc6536c8, type: 3}
-      propertyPath: fade
-      value: 
-      objectReference: {fileID: 1593732186}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -256285,7 +256281,6 @@ GameObject:
   - component: {fileID: 9189065509862524408}
   - component: {fileID: 9189065509862524411}
   - component: {fileID: 9189065509862524410}
-  - component: {fileID: 9189065509862524414}
   m_Layer: 0
   m_Name: Mattress_Apt_01
   m_TagString: Untagged
@@ -256310,18 +256305,6 @@ Transform:
   - {fileID: 9189065509380209123}
   m_Father: {fileID: 9189065510213481469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9189065509862524414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9189065509862524412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08820cb34652bf244808adc4a599a2df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9189065510213481456
 GameObject:
   m_ObjectHideFlags: 0
@@ -256335,6 +256318,7 @@ GameObject:
   - component: {fileID: 9189065510213481471}
   - component: {fileID: 9189065510213481470}
   - component: {fileID: 9189065510213481457}
+  - component: {fileID: 9189065510213481472}
   m_Layer: 0
   m_Name: Bed_Apt_01_02
   m_TagString: Untagged
@@ -256453,6 +256437,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9189065510213481472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9189065510213481456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08820cb34652bf244808adc4a599a2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9192680268116862686
 Transform:
   m_ObjectHideFlags: 0
