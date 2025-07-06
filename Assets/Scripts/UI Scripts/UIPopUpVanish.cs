@@ -4,12 +4,23 @@ using UnityEngine.UIElements;
 using TMPro;
 using UnityEditor.Rendering;
 
-public class UIPopUpManager : PopUpBase
+public class UIPopUpVanish : PopUpBase
 {
+    public void Start()
+    {
+        player = PeripheralGameManager.Instance.returnFPController();
+    }
 
     public void Update()
     {
-        if (player.RayCastFromCamera())
+        if (player == null)
+        {
+            player = PeripheralGameManager.Instance.returnFPController();
+        }
+
+        GameObject interactable = player.ReturnInteractableFromRayCast();
+      
+        if (interactable == parentGO)
         {
             popUpImage.SetActive(true);
         }

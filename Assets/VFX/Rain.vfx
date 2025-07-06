@@ -16,10 +16,10 @@ MonoBehaviour:
   - title: Base Loop
     position:
       serializedVersion: 2
-      x: 851
+      x: 852
       y: -1433
-      width: 475
-      height: 2277
+      width: 998
+      height: 3968
     contents:
     - model: {fileID: 8926484042661614608}
       id: 0
@@ -39,8 +39,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 852
     y: -1433
-    width: 474
-    height: 2555
+    width: 998
+    height: 3968
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,7 +500,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614685}
   - {fileID: 8926484042661614830}
   - {fileID: 8926484042661614722}
-  m_UIPosition: {x: 877, y: 478}
+  m_UIPosition: {x: 1401, y: 817}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   m_Parent: {fileID: 8926484042661614662}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661614931}
@@ -2836,7 +2836,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.OrientedBox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":10.807585716247559,"y":-28.008792877197267,"z":10.007683753967286},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":12.930849075317383,"y":4.982414245605469,"z":17.90374183654785}}'
+      m_SerializableObject: '{"center":{"x":10.807589530944825,"y":-28.008792877197267,"z":10.007683753967286},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":12.9308500289917,"y":4.982414245605469,"z":17.90374183654785}}'
     m_Space: 0
   m_Property:
     name: box
@@ -3402,7 +3402,7 @@ MonoBehaviour:
   m_Parent: {fileID: 8926484042661614662}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661614949}
@@ -3448,7 +3448,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.OrientedBox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":21.899999618530275,"y":-28.008792877197267,"z":16.09000015258789},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":12.828393936157227,"y":4.982414245605469,"z":15.634883880615235}}'
+      m_SerializableObject: '{"center":{"x":21.899999618530275,"y":-28.008792877197267,"z":16.09000015258789},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":12.828390121459961,"y":4.982414245605469,"z":15.634883880615235}}'
     m_Space: 0
   m_Property:
     name: box
@@ -4014,7 +4014,7 @@ MonoBehaviour:
   m_Parent: {fileID: 8926484042661614662}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661614967}
@@ -4060,7 +4060,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.OrientedBox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":16.64167594909668,"y":-28.008792877197267,"z":16.527069091796876},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":12.828393936157227,"y":4.982414245605469,"z":15.634883880615235}}'
+      m_SerializableObject: '{"center":{"x":16.64167594909668,"y":-28.008792877197267,"z":16.527069091796876},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":12.828390121459961,"y":4.982414245605469,"z":15.634883880615235}}'
     m_Space: 0
   m_Property:
     name: box
@@ -4626,7 +4626,7 @@ MonoBehaviour:
   m_Parent: {fileID: 8926484042661614662}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661614985}
@@ -4672,7 +4672,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.OrientedBox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":16.62122917175293,"y":-28.008792877197267,"z":3.728760242462158},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":29.336082458496095,"y":4.982414245605469,"z":8.730746269226075}}'
+      m_SerializableObject: '{"center":{"x":16.62122917175293,"y":-28.008792877197267,"z":3.728760242462158},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":29.33608055114746,"y":4.982414245605469,"z":8.730746269226075}}'
     m_Space: 0
   m_Property:
     name: box
@@ -5238,7 +5238,7 @@ MonoBehaviour:
   m_Parent: {fileID: 8926484042661614662}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661615003}
@@ -5850,7 +5850,7 @@ MonoBehaviour:
   m_Parent: {fileID: 8926484042661614662}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661615021}
@@ -5896,7 +5896,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.OrientedBox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":42.7293815612793,"y":-28.008792877197267,"z":9.485057830810547},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":11.402946472167969,"y":4.982414245605469,"z":10.992441177368164}}'
+      m_SerializableObject: '{"center":{"x":42.7293815612793,"y":-28.008792877197267,"z":9.485057830810547},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":11.402950286865235,"y":4.982414245605469,"z":10.992441177368164}}'
     m_Space: 0
   m_Property:
     name: box
@@ -6462,7 +6462,7 @@ MonoBehaviour:
   m_Parent: {fileID: 8926484042661614662}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661615039}
@@ -7074,7 +7074,7 @@ MonoBehaviour:
   m_Parent: {fileID: 8926484042661614662}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661615057}
@@ -7120,7 +7120,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.OrientedBox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":-11.085746765136719,"y":-28.008792877197267,"z":0.28233814239501955},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":3.8790998458862306,"y":4.982414245605469,"z":6.891942024230957}}'
+      m_SerializableObject: '{"center":{"x":-11.085746765136719,"y":-28.008792877197267,"z":0.28233814239501955},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":3.8791000843048097,"y":4.982414245605469,"z":6.891942024230957}}'
     m_Space: 0
   m_Property:
     name: box

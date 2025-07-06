@@ -9,10 +9,13 @@ public class TaskController : MonoBehaviour
     [SerializeField] private Transform choreTextContainer; // parent object that holds chore text lines
     [SerializeField] private GameObject choreTextPrefab;   // prefab with a TMP_Text component
 
-    [SerializeField] private List<string> choreSequence = new List<string> { "Bin", " Wash Dishes", "Feed Cat" };
+    [SerializeField] private List<string> choreSequence = new List<string> { "Take out the rubbish", " Wash Dishes", "Feed Cat" };
 
     private int currentChoreIndex = 0;
     private List<TextMeshProUGUI> choreTexts = new List<TextMeshProUGUI>();
+
+    public Color greenColour;
+    public Color redColour;
 
     
     private void Awake()
@@ -52,7 +55,7 @@ public class TaskController : MonoBehaviour
             return;
 
         // Only show current task at the start
-        AddChoreLine(choreSequence[0], Color.green);
+        AddChoreLine(choreSequence[0], greenColour);
     }
 
     private void Update()
@@ -82,15 +85,16 @@ public class TaskController : MonoBehaviour
         if (choreSequence[currentChoreIndex] == choreName)
         {
             // Change current line to red
-            choreTexts[currentChoreIndex].color = Color.red;
-            choreTexts[currentChoreIndex].text = $"{choreName} - Completed";
+            choreTexts[currentChoreIndex].color = redColour;
+            choreTexts[currentChoreIndex].text = $"<s>{choreName}";
+            
 
             currentChoreIndex++;
 
             // Add next task in green
             if (currentChoreIndex < choreSequence.Count)
             {
-                AddChoreLine(choreSequence[currentChoreIndex], Color.green);
+                AddChoreLine(choreSequence[currentChoreIndex], greenColour);
             }
         }
     }
