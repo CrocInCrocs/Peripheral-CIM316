@@ -14,6 +14,37 @@ public class TaskController : MonoBehaviour
     private int currentChoreIndex = 0;
     private List<TextMeshProUGUI> choreTexts = new List<TextMeshProUGUI>();
 
+    
+    private void Awake()
+    {
+        if (choreListUI == null)
+        {
+            choreListUI = GameObject.Find("TaskListUI"); // Replace with actual GameObject name in your scene
+
+            if (choreListUI == null)
+                Debug.LogWarning("choreListUI could not be found in the scene by name.");
+        }
+
+        if (choreTextPrefab == null)
+        {
+            GameObject prefabGO = GameObject.Find("TaskLine");
+            if (prefabGO != null)
+                choreTextPrefab = prefabGO;
+            else
+                Debug.LogWarning("choreTextPrefab not assigned and 'Task Line' GameObject not found.");
+        }
+
+
+        if (choreTextContainer == null)
+        {
+            GameObject containerGO = GameObject.Find("TaskParent");
+            if (containerGO != null)
+                choreTextContainer = containerGO.transform;
+            else
+                Debug.LogWarning("choreTextContainer not assigned and 'Task Parent' GameObject not found.");
+        }
+        
+    }
     private void Start()
     {
         if (choreSequence.Count == 0 || choreTextPrefab == null || choreTextContainer == null)

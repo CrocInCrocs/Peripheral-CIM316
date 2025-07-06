@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 8063641893820899202}
   - component: {fileID: 3931061648175764217}
   m_Layer: 0
-  m_Name: Empty Parent
+  m_Name: TaskParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 8072888451369532905}
   - component: {fileID: 7617459790737564528}
   m_Layer: 0
-  m_Name: Empty PLaceHolder
+  m_Name: TaskListUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1221,7 +1221,7 @@ GameObject:
   - component: {fileID: 5405445723460172932}
   - component: {fileID: 7914432504355655080}
   m_Layer: 0
-  m_Name: Lines
+  m_Name: TaskLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1628,11 +1628,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947579990391888858, guid: 90dcb0573eeaa7348bcf60abbb8d1ecc, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7947579990391888858, guid: 90dcb0573eeaa7348bcf60abbb8d1ecc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8576412682141546409, guid: 90dcb0573eeaa7348bcf60abbb8d1ecc, type: 3}
       propertyPath: m_Name
