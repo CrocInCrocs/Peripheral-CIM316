@@ -382,6 +382,7 @@ public class FPController : MonoBehaviour
 
         if (!isInspecting)
         {
+            // Gets input and calls pickup method and if the player can't pickup anything it will try to see if the player can interact with anything.
             if (Input.GetKeyDown(pickupKey))
             {
                 GameObject target = RayCastFromCamera();
@@ -410,7 +411,7 @@ public class FPController : MonoBehaviour
                                     currentChore = null;
                                 }
 
-                                return;
+                                return; // ✅ Done — don't fall through
                             }
                         }
                     }
@@ -428,13 +429,8 @@ public class FPController : MonoBehaviour
                     if (pickupable != null)
                     {
                         pickupable.Pickup(playerHandTransform);
-
-                        // 🐱 Additional check for cat food
-                        HandleCatFoodPickup(pickupable);
-
                         return;
                     }
-
 
                     // if (enableChores) // <- Only check for chores if enabled
                     // {
@@ -692,7 +688,6 @@ public class FPController : MonoBehaviour
                     {
                         Debug.LogWarning("SoundManager.Instance is null! Cannot play footstep sound.");
                     }
-
                     footstepTimer = footstepInterval;
                 }
             }
@@ -863,7 +858,6 @@ public class FPController : MonoBehaviour
 
         return null;
     }
-
     public IInteractable ReturnInteractableFromRayCast()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -896,27 +890,5 @@ public class FPController : MonoBehaviour
         playerCanMove = true;
         cameraCanMove = true;
     }
-
-    private void HandleCatFoodPickup(IPickupable pickupable)
-    {
-        GameObject obj = ((MonoBehaviour)pickupable).gameObject;
-
-        if (!obj.CompareTag("CatFood")) return;
-
-        Animator animator = obj.GetComponent<Animator>();
-        if (animator == null) return;
-
-        Collider[] nearbyTriggers = Physics.OverlapSphere(transform.position, 2f);
-        foreach (var trigger in nearbyTriggers)
-        {
-            FeedCat feedTrigger = trigger.GetComponent<FeedCat>();
-            if (feedTrigger != null)
-            {
-                feedTrigger.SetHeldCanAnimator(animator);
-                Debug.Log("Cat food animator set on FeedCatTrigger.");
-            }
-        }
-    }
+    
 }
-
-
