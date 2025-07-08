@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -14,14 +13,6 @@ public class PeripheralGameManager : MonoBehaviour
     public GameObject rain;
     public FPController _player;
     public FadeController fade;
-    
-    private HashSet<string> completedChores = new HashSet<string>();
-    
-    // List of chores to track — adjust as needed
-    private List<string> trackedChores = new List<string> { "Take out the rubbish", "Wash Dishes", "Feed Cat" };
-    
-    
-    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -53,33 +44,17 @@ public class PeripheralGameManager : MonoBehaviour
     
     private void HandleChoreComplete(string taskName)
     {
-        if (completedChores.Contains(taskName))
-            return; // Already completed this chore, ignore
-
-        if (!trackedChores.Contains(taskName))
-            return; // Not a chore we track, ignore
-
-        completedChores.Add(taskName);
-        choresCompleted = completedChores.Count;
-
         Debug.Log($"✅ Task completed: {taskName}");
-        choreText.text = $"Chores: {choresCompleted}/{totalChores}";
 
-        // Tell TaskController to update visuals
+        // Notify the TaskController manually
         taskController?.OnChoreCompleted(taskName);
 
-        // Fire global event for this chore completed
-        TaskEvents.InvokeChoreCompleted(taskName);
+        choresCompleted += 1f;
+        choreText.text = $"Chores: {choresCompleted}/{totalChores}";
 
-        // Check if all tracked chores are complete
         if (choresCompleted >= totalChores)
-        {
-            Debug.Log("✅ All chores complete! Go to sleep.");
-            TaskEvents.InvokeAllChoresCompleted();
-        }
+            Debug.Log("✅ All chores complete! Game over.");
     }
-    
-    
 
     public void RainStart()
     {
