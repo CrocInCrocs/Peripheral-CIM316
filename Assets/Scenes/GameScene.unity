@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.68765575, g: 0.7465834, b: 0.9528302, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 82c5dbe90ad82d1468760a694139cb2c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: db7b97b94f0e84b4b9bc4dde92670846, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: ba2416905f7c9174499d87c7d55c24d9, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 0c8308b0a2d91114eacf7c7c3cf8b4d6, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -5262,8 +5262,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.57071024, g: 0.6344655, b: 0.7075472, a: 1}
+  m_Intensity: 0.12
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -13317,16 +13317,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d75498920f41e4f85d070640d2bc1f, type: 3}
---- !u!1 &598035749 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6994001555645776873, guid: c2d75498920f41e4f85d070640d2bc1f, type: 3}
-  m_PrefabInstance: {fileID: 598035748}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &598035750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5759070788551246694, guid: c2d75498920f41e4f85d070640d2bc1f, type: 3}
-  m_PrefabInstance: {fileID: 598035748}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &599481481
 GameObject:
   m_ObjectHideFlags: 0
@@ -31054,38 +31044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57cee676c0735e479ef67c2763f98b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: 0
-  fadeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2.9690254
-      outSlope: 2.9690254
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.08978548
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.0059483796
-      outSlope: 0.0059483796
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.536618
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _isFading: 0
-  _isFadingOut: 0
-  startFadeOn: 1
-  _fadeSpeed: 5
-  firstFadeOut: 1
-  cutscene: {fileID: 598035750}
-  cutscene2: {fileID: 598035749}
 --- !u!225 &1593732187
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -35777,17 +35735,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5575469538477459821, guid: 2a83511a782a6aa4dafed1f5a2bd3803, type: 3}
---- !u!114 &1797383586 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7745375591929413508, guid: b1deb8bbabb22564ea3f48e096029286, type: 3}
-  m_PrefabInstance: {fileID: 1911460658}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb251899abd8f84cba5f3e2a9bd14e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1803305398
 GameObject:
   m_ObjectHideFlags: 0
@@ -37763,7 +37710,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7745375591929413508, guid: b1deb8bbabb22564ea3f48e096029286, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7923723388899970762, guid: b1deb8bbabb22564ea3f48e096029286, type: 3}
@@ -243796,7 +243744,7 @@ PrefabInstance:
     - target: {fileID: 8968308893949128402, guid: 11c07e8596d31544b9f5e2f51b47ee12, type: 3}
       propertyPath: typeWriter
       value: 
-      objectReference: {fileID: 1797383586}
+      objectReference: {fileID: 0}
     - target: {fileID: 8968308893949128402, guid: 11c07e8596d31544b9f5e2f51b47ee12, type: 3}
       propertyPath: backDoorText
       value: 
