@@ -10,5 +10,6 @@ public class BedController : MonoBehaviour, IInteractable
     public void StartFade()
     {
         PeripheralGameManager.Current.StartSleep();
+        PeripheralGameManager.Current.EnableTriggerBoxes();
     }
 }
