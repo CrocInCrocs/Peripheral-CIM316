@@ -27,8 +27,24 @@ public class PeripheralGameManager : MonoBehaviour
         } else {
             _current = this;
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
+        
+        if (SoundManager.Instance != null)
+        {
+            // SoundManager.Instance?.StartRainLoopSound();
+            // SoundManager.Instance?.PlayWindSound(transform.position);
+            SoundManager.Instance?.PlayWindSound();
+            
+        }
+        
     }
+    
+    
+    
+    
+    
+    
     private void OnEnable()
     {
         TaskEvents.OnChoreCompleted += HandleChoreComplete;
@@ -82,7 +98,7 @@ public class PeripheralGameManager : MonoBehaviour
     public void StartSleep()
     {
         fade.StartFadeIn();
-        _player.DisableInput();
+        // _player.DisableInput();
     }
 
     public void StartWakeUp()
