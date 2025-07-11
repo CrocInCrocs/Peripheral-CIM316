@@ -19,6 +19,7 @@ public class PeripheralGameManager : MonoBehaviour
     public FadeController fade;
 
     public GameObject roomCheck1, roomCheck2, roomCheck3, roomCheck4, roomCheck5;
+    public LightController LightController;
     
     
     private void Awake()
@@ -116,5 +117,10 @@ public class PeripheralGameManager : MonoBehaviour
         roomCheck3.SetActive(true);
         roomCheck4.SetActive(true);
         roomCheck5.SetActive(true);
+    }
+
+    public void LightsOut()
+    {
+        LightController.LightsOff();
     }
 }
