@@ -9234,6 +9234,18 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7617459790737564528, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b775fd2e279fd04a962470b83154b52, type: 2}
+    - target: {fileID: 7617459790737564528, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7489765113027175155, guid: 4b775fd2e279fd04a962470b83154b52, type: 2}
+    - target: {fileID: 7617459790737564528, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7784826369796938035, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
