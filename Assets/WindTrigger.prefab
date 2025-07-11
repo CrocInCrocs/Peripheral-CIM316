@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2292800683271300357}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 47.489895, y: 53.999424, z: -215.46175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -75,5 +75,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e65edbbbf8d683469f689810b1d75e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indoorVolume: 0.01
-  outdoorVolume: 0.1
+  indoorVolume: 0.1
+  outdoorVolume: 0.5
