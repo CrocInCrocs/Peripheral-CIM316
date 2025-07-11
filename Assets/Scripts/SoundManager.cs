@@ -22,10 +22,15 @@ public class SoundManager : MonoBehaviour
     public AudioClip cctvViewClip;
     public AudioClip SwitchCameraClip;
 
-    [Header("Sink Sounds")] public AudioClip sinkOnClip;
+    [Header("Sink Sounds")]
+    public AudioClip sinkOnClip;
     public AudioClip sinkOffClip;
     private AudioSource sinkAudioSource;
+    
 
+    [Header("Wind Sounds")]
+    [SerializeField] private AudioClip windClip;
+    [SerializeField] private AudioSource windAudioSource;
 
     private AudioSource rainAudioSource;
     public AudioClip rainOnClip;
@@ -217,6 +222,44 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    // public void PlayWindSound(Vector3 position)
+    // {
+    //     if (windAudioSource == null && audioSourcePrefab != null && windClip != null)
+    //     {
+    //         // position.y += 10f; // Raise above ground, optional
+    //         windAudioSource = Instantiate(audioSourcePrefab, position, Quaternion.identity);
+    //         windAudioSource.clip = windClip;
+    //         windAudioSource.loop = true;
+    //         windAudioSource.Play();
+    //         Debug.Log("🌬️ Wind sound playing");
+    //     }
+    // }
+    
+    
+    [SerializeField, Range(0f, 1f)] private float currentWindVolume = 1f; // For Inspector viewing only
+    public void SetWindVolume(float volume)
+    {
+        if (windAudioSource != null)
+        {
+            windAudioSource.volume = volume;
+            currentWindVolume = volume; // Update for Inspector
+        }
+    }
+    
+    public void PlayWindSound()
+    {
+        if (windAudioSource == null && windClip != null)
+        {
+            // Create a new AudioSource on the SoundManager (or use an existing one)
+            windAudioSource = gameObject.AddComponent<AudioSource>();
+            windAudioSource.clip = windClip;
+            windAudioSource.loop = true;
+            windAudioSource.spatialBlend = 0f; // 2D sound
+            windAudioSource.Play();
+            Debug.Log("Rain sound playing as 2D");
+        }
+    }
+    
 
     public void PLayCatFoodSound(Vector3 position)
     {
