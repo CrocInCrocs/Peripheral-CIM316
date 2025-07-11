@@ -8,6 +8,7 @@ public class FPController : MonoBehaviour
     [SerializeField] public bool enableChores = true;
     private ChoreProgressBar progressBar;
     private ChoreBase currentChore = null;
+    public bool useCrosshair = true;
 
 
     #region Inspect Variables
@@ -182,6 +183,21 @@ public class FPController : MonoBehaviour
             sprintRemaining = sprintDuration;
             sprintCooldownReset = sprintCooldown;
         }
+        
+        if (crosshairObject != null)
+        {
+            crosshairObject.gameObject.SetActive(true);
+
+            if (useCrosshair)
+            {
+                crosshairObject.sprite = crosshairImage;
+                crosshairObject.color = crosshairColor;
+            }
+            else
+            {
+                crosshairObject.enabled = false; // Just hide the image if needed, but leave the GameObject active
+            }
+        }
     }
 
     void Start()
@@ -234,8 +250,8 @@ public class FPController : MonoBehaviour
         }
         else
         {
-            sprintBarBG.gameObject.SetActive(false);
-            sprintBar.gameObject.SetActive(false);
+            // sprintBarBG.gameObject.SetActive(false);
+            // sprintBar.gameObject.SetActive(false);
         }
 
         #endregion
