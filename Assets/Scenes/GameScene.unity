@@ -7753,7 +7753,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 53.816
+      value: 52.112
       objectReference: {fileID: 0}
     - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7761,7 +7761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -208.587
+      value: -208.524
       objectReference: {fileID: 0}
     - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7793,7 +7793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888231962982390974, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: dialogueText
-      value: There's no way someone got in right?
+      value: What was that? There's no way someone got in right?
       objectReference: {fileID: 0}
     - target: {fileID: 4229129153074687863, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_Name
@@ -9192,7 +9192,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4415447103129921928, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: useSprintBar
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415447103129921928, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+      propertyPath: hideBarWhenFull
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5874275161737750337, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12855,7 +12859,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 51.44
+      value: 54.204
       objectReference: {fileID: 0}
     - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16361,7 +16365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &742283721
 Transform:
   m_ObjectHideFlags: 0
@@ -20148,10 +20152,6 @@ PrefabInstance:
     - target: {fileID: 2569114936768199324, guid: 94709079b10f60a4c95a53fc47347eb7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880683321655415992, guid: 94709079b10f60a4c95a53fc47347eb7, type: 3}
-      propertyPath: indoorVolume
-      value: 0.015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
