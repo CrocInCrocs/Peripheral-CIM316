@@ -184,7 +184,14 @@ public class FPController : MonoBehaviour
             sprintRemaining = sprintDuration;
             sprintCooldownReset = sprintCooldown;
         }
-        
+
+        if (crosshairObject != null)
+        {
+            crosshairObject.gameObject.SetActive(true);
+            crosshairObject.sprite = crosshairImage;
+            crosshairObject.color = crosshairColor;
+        }
+
         if (crosshairObject != null)
         {
             crosshairObject.gameObject.SetActive(true);
@@ -193,10 +200,6 @@ public class FPController : MonoBehaviour
             {
                 crosshairObject.sprite = crosshairImage;
                 crosshairObject.color = crosshairColor;
-            }
-            else
-            {
-                crosshairObject.enabled = false; // Just hide the image if needed, but leave the GameObject active
             }
         }
     }
@@ -221,10 +224,7 @@ public class FPController : MonoBehaviour
             crosshairObject.sprite = crosshairImage;
             crosshairObject.color = crosshairColor;
         }
-        else
-        {
-            crosshairObject.gameObject.SetActive(false);
-        }
+
 
         #region Sprint Bar
 
@@ -422,7 +422,7 @@ public class FPController : MonoBehaviour
         }
 
         #endregion
-        
+
 
         #region Pickup
 
@@ -508,8 +508,6 @@ public class FPController : MonoBehaviour
                     //     return;
                     // }
                 }
-
-              
             }
 
             if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() != null)
@@ -728,12 +726,7 @@ public class FPController : MonoBehaviour
 
         if (playerCanMove)
         {
-            // Calculate how fast we should be moving
             Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
-            // Checks if player is walking and isGrounded
-            // Will allow head bob
-            // if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
             Vector3 horizontalVelocity = rb.linearVelocity;
             horizontalVelocity.y = 0;
 
@@ -745,14 +738,9 @@ public class FPController : MonoBehaviour
                 footstepTimer -= Time.deltaTime;
                 if (footstepTimer <= 0f)
                 {
-                    // SoundManager.Instance.PlayFootstepSound(transform.position);
                     if (SoundManager.Instance != null)
                     {
                         SoundManager.Instance.PlayFootstepSound(transform.position);
-                    }
-                    else
-                    {
-                        Debug.LogWarning("SoundManager.Instance is null! Cannot play footstep sound.");
                     }
 
                     footstepTimer = footstepInterval;
@@ -764,61 +752,41 @@ public class FPController : MonoBehaviour
                 footstepTimer = footstepInterval;
             }
 
-            // All movement calculations shile sprint is active
+            // Sprinting
             if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
             {
-                targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
+                isSprinting = true;
 
-                // Apply a force that attempts to reach our target velocity
-                Vector3 velocity = rb.linearVelocity;
-                Vector3 velocityChange = (targetVelocity - velocity);
-                velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-                velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-                velocityChange.y = 0;
-
-                // Player is only moving when valocity change != 0
-                // Makes sure fov change only happens during movement
-                if (velocityChange.x != 0 || velocityChange.z != 0)
+                if (isCrouched)
                 {
-                    isSprinting = true;
-
-                    if (isCrouched)
-                    {
-                        Crouch();
-                    }
-
-                    if (hideBarWhenFull && !unlimitedSprint)
-                    {
-                        sprintBarCG.alpha += 5 * Time.deltaTime;
-                    }
+                    Crouch();
                 }
 
-                rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
             }
-            // All movement calculations while walking
             else
             {
                 isSprinting = false;
-
-                if (hideBarWhenFull && sprintRemaining == sprintDuration)
-                {
-                    sprintBarCG.alpha -= 3 * Time.deltaTime;
-                }
-
                 targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
-
-                // Apply a force that attempts to reach our target velocity
-                Vector3 velocity = rb.linearVelocity;
-                Vector3 velocityChange = (targetVelocity - velocity);
-                velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-                velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-                velocityChange.y = 0;
-
-                rb.AddForce(velocityChange, ForceMode.VelocityChange);
             }
+
+            // Movement
+            Vector3 velocity = rb.linearVelocity;
+            Vector3 velocityChange = (targetVelocity - velocity);
+            velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+            velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+            velocityChange.y = 0;
+
+            rb.AddForce(velocityChange, ForceMode.VelocityChange);
         }
 
         #endregion
+
+        // 🟩 Always keep sprint bar visible (and optional: update fill value)
+        if (useSprintBar && sprintBarCG != null)
+        {
+            sprintBarCG.alpha = 1f; // <- Always visible
+        }
     }
 
     // Sets isGrounded based on a raycast sent straigth down from the player object
