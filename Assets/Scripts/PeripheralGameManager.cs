@@ -17,6 +17,8 @@ public class PeripheralGameManager : MonoBehaviour
     public GameObject rain;
     public FPController _player;
     public FadeController fade;
+
+    public GameObject roomCheck1, roomCheck2, roomCheck3, roomCheck4, roomCheck5;
     
     
     private void Awake()
@@ -105,5 +107,14 @@ public class PeripheralGameManager : MonoBehaviour
     {
         fade.StartFadeOut();
         _player.EnableInput();
+    }
+
+    public void EnableTriggerBoxes()
+    {
+        roomCheck1.SetActive(true);
+        roomCheck2.SetActive(true);
+        roomCheck3.SetActive(true);
+        roomCheck4.SetActive(true);
+        roomCheck5.SetActive(true);
     }
 }
