@@ -53,6 +53,7 @@ public class DialogueManager : MonoBehaviour
             if (PeripheralGameManager.Current.allChoresDone)
             {
                 typeWriter.StartCustomText("It's late, I gotta get to bed");
+                textPlayed = true;
             }
         }
 
