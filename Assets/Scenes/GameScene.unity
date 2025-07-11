@@ -1614,6 +1614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomCheck
       objectReference: {fileID: 0}
+    - target: {fileID: 8525745184455785249, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
+      propertyPath: dialogueText
+      value: 'I can''t do this, I need my parents '
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6498,6 +6502,7 @@ Transform:
   - {fileID: 686078645}
   - {fileID: 833979151}
   - {fileID: 1487534622}
+  - {fileID: 1103080866}
   - {fileID: 555909458}
   - {fileID: 2009663520}
   - {fileID: 742283721}
@@ -21707,6 +21712,76 @@ Transform:
   m_Children: []
   m_Father: {fileID: 59242547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1103080865
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 288044618}
+    m_Modifications:
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 69.614746
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 54.586426
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -209.512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888231962982390974, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: dialogueText
+      value: Still feels wrong going into their room.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229129153074687863, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_Name
+      value: DialogueTriggerBox (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229129153074687863, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+--- !u!4 &1103080866 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+  m_PrefabInstance: {fileID: 1103080865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &1105009754
 MeshCollider:
   m_ObjectHideFlags: 0

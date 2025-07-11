@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class RoomCheckManager : MonoBehaviour
+public class RoomCheckManager : DialogueBase
 {
    
    public bool diningChecked, kitchenChecked, loungeChecked, garageChecked, bathroomChecked;
@@ -15,6 +15,7 @@ public class RoomCheckManager : MonoBehaviour
       if (diningChecked && kitchenChecked && loungeChecked && garageChecked && bathroomChecked)
       {
          finalCutsceneTrigger.SetActive(true);
+         DialogueManager.Current.NewText(dialogueText);
       }
    }
 }
