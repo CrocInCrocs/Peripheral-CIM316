@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &796165904472890262
 Transform:
@@ -58,7 +58,10 @@ MonoBehaviour:
   SwitchCameraClip: {fileID: 8300000, guid: b4a846585f3235d4b9b4edbd1bb8a128, type: 3}
   sinkOnClip: {fileID: 8300000, guid: 99643987e15ee9e47b81aea939627a16, type: 3}
   sinkOffClip: {fileID: 8300000, guid: aebd448657037aa41afadb803385ac71, type: 3}
+  windClip: {fileID: 8300000, guid: 29ad41b1d0741e64bb1e43eeccd2358a, type: 3}
+  windAudioSource: {fileID: 0}
   rainOnClip: {fileID: 8300000, guid: f10e9483952c29942b40f217f916d4ba, type: 3}
   rainOffClip: {fileID: 0}
   ThunderClip: {fileID: 8300000, guid: 1a7e3a4dd0bc7ea46a112435bc55652e, type: 3}
   audioSourcePrefab: {fileID: 240821364981218583, guid: be1453741f8fb804ea6260142ac196fb, type: 3}
+  currentWindVolume: 1

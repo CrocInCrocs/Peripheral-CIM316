@@ -106,12 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1fb7736f1c26949acbaefe32b46555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueText: 
-  hasBeenPlayed: 0
   itemScriptable: {fileID: 11400000, guid: b6b33b10295b0a64f9e1ddd3cea0262e, type: 2}
   itemVisuals: {fileID: 0}
-  dropForce: 1
-  hasBeenDropped: 0
 --- !u!135 &5720134108289086788
 SphereCollider:
   m_ObjectHideFlags: 0
