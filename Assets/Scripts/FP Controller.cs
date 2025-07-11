@@ -10,6 +10,8 @@ public class FPController : MonoBehaviour
     private ChoreBase currentChore = null;
     public bool useCrosshair = true;
 
+    
+    public CanvasGroup sprintBarCG;
 
     #region Inspect Variables
 
@@ -101,7 +103,6 @@ public class FPController : MonoBehaviour
     public float sprintBarHeightPercent = .015f;
 
     // Internal Variables
-    private CanvasGroup sprintBarCG;
     private bool isSprinting = false;
     private float sprintRemaining;
     private float sprintBarWidth;
@@ -227,7 +228,7 @@ public class FPController : MonoBehaviour
 
         #region Sprint Bar
 
-        sprintBarCG = GetComponentInChildren<CanvasGroup>();
+        //sprintBarCG = GetComponentInChildren<CanvasGroup>();
 
         if (useSprintBar)
         {

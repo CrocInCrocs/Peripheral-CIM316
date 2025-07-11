@@ -462,7 +462,11 @@ public class PlayerMovementEditor : Editor
             new GUIContent("Inspect Canvas", "Canvas to enable during inspect mode."),
             fpc.inspectCanvas, typeof(Canvas), true);
         
-        
+        fpc.sprintBarCG = (CanvasGroup)EditorGUILayout.ObjectField(
+            new GUIContent("SprintBarCanvas", "Canvas to enable during inspect mode."),
+            fpc.sprintBarCG, typeof(CanvasGroup), true);
+
+
 
         EditorGUILayout.Space();
 
