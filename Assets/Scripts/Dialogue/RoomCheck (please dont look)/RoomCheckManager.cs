@@ -4,21 +4,7 @@ using UnityEngine.Serialization;
 
 public class RoomCheckManager : MonoBehaviour
 {
-   #region EventBus
-   private static RoomCheckManager _current;
-   public static RoomCheckManager Current { get { return _current; } }
-
-   private void Awake()
-   {
-      if (_current != null && _current != this)
-      {
-         Destroy(this.gameObject);
-      } else {
-         _current = this;
-         DontDestroyOnLoad(gameObject);
-      }
-   }
-   #endregion
+   
    public bool diningChecked, kitchenChecked, loungeChecked, garageChecked, bathroomChecked;
   
 

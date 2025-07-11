@@ -3,9 +3,15 @@ using UnityEngine;
 
 public class RoomCheck3 : MonoBehaviour
 {
-    
+    public RoomCheckManager manager;
+
+    private void Start()
+    {
+        manager = GetComponentInParent<RoomCheckManager>();
+    }
+
     public void OnTriggerEnter(Collider other)
     {
-        RoomCheckManager.Current.bathroomChecked = true;
+        manager.bathroomChecked = true;
     }
 }

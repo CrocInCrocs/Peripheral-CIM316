@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cd7d7c2-888e-42de-8b07-478b1b7ae4a1" name="Changes" comment="" />
+    <list default="true" id="7cd7d7c2-888e-42de-8b07-478b1b7ae4a1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Peripheral-CIM316/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Peripheral-CIM316/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/Landscape.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/Landscape.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/TreeLeaves.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/TreeLeaves.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/TreeTrunk.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/TreeTrunk.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/rock.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/rock.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CutSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CutSceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cutscenes/CutscenePlayerWalkingIntoHouseTimeline.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cutscenes/CutscenePlayerWalkingIntoHouseTimeline.playable" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/JazzCreateBubble SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/JazzCreateBubble SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Terrain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheck1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheck1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheck2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheck2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheck3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheck3.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheck4.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheck4.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheckManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue/RoomCheck (please dont look)/RoomCheckManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +32,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/PeripheralGameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/TaskEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/EndCutsceneTrigger.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -26,20 +43,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "MainV2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Unity.exe" />
@@ -84,6 +101,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7cd7d7c2-888e-42de-8b07-478b1b7ae4a1" name="Changes" comment="" />
@@ -92,6 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1750307401491</updated>
       <workItem from="1750307403243" duration="3968000" />
+      <workItem from="1752219682406" duration="2882000" />
     </task>
     <servers />
   </component>

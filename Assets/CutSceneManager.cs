@@ -6,6 +6,6 @@ public class CutSceneManager : MonoBehaviour
 
     public void ActivateEnd()
     {
-        ENDCUSTSCENEN.SetActive(false);
+        ENDCUSTSCENEN.SetActive(true);
     }
 }
