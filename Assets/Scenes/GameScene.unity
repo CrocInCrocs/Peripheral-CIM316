@@ -20151,7 +20151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4880683321655415992, guid: 94709079b10f60a4c95a53fc47347eb7, type: 3}
       propertyPath: indoorVolume
-      value: 0.005
+      value: 0.015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
