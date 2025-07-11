@@ -9743,6 +9743,10 @@ PrefabInstance:
       propertyPath: roomCheck5
       value: 
       objectReference: {fileID: 402387615}
+    - target: {fileID: 7748004341323242034, guid: d361fa0b6ac992d44a1ac03bbc6536c8, type: 3}
+      propertyPath: LightController
+      value: 
+      objectReference: {fileID: 2121028660}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38197,11 +38201,31 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7788265756818767529, guid: 976ea582aaa7e2d4a8e2ebc7e350e5c1, type: 3}
+      propertyPath: lights
+      value: 
+      objectReference: {fileID: 2121028661}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976ea582aaa7e2d4a8e2ebc7e350e5c1, type: 3}
+--- !u!114 &2121028660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7788265756818767529, guid: 976ea582aaa7e2d4a8e2ebc7e350e5c1, type: 3}
+  m_PrefabInstance: {fileID: 2121028659}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d05aeec635797545aad5fc1212b26a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2121028661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 60932134883413590, guid: 976ea582aaa7e2d4a8e2ebc7e350e5c1, type: 3}
+  m_PrefabInstance: {fileID: 2121028659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2131359664
 GameObject:
   m_ObjectHideFlags: 0
