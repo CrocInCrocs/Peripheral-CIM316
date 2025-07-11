@@ -783,10 +783,8 @@ public class FPController : MonoBehaviour
         #endregion
 
         // 🟩 Always keep sprint bar visible (and optional: update fill value)
-        if (useSprintBar && sprintBarCG != null)
-        {
-            sprintBarCG.alpha = 1f; // <- Always visible
-        }
+        
+        // there used to be something here, then it took an arrow to its knee.
     }
 
     // Sets isGrounded based on a raycast sent straigth down from the player object
