@@ -3,6 +3,7 @@ using UnityEngine;
 public class DishChore : ChoreBase
 {
     [SerializeField] private float baseWashTime = 5f;
+    public bool dishCheck;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class DishChore : ChoreBase
 
     public override void CompleteChore()
     {
+        dishCheck = true;
         base.CompleteChore();
 
         // Notify the DishTracker this dish is done

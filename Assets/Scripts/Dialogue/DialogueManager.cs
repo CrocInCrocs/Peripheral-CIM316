@@ -21,11 +21,13 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
    
-    public BinChore binCheck; 
+    public BinChore binCheck;
+    public DishChore dishCheck;
    
     public TypeWriter typeWriter;
 
     public GameObject backDoorText;
+    public GameObject catFoodText;
     
     public void NewText(string dialogueText)
     {
@@ -37,6 +39,11 @@ public class DialogueManager : MonoBehaviour
         if (binCheck.binChoreCheck)
         {
             backDoorText.SetActive(true);
+        }
+
+        if (dishCheck.dishCheck)
+        {
+            catFoodText.SetActive(true);
         }
     }
 }
