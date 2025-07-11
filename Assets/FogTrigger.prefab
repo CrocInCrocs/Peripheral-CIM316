@@ -61,8 +61,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 25.39, y: 2.89, z: 18.49}
-  m_Center: {x: 7.84, y: 1.31, z: 7.27}
+  m_Size: {x: 27.14, y: 2.89, z: 18.49}
+  m_Center: {x: 11.3, y: 1.31, z: 7.27}
 --- !u!114 &7583621961591080113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,5 +78,3 @@ MonoBehaviour:
   fogColor: {r: 0, g: 0, b: 0, a: 1}
   fogMode: 2
   fogDensity: 0.2
-  outsideFogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  outsideFogDensity: 0.4
