@@ -2,14 +2,10 @@ using UnityEngine;
 
 public class FogTrigger : MonoBehaviour
 {
-    [Header("Fog Settings - Inside Trigger")]
-    public Color fogColor = Color.cyan;
+    [Header("Fog Settings")]
+    public Color fogColor = Color.gray;
     public FogMode fogMode = FogMode.Exponential;
     public float fogDensity = 0.01f;
-
-    [Header("Fog Settings - Outside Trigger")]
-    public Color outsideFogColor = Color.gray;
-    public float outsideFogDensity = 0.02f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,10 +22,7 @@ public class FogTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            RenderSettings.fog = true; // Keep fog on
-            RenderSettings.fogColor = outsideFogColor;
-            RenderSettings.fogDensity = outsideFogDensity;
-            // Keep the same fogMode or change it if needed
+            RenderSettings.fog = false;
         }
     }
 }
