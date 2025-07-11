@@ -15,6 +15,7 @@ public class LightController : MonoBehaviour
 
     private void Update()
     {
+        if(lightsOff == false)return;
         timer += Time.deltaTime;
         if (timer >= 5f)
         {
