@@ -6,11 +6,15 @@ public class DialogueHolder : DialogueBase
     
     public void OnTriggerEnter(Collider other)
     {
-        if (hasBeenPlayed != true)
+        if (other.CompareTag("Player"))
         {
-            DialogueManager.Current.NewText(dialogueText);
-            hasBeenPlayed = true;
+            if (hasBeenPlayed != true)
+            {
+                DialogueManager.Current.NewText(dialogueText);
+                hasBeenPlayed = true;
+            }
         }
+        
         
     }
 }
