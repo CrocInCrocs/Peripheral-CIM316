@@ -9167,6 +9167,10 @@ PrefabInstance:
       value: 236.00024
       objectReference: {fileID: 0}
     - target: {fileID: 2118840633211904018, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118840633211904018, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -9190,6 +9194,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4415447103129921928, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+      propertyPath: sprintBarCG
+      value: 
+      objectReference: {fileID: 455300882}
     - target: {fileID: 4415447103129921928, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: useSprintBar
       value: 1
@@ -9269,6 +9277,10 @@ PrefabInstance:
     - target: {fileID: 8224777557711216877, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439594560313672584, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8439594560313672584, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10305,6 +10317,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3100033, y: 4.7282114, z: 4.758314}
   m_Center: {x: 0.15500529, y: 1.8865762, z: -2.2712517}
+--- !u!225 &455300882 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 2167517148482309420, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+  m_PrefabInstance: {fileID: 403194767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &457880129
 GameObject:
   m_ObjectHideFlags: 0
