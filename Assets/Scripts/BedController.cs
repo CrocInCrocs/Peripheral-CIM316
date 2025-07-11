@@ -11,5 +11,6 @@ public class BedController : MonoBehaviour, IInteractable
     {
         PeripheralGameManager.Current.StartSleep();
         PeripheralGameManager.Current.EnableTriggerBoxes();
+        PeripheralGameManager.Current.LightsOut();
     }
 }

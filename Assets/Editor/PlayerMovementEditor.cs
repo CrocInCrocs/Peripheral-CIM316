@@ -131,6 +131,18 @@ public class PlayerMovementEditor : Editor
                 new GUIContent("Walk Speed", "Determines how fast the player will move while walking."), fpc.walkSpeed,
                 .1f, fpc.sprintSpeed);
         
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+        GUILayout.Label("CrossHair",
+            new GUIStyle(GUI.skin.label)
+                { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 },
+            GUILayout.ExpandWidth(true));
+        EditorGUILayout.Space();
+        
+        fpc.useCrosshair = EditorGUILayout.ToggleLeft(
+            new GUIContent("Use Crosshair",
+                "If enabled, displays a crosshair in the center of the screen."),
+            fpc.useCrosshair);
+        
         // Add footstep interval slider here:
         fpc.footstepInterval = EditorGUILayout.Slider(
             new GUIContent("Footstep Interval", "Time (seconds) between footstep sounds while walking."),
