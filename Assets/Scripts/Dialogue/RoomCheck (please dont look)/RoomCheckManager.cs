@@ -6,6 +6,7 @@ public class RoomCheckManager : DialogueBase
 {
    
    public bool diningChecked, kitchenChecked, loungeChecked, garageChecked, bathroomChecked;
+   public bool textPlayed;
   
 
    public GameObject finalCutsceneTrigger;
@@ -15,7 +16,12 @@ public class RoomCheckManager : DialogueBase
       if (diningChecked && kitchenChecked && loungeChecked && garageChecked && bathroomChecked)
       {
          finalCutsceneTrigger.SetActive(true);
-         DialogueManager.Current.NewText(dialogueText);
+         if (textPlayed == false) 
+         {
+            DialogueManager.Current.NewText(dialogueText);
+            textPlayed = true;
+         }
+         
       }
    }
 }
