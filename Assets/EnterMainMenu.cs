@@ -6,6 +6,8 @@ public class EnterMainMenu : MonoBehaviour
 {
     private void Awake()
     {
-        SceneManager.LoadScene(0);
+        // SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        
     }
 }
