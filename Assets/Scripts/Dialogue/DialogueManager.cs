@@ -28,6 +28,8 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject backDoorText;
     public GameObject catFoodText;
+
+    public bool textPlayed;
     
     public void NewText(string dialogueText)
     {
@@ -46,9 +48,15 @@ public class DialogueManager : MonoBehaviour
             catFoodText.SetActive(true);
         }
 
-        if (PeripheralGameManager.Current.allChoresDone)
+        if (textPlayed == false)
         {
-            typeWriter.StartCustomText("It's late, I gotta get to bed");
+            if (PeripheralGameManager.Current.allChoresDone)
+            {
+                typeWriter.StartCustomText("It's late, I gotta get to bed");
+                textPlayed = true;
+            }
         }
+
+        
     }
 }
