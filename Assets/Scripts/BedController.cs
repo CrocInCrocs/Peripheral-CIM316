@@ -4,7 +4,10 @@ public class BedController : MonoBehaviour, IInteractable
 {
     public void Interact()
     {
-        StartFade();
+        if (PeripheralGameManager.Current.allChoresDone)
+        {
+            StartFade();
+        }
     }
 
     public void StartFade()

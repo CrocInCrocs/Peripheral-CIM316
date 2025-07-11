@@ -11,7 +11,7 @@ public class PeripheralGameManager : MonoBehaviour
    
     [SerializeField] private TaskController taskController; // Assign in inspector
 
-    [SerializeField] private bool allChoresDone = false; // For inspector view, read-only
+    [SerializeField] public bool allChoresDone = false; // For inspector view, read-only
     
     
     public GameObject rain;
