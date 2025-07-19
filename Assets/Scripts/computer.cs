@@ -144,6 +144,9 @@ public class computer : ChoreBase
 
         HandleCameraCycleInput();
         HandleExitInput();
+        
+        
+        
     }
 
     // Handles input for cycling through cameras
@@ -164,7 +167,7 @@ public class computer : ChoreBase
     // Handles input for exiting the CCTV view
     private void HandleExitInput()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             EnableComputerUI();
             // Enable tutorial canvas if assigned
