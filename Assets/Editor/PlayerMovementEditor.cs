@@ -130,19 +130,19 @@ public class PlayerMovementEditor : Editor
             EditorGUILayout.Slider(
                 new GUIContent("Walk Speed", "Determines how fast the player will move while walking."), fpc.walkSpeed,
                 .1f, fpc.sprintSpeed);
-        
+
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         GUILayout.Label("CrossHair",
             new GUIStyle(GUI.skin.label)
                 { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 },
             GUILayout.ExpandWidth(true));
         EditorGUILayout.Space();
-        
+
         fpc.useCrosshair = EditorGUILayout.ToggleLeft(
             new GUIContent("Use Crosshair",
                 "If enabled, displays a crosshair in the center of the screen."),
             fpc.useCrosshair);
-        
+
         // Add footstep interval slider here:
         fpc.footstepInterval = EditorGUILayout.Slider(
             new GUIContent("Footstep Interval", "Time (seconds) between footstep sounds while walking."),
@@ -267,7 +267,7 @@ public class PlayerMovementEditor : Editor
         EditorGUILayout.Space();
 
         #endregion
-        
+
         #region Inspect
 
         GUILayout.Label("Inspect",
@@ -275,12 +275,10 @@ public class PlayerMovementEditor : Editor
                 { alignment = TextAnchor.MiddleLeft, fontStyle = FontStyle.Bold, fontSize = 13 },
             GUILayout.ExpandWidth(true));
 
-        fpc.inspectKey = 
+        fpc.inspectKey =
             (KeyCode)EditorGUILayout.EnumPopup(
                 new GUIContent("Inspect Key", "Determines what key is used to enter/exit inspect mode."),
                 fpc.inspectKey);
-        
-
 
         #endregion
 
@@ -428,44 +426,57 @@ public class PlayerMovementEditor : Editor
         GUI.enabled = true;
 
         #endregion
-        
+
         #region Inspect Settings
 
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         GUILayout.Label("Inspect Settings",
-            
-            
             new GUIStyle(GUI.skin.label)
                 { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 },
             GUILayout.ExpandWidth(true));
         EditorGUILayout.Space();
 
-        
+
         fpc.inspectDistance = EditorGUILayout.Slider(
-            new GUIContent("Inspect Distance", "Distance in front of the inspect camera where the object will be placed."),
+            new GUIContent("Inspect Distance", "Initial distance from inspect camera to object."),
             fpc.inspectDistance, 0.5f, 5f);
-        
+
+        fpc.minInspectDistance = EditorGUILayout.Slider(
+            new GUIContent("Min Inspect Distance", "Closest the object can zoom toward the camera."),
+            fpc.minInspectDistance, 0.1f, 5f);
+
+        fpc.maxInspectDistance = EditorGUILayout.Slider(
+            new GUIContent("Max Inspect Distance", "Furthest the object can zoom from the camera."),
+            fpc.maxInspectDistance, 0.1f, 10f);
+
+        fpc.zoomSpeed = EditorGUILayout.Slider(
+            new GUIContent("Zoom Speed", "How fast the scroll changes the zoom target."),
+            fpc.zoomSpeed, 0.1f, 10f);
+
+        fpc.zoomSmoothSpeed = EditorGUILayout.Slider(
+            new GUIContent("Zoom Smooth Speed", "How fast the zoom eases toward the target."),
+            fpc.zoomSmoothSpeed, 0.1f, 20f);
+
         fpc.inspectCamera = (Camera)EditorGUILayout.ObjectField(
-            new GUIContent("Inspect Camera", "Camera used when inspecting objects."), 
+            new GUIContent("Inspect Camera", "Camera used when inspecting objects."),
             fpc.inspectCamera, typeof(Camera), true);
 
         fpc.inspectRotationSpeed = EditorGUILayout.FloatField(
-            new GUIContent("Rotation Speed", "Speed at which inspected object rotates."), 
+            new GUIContent("Rotation Speed", "Speed at which inspected object rotates."),
             fpc.inspectRotationSpeed);
 
         // Add the inspect panel object field here:
         fpc.inspectPanel = (GameObject)EditorGUILayout.ObjectField(
             new GUIContent("Inspect Panel", "UI panel that appears during inspection (optional)."),
             fpc.inspectPanel, typeof(GameObject), true);
-        
+
         fpc.inspectCanvas = (Canvas)EditorGUILayout.ObjectField(
             new GUIContent("Inspect Canvas", "Canvas to enable during inspect mode."),
             fpc.inspectCanvas, typeof(Canvas), true);
-        
+
         fpc.sprintBarCG = (CanvasGroup)EditorGUILayout.ObjectField(
             new GUIContent("SprintBarCanvas", "Canvas to enable during inspect mode."),
             fpc.sprintBarCG, typeof(CanvasGroup), true);
-
 
 
         EditorGUILayout.Space();

@@ -10,7 +10,7 @@ public class FPController : MonoBehaviour
     private ChoreBase currentChore = null;
     public bool useCrosshair = true;
 
-    
+
     public CanvasGroup sprintBarCG;
 
     #region Inspect Variables
@@ -20,10 +20,23 @@ public class FPController : MonoBehaviour
     public GameObject inspectPanel;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
-    public float inspectDistance = 1.5f;
+
+    private float targetInspectDistance;
     public Camera inspectCamera; // Assign your inspect camera here
-    public float inspectRotationSpeed = 100f;
+    public float inspectRotationSpeed = 5f;
     public string inspectTag = "Inspect";
+
+    // public float inspectDistance = 1f;
+    [SerializeField] public float inspectDistance = 1f;
+    [SerializeField] public float minInspectDistance = 0.5f;
+    [SerializeField] public float maxInspectDistance = 1.5f;
+    [SerializeField] public float zoomSpeed = 1f;
+    [SerializeField] public float zoomSmoothSpeed = 5f;
+    [SerializeField] private float defaultInspectDistance = 1f;
+
+    //pivot
+    private Transform inspectHolder; // Holds the object and acts as pivot
+
 
     private bool isInspecting = false;
     private Transform objectToInspect = null;
@@ -601,6 +614,7 @@ public class FPController : MonoBehaviour
         if (isInspecting)
         {
             RotateInspectedObject();
+            ZoomInspectedObject();
         }
 
         #endregion
@@ -609,45 +623,49 @@ public class FPController : MonoBehaviour
 
         void TryStartInspectMode()
         {
+            targetInspectDistance = inspectDistance;
+
             GameObject target = RayCastFromCamera();
 
-            // Replace tag check with IPickupable check or your own logic
             if (target != null && target.GetComponent<IPickupable>() != null)
             {
                 isInspecting = true;
+
+                // Store original transform
                 objectToInspect = target.transform;
-
-                if (inspectCanvas != null)
-                    inspectCanvas.enabled = false;
-
-                // Save original transform
                 originalPosition = objectToInspect.position;
                 originalRotation = objectToInspect.rotation;
 
-                // Get Rigidbody and freeze physics
+                // Create pivot holder at object's center
+                inspectHolder = new GameObject("Inspect Pivot").transform;
+                inspectHolder.position = GetBoundsCenter(objectToInspect);
+                inspectHolder.rotation = Quaternion.identity;
+
+                // Parent object to the pivot holder
+                objectToInspect.SetParent(inspectHolder);
+
+                // Freeze physics
                 Rigidbody rb = objectToInspect.GetComponent<Rigidbody>();
                 if (rb != null)
-                {
                     rb.isKinematic = true;
-                }
 
-
-                // Move object into inspect view
-                objectToInspect.position =
+                // Move the holder into inspect view
+                inspectHolder.position =
                     inspectCamera.transform.position + inspectCamera.transform.forward * inspectDistance;
-                objectToInspect.rotation = Quaternion.identity;
-                //
-                // playerCamera.enabled = false;
-                inspectCamera.enabled = true;
 
-                // Show UI (if any)
+                // UI and camera setup
+                if (inspectCanvas != null)
+                    inspectCanvas.enabled = false;
+
                 if (inspectPanel != null)
                     inspectPanel.SetActive(true);
 
+                inspectCamera.enabled = true;
                 DisableInput();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
 
+                // Show item dialogue if available
                 Item item = target.GetComponent<Item>();
                 if (item != null && DialogueManager.Current != null)
                 {
@@ -662,35 +680,34 @@ public class FPController : MonoBehaviour
             {
                 Rigidbody rb = objectToInspect.GetComponent<Rigidbody>();
                 if (rb != null)
-                {
                     rb.isKinematic = false;
-                }
 
-                // Reset transform
+                // Unparent and restore original transform
+                objectToInspect.SetParent(null);
                 objectToInspect.position = originalPosition;
                 objectToInspect.rotation = originalRotation;
-
                 objectToInspect = null;
             }
 
-            if (rb != null)
-            {
-                rb.isKinematic = false;
-            }
+            if (inspectHolder != null)
+                Destroy(inspectHolder.gameObject);
 
+            // Reset zoom on exit
+            inspectDistance = defaultInspectDistance;
+            targetInspectDistance = defaultInspectDistance;
+            
             isInspecting = false;
 
             if (inspectCanvas != null)
                 inspectCanvas.enabled = true;
 
-            playerCamera.enabled = true;
-            inspectCamera.enabled = false;
-
             if (inspectPanel != null)
-                inspectPanel.SetActive(false); // ❌ Turn off panel
+                inspectPanel.SetActive(false);
+
+            inspectCamera.enabled = false;
+            playerCamera.enabled = true;
 
             EnableInput();
-
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
@@ -702,7 +719,7 @@ public class FPController : MonoBehaviour
                 previousMousePosition = Input.mousePosition;
             }
 
-            if (Input.GetMouseButton(0) && objectToInspect != null)
+            if (Input.GetMouseButton(0) && inspectHolder != null)
             {
                 Vector3 deltaMouse = Input.mousePosition - previousMousePosition;
 
@@ -710,10 +727,41 @@ public class FPController : MonoBehaviour
                 float rotY = -deltaMouse.x * inspectRotationSpeed * Time.deltaTime;
 
                 Quaternion rotation = Quaternion.Euler(rotX, rotY, 0);
-                objectToInspect.rotation = rotation * objectToInspect.rotation;
+                inspectHolder.rotation = rotation * inspectHolder.rotation;
 
                 previousMousePosition = Input.mousePosition;
             }
+        }
+
+        void ZoomInspectedObject()
+        {
+            if (inspectHolder == null) return;
+
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            if (Mathf.Abs(scroll) > 0.01f)
+            {
+                targetInspectDistance -= scroll * zoomSpeed;
+                targetInspectDistance = Mathf.Clamp(targetInspectDistance, minInspectDistance, maxInspectDistance);
+            }
+
+            inspectDistance = Mathf.Lerp(inspectDistance, targetInspectDistance, Time.deltaTime * zoomSmoothSpeed);
+
+            inspectHolder.position =
+                inspectCamera.transform.position + inspectCamera.transform.forward * inspectDistance;
+        }
+
+
+        Vector3 GetBoundsCenter(Transform target)
+        {
+            Renderer[] renderers = target.GetComponentsInChildren<Renderer>();
+            if (renderers.Length == 0)
+                return target.position;
+
+            Bounds bounds = renderers[0].bounds;
+            foreach (Renderer r in renderers)
+                bounds.Encapsulate(r.bounds);
+
+            return bounds.center;
         }
 
         #endregion
@@ -783,7 +831,7 @@ public class FPController : MonoBehaviour
         #endregion
 
         // 🟩 Always keep sprint bar visible (and optional: update fill value)
-        
+
         // there used to be something here, then it took an arrow to its knee.
     }
 
