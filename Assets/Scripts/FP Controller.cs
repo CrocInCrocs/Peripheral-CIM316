@@ -3,13 +3,15 @@ using UnityEngine.UI;
 
 public class FPController : MonoBehaviour
 {
+    
+    
     private Rigidbody rb;
     [SerializeField] public bool holdToCompleteChore = true;
     [SerializeField] public bool enableChores = true;
     private ChoreProgressBar progressBar;
     private ChoreBase currentChore = null;
     public bool useCrosshair = true;
-
+    private ChoreBase lastHighlightedChore;
 
     public CanvasGroup sprintBarCG;
 
@@ -415,6 +417,28 @@ public class FPController : MonoBehaviour
         if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() == null)
         {
             GameObject target = RayCastFromCamera();
+            
+            if (target != null && target.TryGetComponent<ChoreBase>(out var chore))
+            {
+                if (lastHighlightedChore != null && lastHighlightedChore != chore)
+                {
+                    lastHighlightedChore.ShowOutline(false);
+                }
+
+                chore.ShowOutline(true);
+                lastHighlightedChore = chore;
+
+                // Show prompt to interact, etc.
+            }
+            else
+            {
+                // Not looking at a choreable object, disable outline on last one
+                if (lastHighlightedChore != null)
+                {
+                    lastHighlightedChore.ShowOutline(false);
+                    lastHighlightedChore = null;
+                }
+            }
 
             if (target != null)
             {
