@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 6198972006625941373}
   - component: {fileID: 971840233637683497}
   - component: {fileID: 5720134108289086788}
+  - component: {fileID: 7929881847482788208}
+  - component: {fileID: 9005685554045178327}
   m_Layer: 0
   m_Name: Bannana
   m_TagString: Untagged
@@ -112,6 +114,9 @@ MonoBehaviour:
   itemVisuals: {fileID: 0}
   dropForce: 1
   hasBeenDropped: 0
+  playerTransform: {fileID: 0}
+  dropDistance: 0.5
+  DropPostion: -0.4
 --- !u!135 &5720134108289086788
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -133,6 +138,36 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.26
   m_Center: {x: 0, y: -0.05, z: 0.03}
+--- !u!114 &7929881847482788208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258303078122402979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &9005685554045178327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258303078122402979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2986839c759a9274c8844594ffe96725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8508312156636798261
 GameObject:
   m_ObjectHideFlags: 0

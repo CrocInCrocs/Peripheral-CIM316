@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5636695331226926110}
   - component: {fileID: 1531256256824761886}
   - component: {fileID: 7069876605002382785}
+  - component: {fileID: 8106686612526522100}
+  - component: {fileID: 7302817482784011591}
   m_Layer: 0
   m_Name: wine thin glass
   m_TagString: Untagged
@@ -29,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8918664606681297244}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071065, z: -0, w: 0.7071072}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 2.7863703, y: -0.965, z: -1.0035328}
   m_LocalScale: {x: 0.7967101, y: 0.79671, z: 0.7967101}
   m_ConstrainProportionsScale: 0
@@ -155,3 +157,36 @@ MonoBehaviour:
   itemVisuals: {fileID: 0}
   dropForce: 1
   hasBeenDropped: 0
+  playerTransform: {fileID: 0}
+  dropDistance: 0.5
+  DropPostion: -0.4
+--- !u!114 &8106686612526522100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918664606681297244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &7302817482784011591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918664606681297244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2986839c759a9274c8844594ffe96725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

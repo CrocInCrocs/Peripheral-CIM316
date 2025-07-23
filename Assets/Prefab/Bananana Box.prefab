@@ -136,6 +136,8 @@ GameObject:
   - component: {fileID: 7497565945310497523}
   - component: {fileID: 1721190103457393733}
   - component: {fileID: 3340514369057335540}
+  - component: {fileID: -6204196675927671283}
+  - component: {fileID: -2872260419133679898}
   m_Layer: 0
   m_Name: Bananana Box
   m_TagString: Untagged
@@ -225,6 +227,36 @@ MonoBehaviour:
   isWorking: 0
   cardboardAnimator: {fileID: 7497565945310497523}
   isOpen: 0
+--- !u!114 &-6204196675927671283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966436741221216731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &-2872260419133679898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966436741221216731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2986839c759a9274c8844594ffe96725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1974071831538902528
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7547182014583760044}
   - component: {fileID: 7944171444749022810}
   - component: {fileID: 5256483877958818698}
+  - component: {fileID: 2528654284787048621}
+  - component: {fileID: 5412600016060854884}
   m_Layer: 0
   m_Name: wine bottle 04_Low Poly
   m_TagString: Untagged
@@ -29,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023591914968280973}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27323663, y: 0.2732371, z: 0.65218216, w: 0.6521823}
+  m_LocalRotation: {x: 0.27323535, y: 0.27323535, z: 0.6521829, w: 0.6521829}
   m_LocalPosition: {x: 2.8831015, y: -0.917, z: -1.3100669}
   m_LocalScale: {x: 0.69064, y: 0.6906399, z: 0.69064003}
   m_ConstrainProportionsScale: 0
@@ -157,6 +159,39 @@ MonoBehaviour:
   itemVisuals: {fileID: 0}
   dropForce: 1
   hasBeenDropped: 0
+  playerTransform: {fileID: 0}
+  dropDistance: 0.5
+  DropPostion: -0.4
+--- !u!114 &2528654284787048621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023591914968280973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &5412600016060854884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023591914968280973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2986839c759a9274c8844594ffe96725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4397961403976511621
 GameObject:
   m_ObjectHideFlags: 0
