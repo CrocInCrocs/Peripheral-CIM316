@@ -10,7 +10,7 @@ public class OutlineHighlighter : MonoBehaviour
         outline = GetComponent<Outline>();
         if (outline != null)
         {
-            outline.OutlineColor = Color.yellow;
+            //outline.OutlineColor = Color.yellow;
             outline.enabled = false; // start disabled
         }
         else
