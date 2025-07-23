@@ -3,13 +3,15 @@ using UnityEngine.UI;
 
 public class FPController : MonoBehaviour
 {
+    
+    
     private Rigidbody rb;
     [SerializeField] public bool holdToCompleteChore = true;
     [SerializeField] public bool enableChores = true;
     private ChoreProgressBar progressBar;
     private ChoreBase currentChore = null;
     public bool useCrosshair = true;
-
+    private OutlineHighlighter lastHighlighted;
 
     public CanvasGroup sprintBarCG;
 
@@ -415,10 +417,33 @@ public class FPController : MonoBehaviour
         if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() == null)
         {
             GameObject target = RayCastFromCamera();
+            
+            if (target != null && target.TryGetComponent<OutlineHighlighter>(out var highlighter))
+            {
+                if (lastHighlighted != null && lastHighlighted != highlighter)
+                {
+                    lastHighlighted.ShowOutline(false);
+                }
+
+                highlighter.ShowOutline(true);
+                lastHighlighted = highlighter;
+
+                // Show UI prompt if you want
+            }
+            else
+            {
+                if (lastHighlighted != null)
+                {
+                    lastHighlighted.ShowOutline(false);
+                    lastHighlighted = null;
+                }
+
+                // Hide UI prompt
+            }
 
             if (target != null)
             {
-                // Show appropriate prompt
+
                 if (target.GetComponent<IPickupable>() != null)
                 {
                     InteractionUI.Instance.ShowPrompt(InteractionUI.Instance.GetPickupInspectPrompt());
@@ -447,7 +472,6 @@ public class FPController : MonoBehaviour
 
                 if (target)
                 {
-                    // --- Prioritize chores ---
                     if (enableChores && currentChore == null)
                     {
                         IChoreable targetChore = target.GetComponent<IChoreable>();
@@ -462,7 +486,6 @@ public class FPController : MonoBehaviour
                                 if (progressBar != null)
                                 {
                                     progressBar.SetChore(currentChore);
-                                    Debug.Log("CHORE STARTED → SLIDER SET");
                                 }
 
                                 if (!holdToCompleteChore)
@@ -475,7 +498,7 @@ public class FPController : MonoBehaviour
                         }
                     }
 
-                    // --- If not a chore, check if it's an interactable ---
+
                     IInteractable interactable = target.GetComponent<IInteractable>();
                     if (interactable != null)
                     {
@@ -483,43 +506,18 @@ public class FPController : MonoBehaviour
                         return;
                     }
 
-                    // --- Then check for pickups ---
+    
                     IPickupable pickupable = target.GetComponent<IPickupable>();
                     if (pickupable != null)
                     {
                         pickupable.Pickup(playerHandTransform);
 
-                        // 🐱 Additional check for cat food
+           
                         HandleCatFoodPickup(pickupable);
 
                         return;
                     }
-
-
-                    // if (enableChores) // <- Only check for chores if enabled
-                    // {
-                    //     IChoreable chore = hit.collider.GetComponent<IChoreable>(); // Detect the choreable object
-                    //     if (chore != null && currentChore == null) // Start the chore if none is active
-                    //     {
-                    //         currentChore = chore as ChoreBase;
-                    //         currentChore.StartChore();
-                    //
-                    //         if (!holdToCompleteChore)
-                    //         {
-                    //             // If hold not required, immediately clear the chore reference
-                    //             currentChore = null;
-                    //         }
-                    //
-                    //         return;
-                    //     }
-                    // }
-
-                    // IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-                    // if (interactable != null)
-                    // {
-                    //     interactable.Interact();
-                    //     return;
-                    // }
+                    
                 }
             }
 
@@ -529,7 +527,7 @@ public class FPController : MonoBehaviour
             }
         }
 
-        // Handling "hold to continue chore" separately!
+
         if (holdToCompleteChore && currentChore != null)
         {
             if (Input.GetKeyUp(pickupKey))

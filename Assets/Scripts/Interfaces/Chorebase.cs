@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class ChoreBase : MonoBehaviour, IChoreable, IInteractable
 {
@@ -12,12 +13,39 @@ public abstract class ChoreBase : MonoBehaviour, IChoreable, IInteractable
     public event Action OnChoreStopped;
     public event Action OnChoreCompleted;
 
+    // private Outline outline;
+
+    // private void Awake()
+    // {
+    //     outline = GetComponent<Outline>();
+    //
+    //     if (outline != null)
+    //     {
+    //         outline.OutlineColor = Color.yellow;  // force color
+    //
+    //         // Disable outline to start OFF
+    //         outline.enabled = false;
+    //     }
+    //     else
+    //     {
+    //         Debug.LogWarning($"{name} has no Outline component!");
+    //     }
+    // }
+    //
+    // public void ShowOutline(bool show)
+    // {
+    //     if (outline != null)
+    //     {
+    //         outline.enabled = show;
+    //     }
+    // }
+
     public bool IsChoreActive()
     {
         return isWorking;
     }
 
-    void Update()
+    protected void Update()
     {
         if (isWorking)
         {
@@ -52,7 +80,7 @@ public abstract class ChoreBase : MonoBehaviour, IChoreable, IInteractable
         OnChoreCompleted?.Invoke();
     }
 
-    public virtual void  Interact()
+    public virtual void Interact()
     {
         StartChore();
     }
