@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Item : DialogueBase, IPickupable
 {
@@ -6,6 +7,18 @@ public class Item : DialogueBase, IPickupable
     public GameObject itemVisuals;
     public float dropForce = 1f;
     public bool hasBeenDropped;
+    public Transform playerTransform; 
+    [SerializeField] private float dropDistance = 0.5f;
+    [FormerlySerializedAs("dropHorizontalOffset")] [SerializeField] private float DropPostion = -0.4f;
+    
+    private void Start()
+    {
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+            playerTransform = playerObj.transform;
+        else
+            Debug.LogWarning("Player object with tag 'Player' not found!");
+    }
     
     public void Pickup(Transform handTransform)
     {
@@ -34,15 +47,18 @@ public class Item : DialogueBase, IPickupable
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous; // Avoid tunneling
         col.isTrigger = false;
 
-        // Calculate safe drop position
-        Vector3 dropPos = handTransform.position + handTransform.forward * 1f;
-        if (Physics.Raycast(handTransform.position, handTransform.forward, out RaycastHit hit, 1f))
+        Vector3 forwardDir = playerTransform.forward.normalized;  // use player's forward direction
+
+        Vector3 rightDir = playerTransform.right.normalized;
+        Vector3 dropPos = handTransform.position + forwardDir * dropDistance + rightDir * DropPostion;
+
+        if (Physics.Raycast(handTransform.position, forwardDir, out RaycastHit hit, 1f))
         {
             dropPos = hit.point + Vector3.up * 0.2f;
         }
         else
         {
-            dropPos += Vector3.up * 0.5f; // default offset
+            dropPos += Vector3.up * 0.5f;
         }
 
         transform.position = dropPos;

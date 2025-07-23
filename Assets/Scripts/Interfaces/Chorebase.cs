@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Outline))] // Ensure the component exists
 public abstract class ChoreBase : MonoBehaviour, IChoreable, IInteractable
 {
     public float timeToComplete = 3f;
@@ -14,32 +13,32 @@ public abstract class ChoreBase : MonoBehaviour, IChoreable, IInteractable
     public event Action OnChoreStopped;
     public event Action OnChoreCompleted;
 
-    private Outline outline;
+    // private Outline outline;
 
-    private void Awake()
-    {
-        outline = GetComponent<Outline>();
-
-        if (outline != null)
-        {
-            outline.OutlineColor = Color.yellow;  // force color
-
-            // Disable outline to start OFF
-            outline.enabled = false;
-        }
-        else
-        {
-            Debug.LogWarning($"{name} has no Outline component!");
-        }
-    }
-
-    public void ShowOutline(bool show)
-    {
-        if (outline != null)
-        {
-            outline.enabled = show;
-        }
-    }
+    // private void Awake()
+    // {
+    //     outline = GetComponent<Outline>();
+    //
+    //     if (outline != null)
+    //     {
+    //         outline.OutlineColor = Color.yellow;  // force color
+    //
+    //         // Disable outline to start OFF
+    //         outline.enabled = false;
+    //     }
+    //     else
+    //     {
+    //         Debug.LogWarning($"{name} has no Outline component!");
+    //     }
+    // }
+    //
+    // public void ShowOutline(bool show)
+    // {
+    //     if (outline != null)
+    //     {
+    //         outline.enabled = show;
+    //     }
+    // }
 
     public bool IsChoreActive()
     {
