@@ -261,25 +261,30 @@ namespace SlimUI.ModernMenu{
 			#endif
 		}
 
-		// Load Bar synching animation
-		IEnumerator LoadAsynchronously(string sceneName){ // scene name is just the name of the current scene being loaded
+		IEnumerator LoadAsynchronously(string sceneName)
+		{
 			AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 			operation.allowSceneActivation = false;
 			mainCanvas.SetActive(false);
 			loadingMenu.SetActive(true);
 
-			while (!operation.isDone){
-				float progress = Mathf.Clamp01(operation.progress / .95f);
+			while (!operation.isDone)
+			{
+				float progress = Mathf.Clamp01(operation.progress / 0.95f);
 				loadingBar.value = progress;
 
-				if (operation.progress >= 0.9f && waitForInput){
-					loadPromptText.text = "Press " + userPromptKey.ToString().ToUpper() + " to continue";
+				if (operation.progress >= 0.9f && waitForInput)
+				{
+					loadPromptText.text = "Press any key to continue";
 					loadingBar.value = 1;
 
-					if (Input.GetKeyDown(userPromptKey)){
+					if (Input.anyKeyDown)
+					{
 						operation.allowSceneActivation = true;
 					}
-                }else if(operation.progress >= 0.9f && !waitForInput){
+				}
+				else if (operation.progress >= 0.9f && !waitForInput)
+				{
 					operation.allowSceneActivation = true;
 				}
 
