@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.IO;
+using UnityEngine.SceneManagement;
+
 //using UnityStandardAssets.ImageEffects;
 /// <summary>
 ///  Copyright (c) 2016 Eric Zhu 
@@ -360,8 +362,12 @@ namespace GreatArcStudios
         /// </summary>
         public void Restart()
         {
-            Application.LoadLevel(Application.loadedLevel);
-            uiEventSystem.firstSelectedGameObject = defualtSelectedMain;
+            // Application.LoadLevel(Application.loadedLevel);
+            // uiEventSystem.firstSelectedGameObject = defualtSelectedMain;
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 1f;
+            
         }
         /// <summary>
         /// Method to resume the game, so disable the pause menu and re-enable all other ui elements
@@ -431,8 +437,11 @@ namespace GreatArcStudios
         public void returnToMenu()
         {
             Application.LoadLevel(mainMenu);
-            uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
+            Time.timeScale = 1f;
+            // uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
         }
+        
+        
 
         // Update is called once per frame
         /// <summary>

@@ -9299,6 +9299,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+--- !u!20 &403194768 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7601295010348677456, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+  m_PrefabInstance: {fileID: 403194767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &403194772 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4415447103129921928, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
@@ -21162,6 +21167,76 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3100033, y: 4.7282114, z: 4.758313}
   m_Center: {x: 0.15501674, y: 1.8865762, z: -2.2712665}
+--- !u!1001 &1043042116
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1855233782}
+    m_Modifications:
+    - target: {fileID: 1873660478342127404, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_Name
+      value: PauseMenuManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648999584037642185, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 403194768}
+    - target: {fileID: 3820601056861750744, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: FPController
+      value: 
+      objectReference: {fileID: 403194772}
+    - target: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.999573
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.3858643
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 71.29008
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+--- !u!4 &1043042117 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7640090618034228215, guid: 0771b3e8bdc611f4e94bc9060d3b9160, type: 3}
+  m_PrefabInstance: {fileID: 1043042116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1043610545
 GameObject:
   m_ObjectHideFlags: 0
@@ -35062,6 +35137,7 @@ Transform:
   - {fileID: 145252189}
   - {fileID: 395457016}
   - {fileID: 1457930035}
+  - {fileID: 1043042117}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1856914934
