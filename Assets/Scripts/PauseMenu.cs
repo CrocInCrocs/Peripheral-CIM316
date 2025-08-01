@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 
 
@@ -7,10 +8,12 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private MonoBehaviour FPController; // Drag your FPController script here
+    [SerializeField] private VideoPlayer videoPlayer; 
 
     private GameObject pauseMenuInstance;
     public bool isPaused = false;
 
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -33,6 +36,8 @@ public class PauseMenu : MonoBehaviour
         if (FPController != null)
             FPController.enabled = false;
         
+        if (videoPlayer != null)
+            videoPlayer.Pause();
         
         Time.timeScale = 0f;
     }
@@ -47,6 +52,9 @@ public class PauseMenu : MonoBehaviour
 
         if (FPController != null)
             FPController.enabled = true;
+        
+        if (videoPlayer != null)
+            videoPlayer.Play();
         
         Time.timeScale = 1f;
     }
