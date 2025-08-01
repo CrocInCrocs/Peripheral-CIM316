@@ -562,7 +562,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.015
   m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1341,7 +1341,7 @@ MonoBehaviour:
   useRightDoor: 1
   openAngleY: 90
   rotateDuration: 1.5
-  autoReturnTime: 10
+  autoReturnTime: 600
 --- !u!1 &4243382864994574686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,7 +1535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &937940457338788501
 Transform:
   m_ObjectHideFlags: 0
@@ -2382,7 +2382,7 @@ MonoBehaviour:
   useRightDoor: 0
   openAngleY: 160
   rotateDuration: 1.5
-  autoReturnTime: 10
+  autoReturnTime: 600
 --- !u!1 &6304984315032795324
 GameObject:
   m_ObjectHideFlags: 0

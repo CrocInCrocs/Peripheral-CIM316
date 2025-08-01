@@ -150,10 +150,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1fb7736f1c26949acbaefe32b46555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueText: 
+  hasBeenPlayed: 0
   itemScriptable: {fileID: 11400000, guid: 86ac086790223c34799567f906ee6808, type: 2}
   itemVisuals: {fileID: 0}
   dropForce: 1
   hasBeenDropped: 0
+  playerTransform: {fileID: 0}
+  dropDistance: 0.5
+  DropPostion: -0.4
 --- !u!1001 &2381295516902444946
 PrefabInstance:
   m_ObjectHideFlags: 0
