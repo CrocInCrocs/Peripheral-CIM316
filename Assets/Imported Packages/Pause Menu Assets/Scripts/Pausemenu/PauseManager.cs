@@ -360,13 +360,16 @@ namespace GreatArcStudios
         /// <summary>
         /// Restart the level by loading the loaded level.
         /// </summary>
+        ///
+
         public void Restart()
         {
             // Application.LoadLevel(Application.loadedLevel);
             // uiEventSystem.firstSelectedGameObject = defualtSelectedMain;
-            
+            AudioListener.volume = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             Time.timeScale = 1f;
+
             
         }
         /// <summary>

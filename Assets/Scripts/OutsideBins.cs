@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class OutsideBins : MonoBehaviour
 {
-    [SerializeField] private Transform bagDropPoint; // Position inside bin for bag to settle
-    [SerializeField] private Oven binScript;         // Your bin open/close script
-    [SerializeField] private SphereCollider binTriggerCollider;
+    [SerializeField] private Transform bagDropPoint;        // Position inside bin for bag to settle
+    [SerializeField] private Oven binScript;                // Your bin open/close script
+    [SerializeField] private Collider[] binTriggerColliders; // Assign any colliders here (Sphere, Box, Capsule, etc.)
 
     private bool lastIsOpenState;
 
@@ -17,31 +17,38 @@ public class OutsideBins : MonoBehaviour
         if (binScript == null)
             Debug.LogWarning("Bin script not found on bin object!");
 
-        binTriggerCollider = GetComponentInChildren<SphereCollider>();
-        if (binTriggerCollider == null)
-            Debug.LogWarning("SphereCollider trigger not found!");
+        if (binTriggerColliders == null || binTriggerColliders.Length == 0)
+            Debug.LogWarning("No bin trigger colliders assigned!");
 
-        // Set collider initially according to bin open state
+        // Initially enable/disable all colliders based on bin state
         lastIsOpenState = binScript != null && binScript.isOpen;
-        if (binTriggerCollider != null)
-            binTriggerCollider.enabled = lastIsOpenState;
+        SetCollidersEnabled(lastIsOpenState);
     }
 
     private void Update()
     {
-        if (binScript == null || binTriggerCollider == null) return;
+        if (binScript == null || binTriggerColliders == null || binTriggerColliders.Length == 0)
+            return;
 
-        // Check if bin open state changed since last frame
         if (binScript.isOpen != lastIsOpenState)
         {
-            binTriggerCollider.enabled = binScript.isOpen;
             lastIsOpenState = binScript.isOpen;
+            SetCollidersEnabled(lastIsOpenState);
+        }
+    }
+
+    private void SetCollidersEnabled(bool enabled)
+    {
+        foreach (var col in binTriggerColliders)
+        {
+            if (col != null)
+                col.enabled = enabled;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!binScript.isOpen) return;
+        if (binScript == null || !binScript.isOpen) return;
 
         Item item = other.GetComponent<Item>();
         if (item == null || !item.hasBeenDropped) return;
@@ -59,16 +66,9 @@ public class OutsideBins : MonoBehaviour
         seq.OnComplete(() =>
         {
             rb.isKinematic = true;
-            // Fire the event
-            TaskEvents.InvokeChoreCompleted("Take out the rubbish"); // or "Vacuum", "Dishes", etc.
+            TaskEvents.InvokeChoreCompleted("Take out the rubbish");
             Debug.Log("Item dropped into bin.");
-            
-            //
-            // // Remove item from inventory
-            // InventoryManager.Current.RemoveItem();
-
-      
+            // Inventory removal logic here if needed
         });
     }
-
 }

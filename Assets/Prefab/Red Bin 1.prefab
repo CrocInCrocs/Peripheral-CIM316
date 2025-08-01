@@ -48,6 +48,8 @@ GameObject:
   - component: {fileID: 6261205246141901806}
   - component: {fileID: 183716845992164663}
   - component: {fileID: 8406340782799241671}
+  - component: {fileID: 7816500375920229059}
+  - component: {fileID: 5904010010682576065}
   m_Layer: 0
   m_Name: TrashbinLid
   m_TagString: Untagged
@@ -163,6 +165,36 @@ MonoBehaviour:
   useXAxis: 1
   useYAxis: 0
   useZAxis: 0
+--- !u!114 &7816500375920229059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438721180553587622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.89666986, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &5904010010682576065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438721180553587622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2986839c759a9274c8844594ffe96725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3897155111405862343
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +412,9 @@ GameObject:
   - component: {fileID: 7653875477228437691}
   - component: {fileID: 6004029652392509882}
   - component: {fileID: 5867909372814934386}
-  - component: {fileID: 7713969179570410387}
+  - component: {fileID: 5729498397160462334}
+  - component: {fileID: 3792439906577532305}
+  - component: {fileID: 2478201562522296357}
   m_Layer: 0
   m_Name: Red Bin
   m_TagString: Untagged
@@ -473,7 +507,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.64300585, y: 1.173587, z: 0.7297379}
   m_Center: {x: 0.00000017881393, y: 0.58679336, z: -0.042004004}
@@ -491,9 +525,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bagDropPoint: {fileID: 3686460493089580398}
   binScript: {fileID: 8406340782799241671}
-  binTriggerCollider: {fileID: 7713969179570410387}
---- !u!135 &7713969179570410387
-SphereCollider:
+  binTriggerColliders:
+  - {fileID: 5729498397160462334}
+  - {fileID: 3792439906577532305}
+  - {fileID: 2478201562522296357}
+--- !u!65 &5729498397160462334
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -509,10 +546,52 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.6
-  m_Center: {x: -0.0000019073486, y: 1.23, z: 0.18}
+  m_Size: {x: 0.643006, y: 1.173587, z: 0.72973806}
+  m_Center: {x: -0.66, y: 0.5867933, z: -0.01}
+--- !u!65 &3792439906577532305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683491952597823919}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.643006, y: 1.173587, z: 0.72973806}
+  m_Center: {x: 0.0000004768372, y: 0.5867933, z: 0.66}
+--- !u!65 &2478201562522296357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683491952597823919}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.643006, y: 1.173587, z: 0.72973806}
+  m_Center: {x: 0.69, y: 0.5867933, z: 0}
 --- !u!1001 &8952772056551911040
 PrefabInstance:
   m_ObjectHideFlags: 0

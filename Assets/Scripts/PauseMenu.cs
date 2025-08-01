@@ -7,13 +7,12 @@ using UnityEngine.Video;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
-    [SerializeField] private MonoBehaviour FPController; // Drag your FPController script here
-    [SerializeField] private VideoPlayer videoPlayer; 
+    [SerializeField] private MonoBehaviour FPController;
+    [SerializeField] private VideoPlayer videoPlayer;
 
-    private GameObject pauseMenuInstance;
-    public bool isPaused = false;
+    private bool isPaused = false;
+    private float previousVolume;
 
-    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -35,10 +34,14 @@ public class PauseMenu : MonoBehaviour
 
         if (FPController != null)
             FPController.enabled = false;
-        
+
         if (videoPlayer != null)
             videoPlayer.Pause();
-        
+
+        // Pause all audio
+        previousVolume = AudioListener.volume;
+        AudioListener.volume = 0f;
+
         Time.timeScale = 0f;
     }
 
@@ -52,10 +55,13 @@ public class PauseMenu : MonoBehaviour
 
         if (FPController != null)
             FPController.enabled = true;
-        
+
         if (videoPlayer != null)
             videoPlayer.Play();
-        
+
+        // Resume all audio
+        AudioListener.volume = previousVolume;
+
         Time.timeScale = 1f;
     }
 }
