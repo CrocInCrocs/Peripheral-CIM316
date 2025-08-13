@@ -19,7 +19,9 @@ public enum SoundType
     Wind,
     RainOn,
     RainOff,
-    Thunder
+    Thunder,
+    SlidingDoor
+    
 }
 
 public class SoundManager : MonoBehaviour
