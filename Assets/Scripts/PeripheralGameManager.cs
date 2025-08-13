@@ -30,6 +30,7 @@ public class PeripheralGameManager : MonoBehaviour
         } else {
             _current = this;
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         
         if (SoundManager.Instance != null)

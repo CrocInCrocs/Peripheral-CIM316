@@ -6,8 +6,9 @@ public class BreakerSwitch : MonoBehaviour, IInteractable
     public Material onMaterial;
     public Material offMaterial;
     public bool switchState;
-    public GameObject tempCubevisual;
-    public BreakerController breakerController;
+    public PowerManager powerManager;
+    public int breakerIndex;
+    public int powerChangeValue;
     public void Interact()
     {
         UpdateSwitch();
@@ -24,13 +25,13 @@ public class BreakerSwitch : MonoBehaviour, IInteractable
         switchState = !switchState;
         if (switchState)
         {
-            breakerController.TurnOnBreaker();
-            tempCubevisual.GetComponent<MeshRenderer>().material = onMaterial;
+            powerManager.ChangeBreakerState(breakerIndex, true);
+            gameObject.GetComponent<MeshRenderer>().material = onMaterial;
         }
         else
         {
-            breakerController.TurnOffBreaker();
-            tempCubevisual.GetComponent<MeshRenderer>().material = offMaterial;
+            powerManager.ChangeBreakerState(breakerIndex, false);
+            gameObject.GetComponent<MeshRenderer>().material = offMaterial;
         }
     }
 }
