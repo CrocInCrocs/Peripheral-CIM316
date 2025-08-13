@@ -39,30 +39,22 @@ public class Sink : ChoreBase
         if (SoundManager.Instance != null)
         {
             if (IsSinkOn)
-                SoundManager.Instance?.StartSinkLoopSound(transform.position);
+            {
+                // Start the looping "SinkOn" sound
+                SoundManager.Instance.StartLoop(SoundType.SinkOn, transform.position);
+            }
             else
-                SoundManager.Instance?.StopSinkLoopSound();
-            
+            {
+                // Stop the looping "SinkOn" sound
+                SoundManager.Instance.StopLoop(SoundType.SinkOn);
+
+                // Optionally play a one-shot "SinkOff" sound
+                SoundManager.Instance.PlaySound(SoundType.SinkOff, transform.position);
+            }
         }
         
         
         
     }
-    // private void TriggerOnAnimation()
-    // {
-    //     if (animator != null && !string.IsNullOrEmpty(onTrigger))
-    //     {
-    //         Debug.Log("Triggering TurnOnSink animation");
-    //         animator.SetTrigger(onTrigger);
-    //     }
-    // }
-    //
-    // private void TriggerOffAnimation()
-    // {
-    //     if (animator != null && !string.IsNullOrEmpty(offTrigger))
-    //     {
-    //         Debug.Log("Triggering TurnOffSink animation");
-    //         animator.SetTrigger(offTrigger);
-    //     }
-    // }
+
 }

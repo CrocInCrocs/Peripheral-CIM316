@@ -31,7 +31,6 @@ public class computer : ChoreBase
             InventoryCanvas = GameObject.Find("Inventory Canvas")?.GetComponent<Canvas>();
     }
 
-    // Enables the computer UI and disables player controls
     public void EnableComputerUI()
     {
         if (computerCanvas != null)
@@ -42,15 +41,48 @@ public class computer : ChoreBase
             playerController.DisableInput();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            // Enable the player's HUD canvas here:
         }
 
-        if (SoundManager.Instance != null)
+        // Play "computer on" sound
+        if (SoundManager.Instance != null && playerController != null)
         {
-            SoundManager.Instance.PlayComputerOnSound(playerController.transform.position);
+            SoundManager.Instance.PlaySound(SoundType.ComputerOn, playerController.transform.position);
         }
 
         Debug.Log("Started computer chore. Canvas enabled.");
+    }
+
+    public void ExitComputer()
+    {
+        Debug.Log("exited computer function called, exiting computer");
+        isViewingCCTV = false;
+
+        if (computerCanvas != null)
+            computerCanvas.gameObject.SetActive(false);
+
+        foreach (var cam in cctvCameras)
+            cam.gameObject.SetActive(false);
+
+        if (PlayerCanvas != null)
+            PlayerCanvas.gameObject.SetActive(true);
+
+        if (InventoryCanvas != null)
+            InventoryCanvas.gameObject.SetActive(true);
+
+        if (playerController != null)
+        {
+            playerController.EnableInput();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        // Play "computer off" sound
+        if (SoundManager.Instance != null && playerController != null)
+        {
+            SoundManager.Instance.PlaySound(SoundType.ComputerOff, playerController.transform.position);
+        }
+
+        Debug.Log("Exited Computer");
     }
 
     // Starts the chore and enables the computer UI
@@ -61,38 +93,7 @@ public class computer : ChoreBase
     }
 
     // Exits the computer, disables cameras and UI, and re-enables player controls
-    public void ExitComputer()
-    {
-        Debug.Log("exited computer funtion called has been triggerecd, exiting computer");
-        isViewingCCTV = false;
 
-        if (computerCanvas != null)
-            computerCanvas.gameObject.SetActive(false);
-
-        foreach (var cam in cctvCameras)
-            cam.gameObject.SetActive(false);
-
-        // Enable PlayerCanvas  if assigned
-        if (PlayerCanvas != null)
-            PlayerCanvas.gameObject.SetActive(true);
-        // Enable PlayerCanvas  if assigned
-        if (InventoryCanvas != null)
-            InventoryCanvas.gameObject.SetActive(true);
-
-
-        if (playerController != null)
-        {
-            playerController.EnableInput();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-
-        // Play computer sound at player position
-        SoundManager.Instance.PlayComputerOffSound(playerController.transform.position);
-
-
-        Debug.Log("Exited Computer");
-    }
 
     // Activates the CCTV cameras and disables all other canvases except tutorial UI
     public void ActivateCameras()
@@ -130,7 +131,8 @@ public class computer : ChoreBase
         isViewingCCTV = true;
         ActivateCamera(currentCameraIndex);
 
-        SoundManager.Instance.PlayCCTVLoopSound(playerController.transform.position);
+       
+        SoundManager.Instance.StartLoop(SoundType.CCTVView, playerController.transform.position);
         Debug.Log("ActivateCameras called: CCTV sound should play");
     }
 
@@ -174,7 +176,8 @@ public class computer : ChoreBase
             if (tutorialCanvas != null)
                 tutorialCanvas.gameObject.SetActive(false);
 
-            SoundManager.Instance.StopCCTVLoopSound();
+       
+            SoundManager.Instance.StopLoop(SoundType.CCTVView);
             Debug.Log("CCTV sound stopped on exit");
         }
     }
@@ -188,7 +191,7 @@ public class computer : ChoreBase
         currentCameraIndex = (currentCameraIndex + direction + cctvCameras.Length) % cctvCameras.Length;
         ActivateCamera(currentCameraIndex);
         // ✅ Play camera switch sound
-        SoundManager.Instance.SwitchCameraSound(playerController.transform.position);
+   SoundManager.Instance.PlaySound(SoundType.SwitchCamera, playerController.transform.position);
         Debug.Log("SwitchCamera sound called");
     }
 

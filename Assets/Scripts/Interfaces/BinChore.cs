@@ -48,10 +48,11 @@ public class BinChore : ChoreBase
         
         if (SoundManager.Instance != null)
         {
-            // SoundManager.Instance?.StartRainLoopSound();
-            SoundManager.Instance?.StartRainLoopSound(transform.position);
-            SoundManager.Instance?.PlayThunderSound(transform.position);
-            
+            // Start the looping rain sound
+            SoundManager.Instance.StartLoop(SoundType.RainOn, transform.position);
+
+            // Play a one-shot thunder sound
+            SoundManager.Instance.PlaySound(SoundType.Thunder, transform.position);
         }
         // Only reset triggers if bin is now closed
         if (!isBinOpen && animator != null)

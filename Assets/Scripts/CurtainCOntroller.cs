@@ -107,18 +107,15 @@ public class CurtainCOntroller : ChoreBase
         
         if (SoundManager.Instance != null)
         {
-            AudioClip clipToPlay = isAtClosedPosition ? openSound : closeSound;
+            SoundType typeToPlay = isAtClosedPosition ? SoundType.DoorOpen : SoundType.DoorClose;
 
-            if (clipToPlay != null)
+            if (playSoundAtWorldPosition)
             {
-                if (playSoundAtWorldPosition)
-                {
-                    SoundManager.Instance.PlaySoundAtPosition(clipToPlay, transform.position);
-                }
-                else
-                {
-                    SoundManager.Instance.PlaySoundGlobal(clipToPlay);
-                }
+                SoundManager.Instance.PlaySound(typeToPlay, transform.position);
+            }
+            else
+            {
+                SoundManager.Instance.PlayGlobalSound(typeToPlay);
             }
         }
         

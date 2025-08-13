@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private VideoPlayer videoPlayer;
 
     private bool isPaused = false;
-    private float previousVolume;
+    // private float previousVolume;
 
     void Update()
     {
@@ -38,9 +38,9 @@ public class PauseMenu : MonoBehaviour
         if (videoPlayer != null)
             videoPlayer.Pause();
 
-        // Pause all audio
-        previousVolume = AudioListener.volume;
-        AudioListener.volume = 0f;
+        // // Pause all audio
+        // previousVolume = AudioListener.volume;
+        // AudioListener.volume = 0f;
 
         Time.timeScale = 0f;
     }
@@ -59,8 +59,8 @@ public class PauseMenu : MonoBehaviour
         if (videoPlayer != null)
             videoPlayer.Play();
 
-        // Resume all audio
-        AudioListener.volume = previousVolume;
+        // // Resume all audio
+        // AudioListener.volume = previousVolume;
 
         Time.timeScale = 1f;
     }

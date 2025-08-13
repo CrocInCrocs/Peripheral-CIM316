@@ -28,11 +28,10 @@ public class Printer : MonoBehaviour
             return;
 
         Debug.Log("Print complete. Playing animation and sound.");
-        
+    
         // Spawn new paper
         if (paperPrefab != null && paperSpawnPoint != null)
         {
-            // Instantiate and parent under animated transform
             currentPaper = Instantiate(paperPrefab, paperSpawnPoint);
             currentPaper.transform.localPosition = Vector3.zero;
             currentPaper.transform.localRotation = Quaternion.identity;
@@ -40,13 +39,15 @@ public class Printer : MonoBehaviour
 
         if (printerAnimator != null)
         {
-            printerAnimator.enabled = true; // Re-enable in case it was disabled
-            printerAnimator.Rebind();       // Reset animator to default state
-            printerAnimator.Update(0f);     // Apply the reset immediately
-            printerAnimator.SetBool("OnPrinted", true); // Start animation
+            printerAnimator.enabled = true;
+            printerAnimator.Rebind();
+            printerAnimator.Update(0f);
+            printerAnimator.SetBool("OnPrinted", true);
         }
 
-        SoundManager.Instance.PlayPrinterSound(transform.position);
+        // Play printer sound
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlaySound(SoundType.Printer, transform.position);
 
         hasPrinted = true;
     }

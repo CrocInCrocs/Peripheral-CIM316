@@ -786,7 +786,7 @@ public class FPController : MonoBehaviour
                 {
                     if (SoundManager.Instance != null)
                     {
-                        SoundManager.Instance.PlayFootstepSound(transform.position);
+                        SoundManager.Instance.PlaySound(SoundType.Footstep, transform.position);
                     }
 
                     footstepTimer = footstepInterval;

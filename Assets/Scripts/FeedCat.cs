@@ -88,11 +88,13 @@ public class FeedCat : MonoBehaviour
         {
             foodObject.SetActive(true);
             foodPresent = true;
-            SoundManager.Instance.PLayCatFoodSound(transform.position);
+
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.PlaySound(SoundType.CatFood, transform.position);
+
             TaskEvents.InvokeChoreCompleted("Feed Cat");
         }
     }
-
     // 🔓 Call this from the cat script to "eat" the food
     public void CatEatFood()
     {

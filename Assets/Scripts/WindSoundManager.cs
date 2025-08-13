@@ -8,19 +8,19 @@ public class WindSoundManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && SoundManager.Instance != null)
         {
             SoundManager.Instance.SetWindVolume(indoorVolume);
-            Debug.Log($" Player entered indoor zone: wind volume set to {indoorVolume}");
+            Debug.Log($"Player entered indoor zone: wind volume set to {indoorVolume}");
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && SoundManager.Instance != null)
         {
             SoundManager.Instance.SetWindVolume(outdoorVolume);
-            Debug.Log($" Player exited indoor zone: wind volume set to {outdoorVolume}");
+            Debug.Log($"Player exited indoor zone: wind volume set to {outdoorVolume}");
         }
     }
 }

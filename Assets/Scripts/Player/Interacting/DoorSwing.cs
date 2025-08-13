@@ -30,7 +30,8 @@ public class DoorSwing : MonoBehaviour, IInteractable
         // Play open/close sound via SoundManager
         if (SoundManager.Instance != null)
         {
-            SoundManager.Instance.PlayDoorSound(isOpen, transform.position);
+            SoundType type = isOpen ? SoundType.DoorOpen : SoundType.DoorClose;
+            SoundManager.Instance.PlaySound(type, transform.position);
         }
 
         // Animate door swing
@@ -38,5 +39,4 @@ public class DoorSwing : MonoBehaviour, IInteractable
         transform.DORotateQuaternion(targetRotation, swingDuration)
             .SetEase(Ease.OutCubic);
     }
-
 }

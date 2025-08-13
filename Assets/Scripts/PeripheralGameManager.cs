@@ -27,21 +27,19 @@ public class PeripheralGameManager : MonoBehaviour
         if (_current != null && _current != this)
         {
             Destroy(this.gameObject);
-        } else {
+        } 
+        else 
+        {
             _current = this;
             DontDestroyOnLoad(gameObject);
         }
-        
+
         if (SoundManager.Instance != null)
         {
-            // SoundManager.Instance?.StartRainLoopSound();
-            // SoundManager.Instance?.PlayWindSound(transform.position);
-            SoundManager.Instance?.PlayWindSound();
-            
+            // Start looping wind sound
+            SoundManager.Instance.StartLoop(SoundType.Wind, transform.position);
         }
-        
     }
-    
     
     
     
