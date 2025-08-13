@@ -10,6 +10,7 @@ public class LightPowerManager : MonoBehaviour
 
     private void Awake()
     {
+        lightSource = gameObject.GetComponent<Light>();
         savedPower = lightSource.intensity;
         HasPower = true;
     }
