@@ -18,7 +18,7 @@ public class TV : MonoBehaviour,IInteractable
     private double savedTime = 0;
 
     [SerializeField] private float fadeSpeed = 2f;  // How fast volume fades
-    [SerializeField] private float tvVolume = 0.2f; 
+    [SerializeField] private float tvVolume = 5f; 
 
     private float targetVolume = 0f;
 
