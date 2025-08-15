@@ -29,12 +29,12 @@ public class FPController : MonoBehaviour
     public string inspectTag = "Inspect";
 
     // public float inspectDistance = 1f;
-    [SerializeField] public float inspectDistance = 1f;
+    [SerializeField] public float inspectDistance = 0.6f;
     [SerializeField] public float minInspectDistance = 0.5f;
     [SerializeField] public float maxInspectDistance = 1.5f;
     [SerializeField] public float zoomSpeed = 1f;
     [SerializeField] public float zoomSmoothSpeed = 5f;
-    [SerializeField] private float defaultInspectDistance = 1f;
+    [SerializeField] public float defaultInspectDistance = 0.6f;
 
     //pivot
     private Transform inspectHolder; // Holds the object and acts as pivot
@@ -515,8 +515,16 @@ public class FPController : MonoBehaviour
                     IPickupable pickupable = target.GetComponent<IPickupable>();
                     if (pickupable != null)
                     {
+                        
+                        Item item = pickupable as Item;
+                        if (item != null && !item.canBePickedUp)
+                        {
+                            // Item is blocked from pickup
+                            return;
+                        }
+                        
                         pickupable.Pickup(playerHandTransform);
-
+                        
            
                         HandleCatFoodPickup(pickupable);
 
