@@ -417,12 +417,19 @@ public class PlayerMovementEditor : Editor
         fpc.joint = (Transform)EditorGUILayout.ObjectField(
             new GUIContent("Camera Joint", "Joint object position is moved while head bob is active."), fpc.joint,
             typeof(Transform), true);
-        fpc.bobSpeed =
-            EditorGUILayout.Slider(new GUIContent("Speed", "Determines how often a bob rotation is completed."),
+        fpc.bobSpeed = EditorGUILayout.Slider(new GUIContent("Speed", "Determines how often a bob rotation is completed."),
                 fpc.bobSpeed, 1, 20);
         fpc.bobAmount = EditorGUILayout.Vector3Field(
             new GUIContent("Bob Amount", "Determines the amount the joint moves in both directions on every axes."),
             fpc.bobAmount);
+        fpc.handJoint = (Transform)EditorGUILayout.ObjectField(
+            new GUIContent("Bob Hand Joint", "Determines the amount the joint moves in both directions on every axes."),
+            fpc.handJoint, typeof(Transform), true);
+        fpc.handBobSpeed = EditorGUILayout.Slider(new GUIContent("Bob Speed", "Determines the amount the joint moves in both directions on every axes."),
+            fpc.handBobSpeed, 1, 20);
+        fpc.handBobAmount = EditorGUILayout.Vector3Field(
+            new GUIContent("Bob Amount", "Determines the amount the joint moves in both directions on every axes."),
+            fpc.handBobAmount);
         GUI.enabled = true;
 
         #endregion
