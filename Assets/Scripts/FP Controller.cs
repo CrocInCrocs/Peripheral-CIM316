@@ -180,7 +180,7 @@ public class FPController : MonoBehaviour
     // Internal Variables
     private Vector3 jointOriginalPos;
     private float timer = 0;
-
+    private float timer2 = 0;
     public Transform handJoint;
     public float handBobSpeed = 10f;
     public Vector3 handBobAmount = new Vector3(.15f, .05f, 0f);
@@ -916,31 +916,31 @@ public class FPController : MonoBehaviour
             }
 
             // Applies HeadBob movement
-            handJoint.localPosition = new Vector3(handjointOriginalPos.x + Mathf.Sin(timer) * handBobAmount.x,
-                handjointOriginalPos.y + Mathf.Sin(timer) * handBobAmount.y,
-                handjointOriginalPos.z + Mathf.Sin(timer) * handBobAmount.z);
+            joint.localPosition = new Vector3(jointOriginalPos.x + Mathf.Sin(timer) * bobAmount.x,
+                jointOriginalPos.y + Mathf.Sin(timer) * bobAmount.y,
+                jointOriginalPos.z + Mathf.Sin(timer) * bobAmount.z);
             
             //Bobbing effect for player HandBob movement
             // Calculates HandBob speed during sprint
             if (isSprinting)
             {
-                timer += Time.deltaTime * (handBobSpeed + sprintSpeed);
+                timer2 += Time.deltaTime * (handBobSpeed + sprintSpeed);
             }
             // Calculates HandBob speed during crouched movement
             else if (isCrouched)
             {
-                timer += Time.deltaTime * (handBobSpeed * speedReduction);
+                timer2 += Time.deltaTime * (handBobSpeed * speedReduction);
             }
             // Calculates HandBob speed during walking
             else
             {
-                timer += Time.deltaTime * handBobSpeed;
+                timer2 += Time.deltaTime * handBobSpeed;
             }
 
             // Applies HandBob movement
-            handJoint.localPosition = new Vector3(handjointOriginalPos.x + Mathf.Sin(timer) * handBobAmount.x,
-                handjointOriginalPos.y + Mathf.Sin(timer) * handBobAmount.y,
-                handjointOriginalPos.z + Mathf.Sin(timer) * handBobAmount.z);
+            handJoint.localPosition = new Vector3(handjointOriginalPos.x + Mathf.Sin(timer2) * handBobAmount.x,
+                handjointOriginalPos.y + Mathf.Sin(timer2) * handBobAmount.y,
+                handjointOriginalPos.z + Mathf.Sin(timer2) * handBobAmount.z);
          }
         else
         {
@@ -950,6 +950,7 @@ public class FPController : MonoBehaviour
                 Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed),
                 Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed),
                 Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
+            timer2 = 0;
             handJoint.localPosition = new Vector3(
                 Mathf.Lerp(handJoint.localPosition.x, handjointOriginalPos.x, Time.deltaTime * handBobSpeed),
                 Mathf.Lerp(handJoint.localPosition.y, handjointOriginalPos.y, Time.deltaTime * handBobSpeed),

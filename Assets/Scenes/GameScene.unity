@@ -75454,16 +75454,20 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4415447103129921928, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
+      propertyPath: bobSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415447103129921928, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: handJoint
       value: 
       objectReference: {fileID: 1866135599}
     - target: {fileID: 4415447103129921928, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: handBobSpeed
-      value: 7.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4415447103129921928, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: handBobAmount.x
-      value: 0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7888045903400649707, guid: f1c48f72521c27a4b8998b89e5f605d5, type: 3}
       propertyPath: far clip plane
