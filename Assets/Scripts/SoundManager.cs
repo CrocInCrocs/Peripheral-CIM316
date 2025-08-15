@@ -22,7 +22,8 @@ public enum SoundType
     Thunder,
     SlidingDoor,
     RainMusic,
-    Static
+    Static,
+    Toilet
     
 }
 
