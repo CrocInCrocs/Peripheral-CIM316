@@ -6,7 +6,7 @@ public class LightSwitch : MonoBehaviour, IInteractable
     public PowerManager powerManager;
     private bool switchCase;
     public int BreakerIndex;
-    public int PowerChangeValue;
+    private int PowerChangeValue = 2;
     private int CurrentPower = -1;
 
     private void Start()
