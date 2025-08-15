@@ -22,31 +22,6 @@ MonoBehaviour:
   gain:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0.27240995}
---- !u!114 &-8415196727054485199
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 1
-  mode:
-    m_OverrideState: 1
-    m_Value: 0
-  quality:
-    m_OverrideState: 1
-    m_Value: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0
-  clamp:
-    m_OverrideState: 1
-    m_Value: 0.05
 --- !u!114 &-8104416584915340131
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -369,10 +344,10 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: -0.5
+    m_Value: -0.72
   contrast:
     m_OverrideState: 1
-    m_Value: -35
+    m_Value: -54
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 0.9528302, g: 0.8558512, b: 0.8494571, a: 1}
@@ -407,22 +382,6 @@ MonoBehaviour:
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
---- !u!114 &-6146305221164894047
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 125a108bcc5a858459352879f1fb5161, type: 3}
-  m_Name: CameraEffectVolumeComponent
-  m_EditorClassIdentifier: 
-  active: 1
-  intensity:
-    m_OverrideState: 1
-    m_Value: 1
 --- !u!114 &-5520245016509672950
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -708,7 +667,6 @@ MonoBehaviour:
   - {fileID: -6288072647309666549}
   - {fileID: 7891870892303731006}
   - {fileID: -7648286181009684409}
-  - {fileID: -8415196727054485199}
   - {fileID: 3069616176412663793}
   - {fileID: -4148568100118940300}
   - {fileID: -3893131811841196122}
@@ -718,7 +676,6 @@ MonoBehaviour:
   - {fileID: 6018679334540710650}
   - {fileID: 5031888200472261552}
   - {fileID: 421742890404026171}
-  - {fileID: -6146305221164894047}
 --- !u!114 &421742890404026171
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -780,13 +737,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.4812834}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.41711232}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.22459893}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0
@@ -932,7 +889,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.416
+    m_Value: 0.47
   smoothness:
     m_OverrideState: 1
     m_Value: 0.2
