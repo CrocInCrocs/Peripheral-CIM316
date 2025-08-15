@@ -100,6 +100,9 @@ GameObject:
   - component: {fileID: 3052026040491082802}
   - component: {fileID: 5553923724672810535}
   - component: {fileID: 7158430453915993566}
+  - component: {fileID: 1108728657971260125}
+  - component: {fileID: 1503570569100170407}
+  - component: {fileID: 8754516124059008312}
   m_Layer: 0
   m_Name: gram
   m_TagString: Untagged
@@ -298,8 +301,62 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 3, z: 5}
-  m_Center: {x: 2.23, y: 0, z: -1.06}
+  m_Size: {x: 2.2, y: 1.86, z: 2.27}
+  m_Center: {x: 0.77, y: 0, z: -0.76}
+--- !u!114 &1108728657971260125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290417906712236364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 4.2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1503570569100170407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290417906712236364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2986839c759a9274c8844594ffe96725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8754516124059008312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290417906712236364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1fb7736f1c26949acbaefe32b46555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: "It worked once, long ago\u2026 now it only collects dust"
+  hasBeenPlayed: 0
+  itemScriptable: {fileID: 11400000, guid: cf5e2e1ef51c6464682f19a580088252, type: 2}
+  itemVisuals: {fileID: 0}
+  dropForce: 1
+  hasBeenDropped: 0
+  playerTransform: {fileID: 0}
+  dropDistance: 0.5
+  DropPostion: -0.4
+  pickupPositionChanged: 0
+  canBePickedUp: 0
+  customInspectDistance: 1.2
 --- !u!1 &3693582365735808294
 GameObject:
   m_ObjectHideFlags: 0
