@@ -12,6 +12,10 @@ public class Item : DialogueBase, IPickupable
     [FormerlySerializedAs("dropHorizontalOffset")] [SerializeField] private float DropPostion = -0.4f;
     public bool pickupPositionChanged; // Tracks if pickup position was changed
     
+    [Header("Pickup Settings")]
+    public bool canBePickedUp = true; // NEW: control whether the item can be picked up
+    
+    
     private void Start()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -23,6 +27,8 @@ public class Item : DialogueBase, IPickupable
     
     public void Pickup(Transform handTransform)
     {
+        
+        if (!canBePickedUp) return; // Skip pickup if not allowed
         if(InventoryManager.Current.IsInventoryFull())return;
         transform.SetParent(handTransform);
         

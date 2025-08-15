@@ -12,6 +12,8 @@ public class PauseMenu : MonoBehaviour
 
     private bool isPaused = false;
     // private float previousVolume;
+    
+    [SerializeField] private computer computerInstance;
 
     void Update()
     {
@@ -49,6 +51,13 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         isPaused = false;
+        
+        // Only lock cursor if computer is NOT active
+        if (computerInstance != null && computerInstance.IsComputerActive)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
