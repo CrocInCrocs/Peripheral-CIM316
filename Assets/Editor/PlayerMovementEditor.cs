@@ -184,7 +184,7 @@ public class PlayerMovementEditor : Editor
             EditorGUILayout.Slider(
                 new GUIContent("Sprint Cooldown",
                     "Determines how long the recovery time is when the player runs out of sprint."), fpc.sprintCooldown,
-                .1f, fpc.sprintDuration);
+                .1f, 20f);
         //GUI.enabled = true;
 
         fpc.sprintFOV =
