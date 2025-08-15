@@ -442,6 +442,11 @@ public class PlayerMovementEditor : Editor
                 { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 },
             GUILayout.ExpandWidth(true));
         EditorGUILayout.Space();
+        
+        // Default Inspect Distance
+        fpc.defaultInspectDistance = EditorGUILayout.Slider(
+            new GUIContent("Default Inspect Distance", "Initial distance from inspect camera to object."),
+            fpc.defaultInspectDistance, 0.1f, 5f);
 
 
         fpc.inspectDistance = EditorGUILayout.Slider(

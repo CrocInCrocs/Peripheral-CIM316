@@ -20,7 +20,9 @@ public enum SoundType
     RainOn,
     RainOff,
     Thunder,
-    SlidingDoor
+    SlidingDoor,
+    RainMusic,
+    Static
     
 }
 

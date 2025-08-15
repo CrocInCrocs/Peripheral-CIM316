@@ -10,6 +10,11 @@ public class Item : DialogueBase, IPickupable
     public Transform playerTransform; 
     [SerializeField] private float dropDistance = 0.5f;
     [FormerlySerializedAs("dropHorizontalOffset")] [SerializeField] private float DropPostion = -0.4f;
+    public bool pickupPositionChanged; // Tracks if pickup position was changed
+    
+    [Header("Pickup Settings")]
+    public bool canBePickedUp = true; // NEW: control whether the item can be picked up
+    
     
     private void Start()
     {
@@ -22,10 +27,27 @@ public class Item : DialogueBase, IPickupable
     
     public void Pickup(Transform handTransform)
     {
+        
+        if (!canBePickedUp) return; // Skip pickup if not allowed
         if(InventoryManager.Current.IsInventoryFull())return;
         transform.SetParent(handTransform);
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
+        
+        // Special offset for paper only
+        if (itemScriptable != null && itemScriptable.nameOfItem == "Paper")
+        {
+            transform.localPosition = new Vector3(0.25f, .22f, 0.02f);
+            transform.localRotation = Quaternion.Euler(13f, 35.6f, 2.7f);
+            pickupPositionChanged = true;
+        }
+        else
+        {
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
+            pickupPositionChanged = false;
+        }
+
+        
+
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<Collider>().isTrigger = true;
         PickupItem(itemScriptable);

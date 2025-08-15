@@ -14,6 +14,8 @@ public class computer : ChoreBase
     [SerializeField] private bool isViewingCCTV = false;
     [SerializeField] private FPController playerController;
 
+    public bool IsComputerActive => computerCanvas != null && computerCanvas.gameObject.activeSelf;
+    
     private void Start()
     {
         playerController = FindObjectOfType<FPController>();
@@ -147,6 +149,13 @@ public class computer : ChoreBase
         HandleCameraCycleInput();
         HandleExitInput();
         
+        
+        // Force cursor visible when computer canvas is open
+        if (computerCanvas != null && computerCanvas.gameObject.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         
         
     }

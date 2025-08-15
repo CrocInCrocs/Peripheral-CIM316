@@ -20,6 +20,15 @@ public class PeripheralGameManager : MonoBehaviour
 
     public GameObject roomCheck1, roomCheck2, roomCheck3, roomCheck4, roomCheck5;
     public LightController LightController;
+    // NEW: track rain state
+    [Header("Debug")]
+    [SerializeField] private bool debugIsRaining = false;
+    public bool isRaining { get; private set; } = false;
+
+    private void UpdateDebug()
+    {
+        debugIsRaining = isRaining;
+    }
     
     
     private void Awake()
@@ -93,7 +102,15 @@ public class PeripheralGameManager : MonoBehaviour
     public void RainStart()
     {
         rain.SetActive(true);
+        isRaining = true; // <-- set raining flag
     }
+
+    public void RainStop()
+    {
+        rain.SetActive(false);
+        isRaining = false; // <-- clear raining flag
+    }
+
 
     public void StartSleep()
     {
