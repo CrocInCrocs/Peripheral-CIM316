@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &796165904472890262
 Transform:
@@ -44,24 +44,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be9df748c97c8d4585d2c073f277fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorOpenClip: {fileID: 8300000, guid: 78af55c428b86de4db0baf5e69ebb6e4, type: 3}
-  doorCloseClip: {fileID: 8300000, guid: c6df1f193616e644891dd0d7890fd238, type: 3}
-  footstepClips:
-  - {fileID: 8300000, guid: 6fecfe4d0a4748541a65fbd66f1b5ecd, type: 3}
-  curtainOpenClip: {fileID: 8300000, guid: 162edc293539f904d95c8f3c13996cac, type: 3}
-  curtainCloseClip: {fileID: 8300000, guid: 20f1593fd32cec2488fd544cbc6531bd, type: 3}
-  printerClip: {fileID: 8300000, guid: a0ffdefc0dc51894aa2291ec721c15f4, type: 3}
-  catfoodClip: {fileID: 8300000, guid: 7f12c16bc733cd940bd8d91ded3ae3fd, type: 3}
-  computerOnClip: {fileID: 8300000, guid: b4a846585f3235d4b9b4edbd1bb8a128, type: 3}
-  computerOffClip: {fileID: 8300000, guid: b4a846585f3235d4b9b4edbd1bb8a128, type: 3}
-  cctvViewClip: {fileID: 8300000, guid: 99b5746db9b17904db4be11cc261ec59, type: 3}
-  SwitchCameraClip: {fileID: 8300000, guid: b4a846585f3235d4b9b4edbd1bb8a128, type: 3}
-  sinkOnClip: {fileID: 8300000, guid: 99643987e15ee9e47b81aea939627a16, type: 3}
-  sinkOffClip: {fileID: 8300000, guid: aebd448657037aa41afadb803385ac71, type: 3}
-  windClip: {fileID: 8300000, guid: 29ad41b1d0741e64bb1e43eeccd2358a, type: 3}
-  windAudioSource: {fileID: 0}
-  rainOnClip: {fileID: 8300000, guid: f10e9483952c29942b40f217f916d4ba, type: 3}
-  rainOffClip: {fileID: 0}
-  ThunderClip: {fileID: 8300000, guid: 1a7e3a4dd0bc7ea46a112435bc55652e, type: 3}
   audioSourcePrefab: {fileID: 240821364981218583, guid: be1453741f8fb804ea6260142ac196fb, type: 3}
-  currentWindVolume: 1
+  soundEntries:
+  - type: 7
+    clips:
+    - {fileID: 8300000, guid: b4a846585f3235d4b9b4edbd1bb8a128, type: 3}
+  - type: 8
+    clips:
+    - {fileID: 8300000, guid: b4a846585f3235d4b9b4edbd1bb8a128, type: 3}
+  - type: 9
+    clips:
+    - {fileID: 8300000, guid: 99b5746db9b17904db4be11cc261ec59, type: 3}
+  - type: 10
+    clips:
+    - {fileID: 8300000, guid: d8314179a70091141ac23ebbfe6e0acb, type: 3}
+  - type: 0
+    clips:
+    - {fileID: 8300000, guid: 78af55c428b86de4db0baf5e69ebb6e4, type: 3}
+    - {fileID: 8300000, guid: 34640d315cbc6df429b5f1b431628f92, type: 3}
+    - {fileID: 8300000, guid: bec9c1e6385a5f74d8644ea76e90f359, type: 3}
+  - type: 1
+    clips:
+    - {fileID: 8300000, guid: bc37ad25465405a428a26ff0facd9a7b, type: 3}
+  - type: 2
+    clips:
+    - {fileID: 8300000, guid: 6fecfe4d0a4748541a65fbd66f1b5ecd, type: 3}
+  - type: 3
+    clips:
+    - {fileID: 8300000, guid: 162edc293539f904d95c8f3c13996cac, type: 3}
+  - type: 4
+    clips:
+    - {fileID: 8300000, guid: 20f1593fd32cec2488fd544cbc6531bd, type: 3}
+  - type: 5
+    clips:
+    - {fileID: 8300000, guid: a0ffdefc0dc51894aa2291ec721c15f4, type: 3}
+  - type: 6
+    clips:
+    - {fileID: 8300000, guid: 7f12c16bc733cd940bd8d91ded3ae3fd, type: 3}
+  - type: 11
+    clips:
+    - {fileID: 8300000, guid: 99643987e15ee9e47b81aea939627a16, type: 3}
+  - type: 12
+    clips:
+    - {fileID: 8300000, guid: aebd448657037aa41afadb803385ac71, type: 3}
+  - type: 13
+    clips:
+    - {fileID: 8300000, guid: 29ad41b1d0741e64bb1e43eeccd2358a, type: 3}
+  - type: 14
+    clips:
+    - {fileID: 8300000, guid: 7ee33cd3d7437484d9c386fb0760a378, type: 3}
+  - type: 16
+    clips:
+    - {fileID: 8300000, guid: 1a7e3a4dd0bc7ea46a112435bc55652e, type: 3}
+  - type: 17
+    clips:
+    - {fileID: 8300000, guid: 89a7bc929c55a614b8b0464cbf173222, type: 3}
+  - type: 0
+    clips: []
+  - type: 18
+    clips:
+    - {fileID: 8300000, guid: 37119365731143e4a92ddda810dbd768, type: 3}
+  - type: 19
+    clips:
+    - {fileID: 8300000, guid: f21bd36360f5e4d43adc7a5e251d96f8, type: 3}
