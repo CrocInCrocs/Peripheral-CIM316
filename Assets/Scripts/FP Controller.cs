@@ -988,7 +988,8 @@ public class FPController : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, 2f))
         {
             IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
-            if (interactable != null)
+            IPickupable pickupable = hit.collider.gameObject.GetComponent<IPickupable>();
+            if (interactable != null || pickupable != null)
             {
                 return hit.collider.gameObject;
             }
