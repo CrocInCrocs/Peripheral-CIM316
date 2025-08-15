@@ -659,6 +659,22 @@ public class FPController : MonoBehaviour
                 Rigidbody rb = objectToInspect.GetComponent<Rigidbody>();
                 if (rb != null)
                     rb.isKinematic = true;
+                
+                
+                
+                // Determine inspect distance from the item
+                Item item = target.GetComponent<Item>();
+                if (item != null && item.customInspectDistance > 0f)
+                {
+                    inspectDistance = item.customInspectDistance;
+                }
+                else
+                {
+                    inspectDistance = defaultInspectDistance;
+                }
+
+                targetInspectDistance = inspectDistance;
+                
 
                 // Move the holder into inspect view
                 inspectHolder.position =
@@ -671,17 +687,18 @@ public class FPController : MonoBehaviour
                 if (inspectPanel != null)
                     inspectPanel.SetActive(true);
 
+                
                 inspectCamera.enabled = true;
                 DisableInput();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
 
-                // Show item dialogue if available
-                Item item = target.GetComponent<Item>();
+   
                 if (item != null && DialogueManager.Current != null)
                 {
                     DialogueManager.Current.NewText(item.dialogueText);
                 }
+                
             }
         }
 

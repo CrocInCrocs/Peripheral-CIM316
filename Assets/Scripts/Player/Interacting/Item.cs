@@ -15,6 +15,9 @@ public class Item : DialogueBase, IPickupable
     [Header("Pickup Settings")]
     public bool canBePickedUp = true; // NEW: control whether the item can be picked up
     
+    [Header("Inspect Settings")]
+    [Tooltip("Optional custom inspect distance. If 0, default will be used.")]
+    public float customInspectDistance = 0f;
     
     private void Start()
     {
