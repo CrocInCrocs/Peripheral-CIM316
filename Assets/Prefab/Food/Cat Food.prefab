@@ -60,6 +60,8 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   dropDistance: 0.5
   DropPostion: -0.4
+  pickupPositionChanged: 0
+  canBePickedUp: 1
 --- !u!136 &2183305002066470727
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -471,6 +473,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5894528965634884252, guid: 3441ecdc3a0d0f84b801a5f05bfb153f, type: 3}
+      propertyPath: parentGO
+      value: 
+      objectReference: {fileID: 1920734687368567767}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

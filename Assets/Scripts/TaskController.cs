@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -16,6 +17,11 @@ public class TaskController : MonoBehaviour
     public Color redColour = Color.red;
 
     private int choresRevealed = 1;
+    
+    [Header("Physical Paper References")]
+    [SerializeField] private TextMeshProUGUI takeOutRubbishText;
+    [SerializeField] private TextMeshProUGUI washDishesText;
+    [SerializeField] private TextMeshProUGUI feedCatText;
 
     private void Awake()
     {
@@ -43,6 +49,9 @@ public class TaskController : MonoBehaviour
 
     private void Update()
     {
+        // Always update physical paper first
+        UpdatePhysicalPaper();
+        
         GameObject itemGO = InventoryManager.Current != null
             ? InventoryManager.Current.ReturnSelectedItemInInventory()
             : null;
@@ -58,7 +67,11 @@ public class TaskController : MonoBehaviour
             }
         }
 
+
+        
         choreListUI?.SetActive(false);
+        
+        
     }
 
     public void OnChoreCompleted(string choreName)
@@ -69,7 +82,7 @@ public class TaskController : MonoBehaviour
             return;
 
         completedChores.Add(choreName);
-
+        
         // Reveal the next chore only if we haven’t reached the end
         if (choresRevealed < choreSequence.Count)
         {
@@ -98,8 +111,36 @@ public class TaskController : MonoBehaviour
                 displayText += $"<color=#{ColorUtility.ToHtmlStringRGB(greenColour)}>{chore}</color>\n";
             }
         }
-
+        
         choreListText.text = displayText;
+        
+
+
+    }
+    
+    
+
+    
+    
+    private void UpdatePhysicalPaper()
+    {
+        if (takeOutRubbishText != null)
+            takeOutRubbishText.text = FormatTask("Take out the rubbish", true);
+
+        if (washDishesText != null)
+            washDishesText.text = FormatTask("Wash Dishes", true);
+
+        if (feedCatText != null)
+            feedCatText.text = FormatTask("Feed Cat", true);
+    }
+
+    private string FormatTask(string taskName, bool strikeThroughForPhysicalPaper = false)
+    {
+        bool completed = completedChores.Contains(taskName);
+        string color = ColorUtility.ToHtmlStringRGB(completed ? redColour : greenColour);
+        string text = completed && strikeThroughForPhysicalPaper ? $"<s>{taskName}</s>" : taskName;
+        return $"{text}\n"; // no color tag
+        return $"<color=#{color}>{text}</color>\n";
     }
 
     public int GetChoreCount() => choreSequence.Count;
