@@ -10297,6 +10297,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314813114}
   m_Mesh: {fileID: 4300002, guid: 5a1710e01a2c88242a4499f68198d1f7, type: 3}
+--- !u!114 &1315085287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7745375591929413508, guid: b1deb8bbabb22564ea3f48e096029286, type: 3}
+  m_PrefabInstance: {fileID: 4138102364332228292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb251899abd8f84cba5f3e2a9bd14e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1315967189
 GameObject:
   m_ObjectHideFlags: 0
@@ -51781,14 +51792,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2653807875901870638, guid: 11c07e8596d31544b9f5e2f51b47ee12, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653807875901870638, guid: 11c07e8596d31544b9f5e2f51b47ee12, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 7031972528533995220, guid: 11c07e8596d31544b9f5e2f51b47ee12, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.187093
@@ -51840,7 +51843,7 @@ PrefabInstance:
     - target: {fileID: 8968308893949128402, guid: 11c07e8596d31544b9f5e2f51b47ee12, type: 3}
       propertyPath: typeWriter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1315085287}
     - target: {fileID: 8968308893949128402, guid: 11c07e8596d31544b9f5e2f51b47ee12, type: 3}
       propertyPath: catFoodText
       value: 
