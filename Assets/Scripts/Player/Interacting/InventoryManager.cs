@@ -189,7 +189,12 @@ public class InventoryManager : MonoBehaviour
     
     public GameObject ReturnSelectedItemInInventory()
     {
+        if (selectedSlot > inventorySlots.Length || selectedSlot < 0)
+        {
+            return null;
+        }
         var itemInSlot = inventorySlots[selectedSlot].ReturnItemInSlot();
+        
         if (itemInSlot == null)
             return null;
 

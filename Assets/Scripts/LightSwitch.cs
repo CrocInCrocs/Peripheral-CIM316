@@ -9,9 +9,15 @@ public class LightSwitch : MonoBehaviour, IInteractable
     private int PowerChangeValue = 2;
     private int CurrentPower = -1;
 
+    public bool startOn;
+
     private void Start()
     {
         UpdateSwitch();
+        if (startOn)
+        {
+            FlipSwitch();
+        }
     }
 
     public void Interact()

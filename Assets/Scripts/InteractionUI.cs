@@ -29,6 +29,7 @@ public class InteractionUI : MonoBehaviour
 
     public void HidePrompt()
     {
+        if (promptText.gameObject.activeInHierarchy == false) return;
         promptText.text = "";
         promptText.gameObject.SetActive(false);
     }
