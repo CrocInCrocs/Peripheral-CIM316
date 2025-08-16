@@ -11,6 +11,12 @@ using UnityEngine;
         
         public bool fpsDisplayed = false;
 
+        private void Awake()
+        {
+            if (fpsText == null)
+                fpsText = GetComponentInChildren<TextMeshProUGUI>();
+        }
+        
         void Update()
         {
             if (!fpsDisplayed){ return;}
