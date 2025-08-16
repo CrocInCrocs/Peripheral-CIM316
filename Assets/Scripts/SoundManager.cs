@@ -23,7 +23,8 @@ public enum SoundType
     SlidingDoor,
     RainMusic,
     Static,
-    Toilet
+    Toilet,
+    ClockTick 
     
 }
 

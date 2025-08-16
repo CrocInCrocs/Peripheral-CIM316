@@ -25,6 +25,20 @@ public class PeripheralGameManager : MonoBehaviour
     [SerializeField] private bool debugIsRaining = false;
     public bool isRaining { get; private set; } = false;
 
+    
+    public bool clockCanPlay { get; private set; } = false;
+
+
+    public void EnableClock()
+    {
+        clockCanPlay = true;
+   
+    }
+    
+    
+    
+    
+    
     private void UpdateDebug()
     {
         debugIsRaining = isRaining;

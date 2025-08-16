@@ -32,6 +32,7 @@ public class DishTracker : MonoBehaviour
             {
                 Debug.Log("🍽️ All dishes cleaned. Chore complete!");
                 TaskEvents.InvokeChoreCompleted("Wash Dishes");
+                PeripheralGameManager.Current.EnableClock();
             }
         }
     }

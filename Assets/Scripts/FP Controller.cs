@@ -3,8 +3,6 @@ using UnityEngine.UI;
 
 public class FPController : MonoBehaviour
 {
-    
-    
     private Rigidbody rb;
     [SerializeField] public bool holdToCompleteChore = true;
     [SerializeField] public bool enableChores = true;
@@ -12,6 +10,7 @@ public class FPController : MonoBehaviour
     private ChoreBase currentChore = null;
     public bool useCrosshair = true;
     private OutlineHighlighter lastHighlighted;
+    private ClockAudio lastClock; // store the last clock you looked at
 
     public CanvasGroup sprintBarCG;
 
@@ -185,6 +184,7 @@ public class FPController : MonoBehaviour
     public float handBobSpeed = 10f;
     public Vector3 handBobAmount = new Vector3(.15f, .05f, 0f);
     private Vector3 handjointOriginalPos;
+
     #endregion
 
     private void Awake()
@@ -198,7 +198,7 @@ public class FPController : MonoBehaviour
         originalScale = transform.localScale;
         jointOriginalPos = joint.localPosition;
         handjointOriginalPos = handJoint.localPosition;
-        
+
         if (!unlimitedSprint)
         {
             sprintRemaining = sprintDuration;
@@ -422,7 +422,7 @@ public class FPController : MonoBehaviour
         if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() == null)
         {
             GameObject target = RayCastFromCamera();
-            
+
             if (target != null && target.TryGetComponent<OutlineHighlighter>(out var highlighter))
             {
                 if (lastHighlighted != null && lastHighlighted != highlighter)
@@ -448,7 +448,6 @@ public class FPController : MonoBehaviour
 
             if (target != null)
             {
-
                 if (target.GetComponent<IPickupable>() != null)
                 {
                     InteractionUI.Instance.ShowPrompt(InteractionUI.Instance.GetPickupInspectPrompt());
@@ -458,7 +457,7 @@ public class FPController : MonoBehaviour
                     InteractionUI.Instance.HidePrompt();
                 }
             }
-            else
+
             {
                 InteractionUI.Instance.HidePrompt();
             }
@@ -466,6 +465,60 @@ public class FPController : MonoBehaviour
 
         #endregion
 
+        #region LookAtToPlaySound
+
+        if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() == null)
+        {
+            GameObject target = RayCastFromCamera();
+            ClockAudio clock = null;
+
+            if (target != null)
+                target.TryGetComponent<ClockAudio>(out clock);
+
+            if (clock != null)
+            {
+                // Stop previous clock if different
+                if (lastClock != null && lastClock != clock)
+                    lastClock.StopTick();
+
+                clock.StartTick(target.transform.position);
+                lastClock = clock;
+            }
+            else
+            {
+                // Stop last clock if looking away
+                if (lastClock != null)
+                {
+                    lastClock.StopTick();
+                    lastClock = null;
+                }
+            }
+        }
+
+        #endregion
+
+
+        // #region LookAtToPlaySound
+        //
+        // if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() == null)
+        // {
+        //     GameObject target = RayCastFromCamera();
+        //     ClockAudio clock = null;
+        //
+        //     if (target != null)
+        //         target.TryGetComponent<ClockAudio>(out clock);
+        //
+        //     if (clock != null)
+        //     {
+        //         clock.StartTick(target.transform.position);
+        //     }
+        //     else
+        //     {
+        //         clock?.StopTick();
+        //     }
+        // }
+        //
+        // #endregion
 
         #region Pickup
 
@@ -511,26 +564,24 @@ public class FPController : MonoBehaviour
                         return;
                     }
 
-    
+
                     IPickupable pickupable = target.GetComponent<IPickupable>();
                     if (pickupable != null)
                     {
-                        
                         Item item = pickupable as Item;
                         if (item != null && !item.canBePickedUp)
                         {
                             // Item is blocked from pickup
                             return;
                         }
-                        
+
                         pickupable.Pickup(playerHandTransform);
-                        
-           
+
+
                         HandleCatFoodPickup(pickupable);
 
                         return;
                     }
-                    
                 }
             }
 
@@ -659,9 +710,8 @@ public class FPController : MonoBehaviour
                 Rigidbody rb = objectToInspect.GetComponent<Rigidbody>();
                 if (rb != null)
                     rb.isKinematic = true;
-                
-                
-                
+
+
                 // Determine inspect distance from the item
                 Item item = target.GetComponent<Item>();
                 if (item != null && item.customInspectDistance > 0f)
@@ -674,7 +724,7 @@ public class FPController : MonoBehaviour
                 }
 
                 targetInspectDistance = inspectDistance;
-                
+
 
                 // Move the holder into inspect view
                 inspectHolder.position =
@@ -687,18 +737,17 @@ public class FPController : MonoBehaviour
                 if (inspectPanel != null)
                     inspectPanel.SetActive(true);
 
-                
+
                 inspectCamera.enabled = true;
                 DisableInput();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
 
-   
+
                 if (item != null && DialogueManager.Current != null)
                 {
                     DialogueManager.Current.NewText(item.dialogueText);
                 }
-                
             }
         }
 
@@ -723,7 +772,7 @@ public class FPController : MonoBehaviour
             // Reset zoom on exit
             inspectDistance = defaultInspectDistance;
             targetInspectDistance = defaultInspectDistance;
-            
+
             isInspecting = false;
 
             if (inspectCanvas != null)
@@ -944,7 +993,7 @@ public class FPController : MonoBehaviour
             joint.localPosition = new Vector3(jointOriginalPos.x + Mathf.Sin(timer) * bobAmount.x,
                 jointOriginalPos.y + Mathf.Sin(timer) * bobAmount.y,
                 jointOriginalPos.z + Mathf.Sin(timer) * bobAmount.z);
-            
+
             //Bobbing effect for player HandBob movement
             // Calculates HandBob speed during sprint
             if (isSprinting)
@@ -966,7 +1015,7 @@ public class FPController : MonoBehaviour
             handJoint.localPosition = new Vector3(handjointOriginalPos.x + Mathf.Sin(timer2) * handBobAmount.x,
                 handjointOriginalPos.y + Mathf.Sin(timer2) * handBobAmount.y,
                 handjointOriginalPos.z + Mathf.Sin(timer2) * handBobAmount.z);
-         }
+        }
         else
         {
             // Resets when play stops moving
