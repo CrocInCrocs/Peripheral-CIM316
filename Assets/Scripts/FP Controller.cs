@@ -187,6 +187,23 @@ public class FPController : MonoBehaviour
 
     #endregion
 
+    public void MouseXMovement(float delta)
+    {
+        if (!invertCamera)
+        {
+            yaw += mouseSensitivity * delta/1.5f;
+        }
+        else
+        {
+            yaw -= mouseSensitivity * delta/1.5f;
+        }
+    }
+    
+    public void MouseYMovement(float delta)
+    {
+        if (!cameraCanMove) {return;}
+        pitch -= delta * mouseSensitivity;
+    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -288,21 +305,8 @@ public class FPController : MonoBehaviour
         // Control camera movement
         if (cameraCanMove)
         {
-            yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
-
-            if (!invertCamera)
-            {
-                pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
-            }
-            else
-            {
-                // Inverted Y
-                pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
-            }
-
             // Clamp pitch between lookAngle
             pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
-
             transform.localEulerAngles = new Vector3(0, yaw, 0);
             playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
         }
@@ -496,29 +500,6 @@ public class FPController : MonoBehaviour
         }
 
         #endregion
-
-
-        // #region LookAtToPlaySound
-        //
-        // if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() == null)
-        // {
-        //     GameObject target = RayCastFromCamera();
-        //     ClockAudio clock = null;
-        //
-        //     if (target != null)
-        //         target.TryGetComponent<ClockAudio>(out clock);
-        //
-        //     if (clock != null)
-        //     {
-        //         clock.StartTick(target.transform.position);
-        //     }
-        //     else
-        //     {
-        //         clock?.StopTick();
-        //     }
-        // }
-        //
-        // #endregion
 
         #region Pickup
 
@@ -848,61 +829,63 @@ public class FPController : MonoBehaviour
     void FixedUpdate()
     {
         #region Movement
-
-        if (playerCanMove)
-        {
-            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            Vector3 horizontalVelocity = rb.linearVelocity;
-            horizontalVelocity.y = 0;
-
-            if ((targetVelocity.x != 0 || targetVelocity.z != 0) && isGrounded && horizontalVelocity.magnitude > 0.1f)
+        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0){
+            if (playerCanMove)
             {
-                isWalking = true;
+                Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                Vector3 horizontalVelocity = rb.linearVelocity;
+                horizontalVelocity.y = 0;
 
-                // Play footstep sound
-                footstepTimer -= Time.deltaTime;
-                if (footstepTimer <= 0f)
+                if ((targetVelocity.x != 0 || targetVelocity.z != 0) && isGrounded &&
+                    horizontalVelocity.magnitude > 0.1f)
                 {
-                    if (SoundManager.Instance != null)
-                    {
-                        SoundManager.Instance.PlaySound(SoundType.Footstep, transform.position);
-                    }
+                    isWalking = true;
 
+                    // Play footstep sound
+                    footstepTimer -= Time.deltaTime;
+                    if (footstepTimer <= 0f)
+                    {
+                        if (SoundManager.Instance != null)
+                        {
+                            SoundManager.Instance.PlaySound(SoundType.Footstep, transform.position);
+                        }
+
+                        footstepTimer = footstepInterval;
+                    }
+                }
+                else
+                {
+                    isWalking = false;
                     footstepTimer = footstepInterval;
                 }
-            }
-            else
-            {
-                isWalking = false;
-                footstepTimer = footstepInterval;
-            }
 
-            // Sprinting
-            if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
-            {
-                isSprinting = true;
-
-                if (isCrouched)
+                // Sprinting
+                if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
                 {
-                    Crouch();
+                    isSprinting = true;
+
+                    if (isCrouched)
+                    {
+                        Crouch();
+                    }
+
+                    targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
+                }
+                else
+                {
+                    isSprinting = false;
+                    targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
                 }
 
-                targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
-            }
-            else
-            {
-                isSprinting = false;
-                targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
-            }
+                // Movement
+                Vector3 velocity = rb.linearVelocity;
+                Vector3 velocityChange = (targetVelocity - velocity);
+                velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+                velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+                velocityChange.y = 0;
 
-            // Movement
-            Vector3 velocity = rb.linearVelocity;
-            Vector3 velocityChange = (targetVelocity - velocity);
-            velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-            velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-            velocityChange.y = 0;
-
-            rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                rb.AddForce(velocityChange, ForceMode.VelocityChange);
+            }
         }
 
         #endregion

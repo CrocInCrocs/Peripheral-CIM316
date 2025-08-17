@@ -3,86 +3,33 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject mainInventoryGroup;
+    public PlayerInput playerInput;
+    public FPController fpController;
 
-    public PlayerMovement playerMovement;
-
-    public GameObject itemEquipped;
-
-    public GameObject fishingRod;
-    // Start is called before the first frame update
     void Awake()
     {
-        if (playerMovement == null)
-        {
-            playerMovement = GetComponent<PlayerMovement>();
-        }
-        
+        playerInput = GetComponent<PlayerInput>();
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
-        // InventoryManager.ChangedSlotEvent += ChangeItemEquipped;
+        playerInput.actions["Look"].performed += OnLookPerformed;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
-        // InventoryManager.ChangedSlotEvent -= ChangeItemEquipped;
+        playerInput.actions["Look"].performed -= OnLookPerformed;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnLookPerformed(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown("e"))
-        {
-            Debug.Log("trying to open or close inv");
-            OpenInventory();
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Debug.Log("Trying to Use an Item");
-            // IUsable itemToUse = fishingRod.GetComponent<IUsable>();
-            // itemToUse.UseObject();
-        }
-    }
-
-    // public void ChangeItemEquipped()
-    // {
-    //     // GameObject itemToEquip = InventoryManager.Current.ReturnItemEquiped();
-    //     if (itemToEquip == null)
-    //     {
-    //         //GOTTEM
-    //         itemEquipped = null;
-    //         fishingRod.SetActive(false);
-    //         return;
-    //     }
-    //     itemEquipped = InventoryManager.Current.ReturnItemEquiped();
-    //     if (itemEquipped.GetComponent<DraggableItem>().ReturnItemTypeIndex() == 0)
-    //     {
-    //         fishingRod.SetActive(true);
-    //     }
-    //     else
-    //     {
-    //         fishingRod.SetActive(false);
-    //     }
-    // }
-
-    void OpenInventory()
-    {
-        Debug.Log("Setting it to the other state");
-        mainInventoryGroup.SetActive(!mainInventoryGroup.activeSelf);
-        if (mainInventoryGroup.activeSelf)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            playerMovement.LockLookingAround();
-        }
-        if (!mainInventoryGroup.activeSelf)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            playerMovement.UnlockLookingAround();
-        }
+        Vector2 mouseDelta = context.ReadValue<Vector2>();
+        // Use mouseDelta for camera rotation or other look functionality
+        fpController.MouseYMovement(mouseDelta.y);
+        fpController.MouseXMovement(mouseDelta.x);
     }
 }
