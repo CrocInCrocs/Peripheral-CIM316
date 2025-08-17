@@ -8,6 +8,7 @@ public class BreakerSwitch : MonoBehaviour, IInteractable
     public bool switchState;
     public GameObject tempCubevisual;
     public BreakerController breakerController;
+    public bool enabled;
     public void Interact()
     {
         UpdateSwitch();
@@ -19,8 +20,18 @@ public class BreakerSwitch : MonoBehaviour, IInteractable
         UpdateSwitch();
     }
 
+    private void Update()
+    {
+        if (enabled)
+        {
+            breakerController.TurnOffBreaker();
+            tempCubevisual.GetComponent<MeshRenderer>().material = offMaterial;
+        }
+    }
+
     public void UpdateSwitch()
     {
+        if(enabled) return;
         switchState = !switchState;
         if (switchState)
         {
