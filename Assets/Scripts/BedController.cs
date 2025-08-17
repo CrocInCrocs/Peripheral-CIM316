@@ -17,5 +17,7 @@ public class BedController : MonoBehaviour, IInteractable
         PeripheralGameManager.Current.EnableTriggerBoxes();
         PeripheralGameManager.Current.LightsOut();
         nightDialogue.SetActive(true);
+        
+        PeripheralGameManager.Current.EnableClockTrigger();
     }
 }

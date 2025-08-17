@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class PeripheralGameManager : MonoBehaviour
 {
-
-    
-    [SerializeField] private TaskController taskController; 
-    [SerializeField] public bool allChoresDone = false; 
+    [SerializeField] private TaskController taskController;
+    [SerializeField] public bool allChoresDone = false;
     public GameObject rain;
     public FPController _player;
     public FadeController fade;
@@ -14,21 +12,25 @@ public class PeripheralGameManager : MonoBehaviour
     public LightController LightController;
     private bool mainGameRunning = true;
     [SerializeField] private bool debugIsRaining = false;
-    
+
     public bool isRaining { get; private set; } = false;
     public bool clockCanPlay { get; private set; } = false;
     private static PeripheralGameManager _current;
-    public static PeripheralGameManager Current { get { return _current; } }
 
-    
-    public void UpdateReferences(
-        TaskController newTaskController,
+    public static PeripheralGameManager Current
+    {
+        get { return _current; }
+    }
+
+    // rory is a noob
+    public void UpdateReferences(TaskController newTaskController,
         GameObject newRain,
         FPController newPlayer,
         FadeController newFade,
         GameObject[] roomChecks,
-        LightController newLightController
-    )
+        LightController newLightController,
+        GameObject newClockTrigger,
+        ClockAudio newClockAudio)
     {
         taskController = newTaskController;
         rain = newRain;
@@ -43,26 +45,28 @@ public class PeripheralGameManager : MonoBehaviour
             roomCheck4 = roomChecks[3];
             roomCheck5 = roomChecks[4];
         }
+
         LightController = newLightController;
+        clockTrigger = newClockTrigger;  
+        clockAudio = newClockAudio;      
     }
-    
     public void EnableClock()
     {
         clockCanPlay = true;
-   
     }
+
     private void UpdateDebug()
     {
         debugIsRaining = isRaining;
     }
-    
+
     private void Awake()
     {
         if (_current != null && _current != this)
         {
             Destroy(this.gameObject);
-        } 
-        else 
+        }
+        else
         {
             _current = this;
             DontDestroyOnLoad(gameObject);
@@ -70,11 +74,10 @@ public class PeripheralGameManager : MonoBehaviour
 
         if (SoundManager.Instance != null)
         {
-
             SoundManager.Instance.StartLoop(SoundType.Wind, transform.position);
         }
     }
-    
+
     private void OnEnable()
     {
         TaskEvents.OnChoreCompleted += HandleChoreComplete;
@@ -84,7 +87,7 @@ public class PeripheralGameManager : MonoBehaviour
     {
         TaskEvents.OnChoreCompleted -= HandleChoreComplete;
     }
-    
+
     public FPController returnFPController()
     {
         return _player;
@@ -93,7 +96,6 @@ public class PeripheralGameManager : MonoBehaviour
     public void SetFPController(FPController player)
     {
         _player = player;
-        
     }
 
     private void HandleChoreComplete(string taskName)
@@ -110,20 +112,18 @@ public class PeripheralGameManager : MonoBehaviour
         int totalChores = taskController != null ? taskController.GetChoreCount() : 0;
 
 
+        allChoresDone = (completedCount >= totalChores && totalChores > 0);
 
-        allChoresDone = (completedCount >= totalChores && totalChores > 0); 
-        
         if (allChoresDone)
         {
             // Debug.Log("🎉 All chores completed! GO TO SLEEP");
-
         }
     }
 
     public void RainStart()
     {
         rain.SetActive(true);
-        isRaining = true; 
+        isRaining = true;
     }
 
     public void RainStop()
@@ -153,6 +153,7 @@ public class PeripheralGameManager : MonoBehaviour
         roomCheck4.SetActive(true);
         roomCheck5.SetActive(true);
     }
+
     public void LightsOut()
     {
         LightController.LightsOff();
@@ -162,8 +163,25 @@ public class PeripheralGameManager : MonoBehaviour
     {
         mainGameRunning = state;
     }
+
     public bool IsGameRunning()
     {
         return mainGameRunning;
+    }
+
+
+    public ClockAudio clockAudio; 
+    public GameObject clockTrigger; 
+    public void EnableClockTrigger()
+    {
+        if (clockAudio != null)
+        {
+            clockAudio.EnableTrigger();
+        }
+    
+        if (clockTrigger != null)
+        {
+            clockTrigger.SetActive(true);
+        }
     }
 }
