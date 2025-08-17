@@ -16,6 +16,16 @@ public class ComputerManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+    
+
+    public void UpdateReferences(computer newComputerScript, GameObject[] newWindows)
+    {
+        computerScript = newComputerScript;
+        ComputerWindows = newWindows;
+    }
+
+    
+    
 
     public GameObject[] ComputerWindows;
     // public void OpenComputerWindow(int NumberWindow)
