@@ -11,7 +11,7 @@ public class WindSoundManager : MonoBehaviour
         if (other.CompareTag("Player") && SoundManager.Instance != null)
         {
             SoundManager.Instance.SetWindVolume(indoorVolume);
-            Debug.Log($"Player entered indoor zone: wind volume set to {indoorVolume}");
+            // Debug.Log($"Player entered indoor zone: wind volume set to {indoorVolume}");
         }
     }
 
@@ -20,7 +20,7 @@ public class WindSoundManager : MonoBehaviour
         if (other.CompareTag("Player") && SoundManager.Instance != null)
         {
             SoundManager.Instance.SetWindVolume(outdoorVolume);
-            Debug.Log($"Player exited indoor zone: wind volume set to {outdoorVolume}");
+            // Debug.Log($"Player exited indoor zone: wind volume set to {outdoorVolume}");
         }
     }
 }

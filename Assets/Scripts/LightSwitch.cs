@@ -23,7 +23,7 @@ public class LightSwitch : MonoBehaviour, IInteractable
     public void Interact()
     {
         FlipSwitch();
-        Debug.Log("I am switching up");
+        // Debug.Log("I am switching up");
     }
 
     private void FlipSwitch()
@@ -31,12 +31,12 @@ public class LightSwitch : MonoBehaviour, IInteractable
         switchCase = !switchCase;
         if (switchCase)
         {
-            Debug.Log("I am turning onnn");
+            // Debug.Log("I am turning onnn");
             CurrentPower += PowerChangeValue;
         }
         else
         {
-            Debug.Log("I am turning offf");
+            // Debug.Log("I am turning offf");
             CurrentPower -= PowerChangeValue;
         }
         

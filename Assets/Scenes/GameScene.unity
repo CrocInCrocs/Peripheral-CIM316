@@ -2782,7 +2782,9 @@ MonoBehaviour:
   roomCheck3: {fileID: 8903889711169658020}
   roomCheck4: {fileID: 8903889711169658019}
   roomCheck5: {fileID: 8903889711169658018}
+  clockTrigger: {fileID: 1017060670}
   lightController: {fileID: 468428747450836894}
+  clockAudio: {fileID: 4205142167464647171}
 --- !u!1 &300136218
 GameObject:
   m_ObjectHideFlags: 0
@@ -8070,6 +8072,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945131818}
   m_CullTransparentMesh: 1
+--- !u!1 &949471485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 949471486}
+  - component: {fileID: 949471487}
+  m_Layer: 0
+  m_Name: RoomCheckClock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &949471486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949471485}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4205142167464647172}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &949471487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949471485}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.96, y: 1, z: 1}
+  m_Center: {x: -10.65, y: -1.22, z: 0.36}
 --- !u!1 &958264610
 GameObject:
   m_ObjectHideFlags: 0
@@ -8502,6 +8557,72 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &1017060670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017060673}
+  - component: {fileID: 1017060672}
+  - component: {fileID: 1017060671}
+  m_Layer: 0
+  m_Name: LoungroomCLock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1017060671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017060670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1ddbf88cd97474a9f78b4e83d4059c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1017060672
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017060670}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.37, y: 1, z: 1}
+  m_Center: {x: 10.33, y: 0, z: 0}
+--- !u!4 &1017060673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017060670}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.659, y: 0.608, z: 4.122}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1025708256 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7759715034421029472, guid: 4b0272b81020e2a408336ea404691056, type: 3}
@@ -65130,6 +65251,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3019813537063786424, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
     - {fileID: 7603652879251406395, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
+    - {fileID: 9071066979476344715, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
+    - {fileID: 4339364264437727129, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4935499546228150800, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
     m_AddedGameObjects:
@@ -65142,6 +65265,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8470451633272285051, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
       insertIndex: -1
       addedObject: {fileID: 350117647}
+    - targetCorrespondingSourceObject: {fileID: 4312143065235277258, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 949471486}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2112347458282412771, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
       insertIndex: -1
@@ -65164,6 +65290,22 @@ Transform:
 --- !u!4 &4205142167464647170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8470451633272285051, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
+  m_PrefabInstance: {fileID: 4205142167464647168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4205142167464647171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7124715758515164538, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
+  m_PrefabInstance: {fileID: 4205142167464647168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1ddbf88cd97474a9f78b4e83d4059c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &4205142167464647172 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4312143065235277258, guid: bf567f993d5475e42a73b7a94b98b997, type: 3}
   m_PrefabInstance: {fileID: 4205142167464647168}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4208803783907495272
@@ -71939,6 +72081,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8758088950199352399}
     - target: {fileID: 7748004341323242034, guid: d361fa0b6ac992d44a1ac03bbc6536c8, type: 3}
+      propertyPath: clockAudio
+      value: 
+      objectReference: {fileID: 4205142167464647171}
+    - target: {fileID: 7748004341323242034, guid: d361fa0b6ac992d44a1ac03bbc6536c8, type: 3}
       propertyPath: roomCheck1
       value: 
       objectReference: {fileID: 8903889711169658022}
@@ -71958,6 +72104,10 @@ PrefabInstance:
       propertyPath: roomCheck5
       value: 
       objectReference: {fileID: 8903889711169658018}
+    - target: {fileID: 7748004341323242034, guid: d361fa0b6ac992d44a1ac03bbc6536c8, type: 3}
+      propertyPath: clockTrigger
+      value: 
+      objectReference: {fileID: 1017060670}
     - target: {fileID: 7748004341323242034, guid: d361fa0b6ac992d44a1ac03bbc6536c8, type: 3}
       propertyPath: taskController
       value: 
@@ -119251,8 +119401,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 456542836157627767, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
+      propertyPath: m_Name
+      value: RoomCheck_DiningRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 456542836157627767, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497163476179937011, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
+      propertyPath: m_Name
+      value: RoomCheckBathroom
       objectReference: {fileID: 0}
     - target: {fileID: 497163476179937011, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
       propertyPath: m_IsActive
@@ -119299,16 +119457,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3434021972261509042, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
+      propertyPath: m_Name
+      value: RoomCheckKitchen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434021972261509042, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686001275614712274, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
+      propertyPath: m_Name
+      value: RoomCheckGarage
       objectReference: {fileID: 0}
     - target: {fileID: 3686001275614712274, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3820897167265741578, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
+      propertyPath: m_Name
+      value: RoomCheckHallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820897167265741578, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401388160537783895, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
+      propertyPath: m_Name
+      value: RoomCheckLounge
       objectReference: {fileID: 0}
     - target: {fileID: 6401388160537783895, guid: 6552feb5e307084409c994f75ef204d6, type: 3}
       propertyPath: m_IsActive
@@ -129751,3 +129925,4 @@ SceneRoots:
   - {fileID: 1359307231}
   - {fileID: 1321273263}
   - {fileID: 474177964}
+  - {fileID: 1017060673}
