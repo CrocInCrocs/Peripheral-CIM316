@@ -5551,6 +5551,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2743396a59a2dc43baa7a2d5414c1ff, type: 3}
   m_PrefabInstance: {fileID: 626463632}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &604855341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4229129153074687863, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+  m_PrefabInstance: {fileID: 7823391246678157754}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619700211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4966022413560064823, guid: 6eef9da6797425b4cb97ca1d05a92dac, type: 3}
@@ -72886,6 +72891,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[3].value
       value: 
       objectReference: {fileID: 1403546187419413365}
+    - target: {fileID: 5759070788551246694, guid: c2d75498920f41e4f85d070640d2bc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6628414153430303094, guid: c2d75498920f41e4f85d070640d2bc1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.879322
@@ -72926,6 +72935,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9024408821132579421, guid: c2d75498920f41e4f85d070640d2bc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9036625538189442630, guid: c2d75498920f41e4f85d070640d2bc1f, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 9036625538189442630, guid: c2d75498920f41e4f85d070640d2bc1f, type: 3}
+      propertyPath: m_SceneBindings.Array.data[12].key
+      value: 
+      objectReference: {fileID: 8969187837417063272, guid: f007ae89641b9e24894edab00eb4c535, type: 2}
     - target: {fileID: 9036625538189442630, guid: c2d75498920f41e4f85d070640d2bc1f, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
@@ -72962,6 +72983,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[11].value
       value: 
       objectReference: {fileID: 6730932951508484202}
+    - target: {fileID: 9036625538189442630, guid: c2d75498920f41e4f85d070640d2bc1f, type: 3}
+      propertyPath: m_SceneBindings.Array.data[12].value
+      value: 
+      objectReference: {fileID: 7823391246678157760}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -109436,8 +109461,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 6822704795400266952}
     m_Modifications:
     - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.85825
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 69.614746
+      value: 69.616
       objectReference: {fileID: 0}
     - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_LocalPosition.y
@@ -109445,7 +109474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -209.512
+      value: -209.905
       objectReference: {fileID: 0}
     - target: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_LocalRotation.w
@@ -109477,7 +109506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888231962982390974, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: dialogueText
-      value: Still feels wrong going into their room.
+      value: Still feels wrong going into her room.
       objectReference: {fileID: 0}
     - target: {fileID: 4229129153074687863, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_Name
@@ -109490,13 +109519,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4229129153074687863, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7823391246678157760}
   m_SourcePrefab: {fileID: 100100000, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
 --- !u!4 &7823391246678157755 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2778107836108640366, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
   m_PrefabInstance: {fileID: 7823391246678157754}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &7823391246678157760
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604855341}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!198 &7825756528096005498
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -134236,6 +134290,10 @@ PrefabInstance:
     - target: {fileID: 4229129153074687863, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_Name
       value: DialogueTriggerBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229129153074687863, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4229129153074687863, guid: 05b995843617e0e4c8d2fc59d5b10c25, type: 3}
       propertyPath: m_StaticEditorFlags
