@@ -50,11 +50,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f3d283422e4a84cbc44abcf0c883a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueText: I can't do this, maybe they're in their room still... maybe they
+    can help...
+  hasBeenPlayed: 0
   diningChecked: 0
   kitchenChecked: 0
   loungeChecked: 0
   garageChecked: 0
   bathroomChecked: 0
+  textPlayed: 0
   finalCutsceneTrigger: {fileID: 3820897167265741578}
 --- !u!1001 &1523556024312272476
 PrefabInstance:
@@ -108,6 +112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roomtriggercheck (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -138,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40217b1a3876e71409b0412cb965d12b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1001 &5410170261778734840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,6 +199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roomtriggercheck (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -215,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd010f1fac9608547b0e9572c3a3d356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!4 &617523693533473401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4865343038945703041, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
@@ -272,6 +286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roomtriggercheck
       objectReference: {fileID: 0}
+    - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -297,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec08f368e1fdf944da1e38df394a5a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!4 &586121341806014973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4865343038945703041, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
@@ -354,6 +373,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roomtriggercheck (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -384,6 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffc86579ac2a7949a90f47aa4a8cc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1001 &8715594506136666881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -436,16 +460,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roomtriggercheck (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8529344467394042913}
   m_SourcePrefab: {fileID: 100100000, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
 --- !u!1 &3820897167265741578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
   m_PrefabInstance: {fileID: 8715594506136666881}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8529344467394042913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820897167265741578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a218b9fc18e60447a6d0deb2765d0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndCutscene: {fileID: 0}
 --- !u!4 &4283249465212041088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4865343038945703041, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
@@ -503,6 +547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roomtriggercheck (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -528,6 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f2d1a2938f7ec4cbe4fd46b04a4ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!4 &4418290352559299928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4865343038945703041, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
