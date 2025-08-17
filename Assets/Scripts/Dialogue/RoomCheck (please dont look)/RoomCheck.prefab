@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f3d283422e4a84cbc44abcf0c883a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueText: I can't do this, maybe they're in their room still... maybe they
-    can help...
+  dialogueText: I can't do this, maybe they're in their room... maybe they can help...
+    please
   hasBeenPlayed: 0
   diningChecked: 0
   kitchenChecked: 0
@@ -110,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_Name
-      value: Roomtriggercheck (2)
+      value: RoomCheckLounge
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_IsActive
@@ -197,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_Name
-      value: Roomtriggercheck (4)
+      value: RoomCheckBathroom
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_IsActive
@@ -284,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_Name
-      value: Roomtriggercheck
+      value: RoomCheck_DiningRoom
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_IsActive
@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_Name
-      value: Roomtriggercheck (1)
+      value: RoomCheckKitchen
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_IsActive
@@ -458,7 +458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_Name
-      value: Roomtriggercheck (5)
+      value: RoomCheckHallway
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_IsActive
@@ -471,6 +471,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8529344467394042913}
+    - targetCorrespondingSourceObject: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 836867397509517387}
+    - targetCorrespondingSourceObject: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1581178768958734390}
   m_SourcePrefab: {fileID: 100100000, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
 --- !u!1 &3820897167265741578 stripped
 GameObject:
@@ -478,6 +484,32 @@ GameObject:
   m_PrefabInstance: {fileID: 8715594506136666881}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8529344467394042913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820897167265741578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a218b9fc18e60447a6d0deb2765d0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndCutscene: {fileID: 0}
+--- !u!114 &836867397509517387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820897167265741578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a218b9fc18e60447a6d0deb2765d0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndCutscene: {fileID: 0}
+--- !u!114 &1581178768958734390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -545,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_Name
-      value: Roomtriggercheck (3)
+      value: RoomCheckGarage
       objectReference: {fileID: 0}
     - target: {fileID: 5616708625448105995, guid: 0a8574b9e8cf1af42b7e5b6498828cd9, type: 3}
       propertyPath: m_IsActive
