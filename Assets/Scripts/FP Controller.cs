@@ -450,21 +450,21 @@ public class FPController : MonoBehaviour
                 // Hide UI prompt
             }
 
-            if (target != null)
-            {
-                if (target.GetComponent<IPickupable>() != null)
-                {
-                    InteractionUI.Instance.ShowPrompt(InteractionUI.Instance.GetPickupInspectPrompt());
-                }
-                else
-                {
-                    InteractionUI.Instance.HidePrompt();
-                }
-            }
-
-            {
-                InteractionUI.Instance.HidePrompt();
-            }
+            // if (target != null)
+            // {
+            //     if (target.GetComponent<IPickupable>() != null)
+            //     {
+            //         InteractionUI.Instance.ShowPrompt(InteractionUI.Instance.GetPickupInspectPrompt());
+            //     }
+            //     else
+            //     {
+            //         InteractionUI.Instance.HidePrompt();
+            //     }
+            // }
+            //
+            // {
+            //     InteractionUI.Instance.HidePrompt();
+            // }
         }
 
         #endregion
@@ -568,7 +568,8 @@ public class FPController : MonoBehaviour
 
             if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() != null)
             {
-                InteractionUI.Instance.ShowPrompt(InteractionUI.Instance.GetDropPrompt());
+                // disables q to drop promt
+                // InteractionUI.Instance.ShowPrompt(InteractionUI.Instance.GetDropPrompt());
             }
         }
 
@@ -600,8 +601,11 @@ public class FPController : MonoBehaviour
                     {
                         pickupable.Drop(playerHandTransform);
                         heldItem = null;
-                        // ✅ Hide the prompt after drop
-                        InteractionUI.Instance.HidePrompt();
+                    
+                        
+                        
+                        // hides the q to drop feature in the ui
+                        // InteractionUI.Instance.HidePrompt();
                     }
                 }
             }
