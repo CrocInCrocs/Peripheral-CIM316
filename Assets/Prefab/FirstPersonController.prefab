@@ -329,6 +329,8 @@ GameObject:
   - component: {fileID: 4415447103129921928}
   - component: {fileID: 4356982670845304600}
   - component: {fileID: 3189151163189561352}
+  - component: {fileID: 8891787957307438290}
+  - component: {fileID: 3152412862455303772}
   m_Layer: 0
   m_Name: FirstPersonController
   m_TagString: Player
@@ -489,7 +491,7 @@ MonoBehaviour:
   fov: 85
   invertCamera: 0
   cameraCanMove: 1
-  mouseSensitivity: 2
+  mouseSensitivity: 0.2
   maxLookAngle: 75
   lockCursor: 1
   crosshair: 1
@@ -574,6 +576,50 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8891787957307438290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3666132636354012813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 47f9ab2569f871149b0bea93c7bbbd52, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &3152412862455303772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3666132636354012813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee34d43ed7b3c3348812cfbd713ed246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 8891787957307438290}
+  fpController: {fileID: 4415447103129921928}
 --- !u!1 &5874275161737750337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,6 +1629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff324c80392f2e42a811a0852ea73de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lighterOpen: {fileID: 0}
 --- !u!4 &2135151384242721996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dda641e351489e94e9f59c4bdb3f9eb5, type: 3}
