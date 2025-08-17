@@ -10,14 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6587796513521959525}
   - component: {fileID: 7748004341323242034}
-  - component: {fileID: 6513474375428924807}
   - component: {fileID: 225555362779914957}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6587796513521959525
 Transform:
@@ -46,35 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb33071782a44154a91c8b5ba70bf50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalChores: 10
-  choresCompleted: 0
-  choreText: {fileID: 0}
-  taskController: {fileID: 6513474375428924807}
+  taskController: {fileID: 0}
+  allChoresDone: 0
   rain: {fileID: 0}
   _player: {fileID: 0}
   fade: {fileID: 0}
---- !u!114 &6513474375428924807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7138555773599611182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f8c0218a1e922748a3bfd545f0c2f91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  choreListUI: {fileID: 0}
-  choreListItemName: Paper
-  choreTextContainer: {fileID: 0}
-  choreTextPrefab: {fileID: 0}
-  choreSequence:
-  - Take out the rubbish
-  - Wash Dishes
-  - Feed Cat
-  greenColour: {r: 0.754717, g: 0.6364328, b: 0.23139909, a: 1}
-  redColour: {r: 0.34, g: 0.34, b: 0.34, a: 1}
+  roomCheck1: {fileID: 0}
+  roomCheck2: {fileID: 0}
+  roomCheck3: {fileID: 0}
+  roomCheck4: {fileID: 0}
+  roomCheck5: {fileID: 0}
+  LightController: {fileID: 0}
+  debugIsRaining: 0
 --- !u!114 &225555362779914957
 MonoBehaviour:
   m_ObjectHideFlags: 0

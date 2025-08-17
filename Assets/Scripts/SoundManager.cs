@@ -46,8 +46,10 @@ public class SoundManager : MonoBehaviour
     public class SoundEntry
     {
         public SoundType type;
-        public AudioClip[] clips; // Can have one or multiple clips (random pick)
+        public AudioClip[] clips; 
     }
+    
+    
 
     private void Awake()
     {
@@ -60,7 +62,7 @@ public class SoundManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Build dictionary
+
         foreach (var entry in soundEntries)
         {
             if (!soundLibrary.ContainsKey(entry.type))
@@ -68,7 +70,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // ===== One-shot sound =====
+
     public void PlaySound(SoundType type, Vector3 position, float volume = 1f)
     {
         if (!soundLibrary.ContainsKey(type) || audioSourcePrefab == null) return;
@@ -86,7 +88,7 @@ public class SoundManager : MonoBehaviour
         Destroy(source.gameObject, chosenClip.length);
     }
 
-    // ===== 2D global sound =====
+
     public void PlayGlobalSound(SoundType type, float volume = 1f)
     {
         if (!soundLibrary.ContainsKey(type)) return;
@@ -105,7 +107,7 @@ public class SoundManager : MonoBehaviour
         Destroy(source, chosenClip.length);
     }
 
-    // ===== Looping sound =====
+
     public void StartLoop(SoundType type, Vector3 position, float volume = 1f)
     {
         if (activeLoops.ContainsKey(type) || !soundLibrary.ContainsKey(type) || audioSourcePrefab == null)
@@ -114,8 +116,7 @@ public class SoundManager : MonoBehaviour
         AudioClip[] clips = soundLibrary[type];
         if (clips == null || clips.Length == 0) return;
 
-        AudioClip chosenClip = clips[0]; // Only first clip for looping
-
+        AudioClip chosenClip = clips[0]; 
         AudioSource loopSource = Instantiate(audioSourcePrefab, position, Quaternion.identity);
         loopSource.clip = chosenClip;
         loopSource.volume = volume;
@@ -139,7 +140,19 @@ public class SoundManager : MonoBehaviour
     {
         if (activeLoops.ContainsKey(SoundType.Wind))
         {
-            activeLoops[SoundType.Wind].volume = Mathf.Clamp01(volume);
+            AudioSource windSource = activeLoops[SoundType.Wind];
+
+            // Check if it still exists
+            if (windSource != null)
+            {
+                windSource.volume = Mathf.Clamp01(volume);
+            }
+            else
+            {
+                // Re-create the wind loop if missing
+                activeLoops.Remove(SoundType.Wind);
+                StartLoop(SoundType.Wind, Vector3.zero, Mathf.Clamp01(volume)); 
+            }
         }
     }
 }
