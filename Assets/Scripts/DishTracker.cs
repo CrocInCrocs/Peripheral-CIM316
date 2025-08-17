@@ -14,6 +14,10 @@ public class DishTracker : MonoBehaviour
         else
             Instance = this;
     }
+    public void UpdateReferences(List<GameObject> newDishes)
+    {
+        dishes = new List<GameObject>(newDishes);
+    }
 
     public void AddDish(GameObject dish)
     {
@@ -26,11 +30,11 @@ public class DishTracker : MonoBehaviour
         if (dish != null && dishes.Contains(dish))
         {
             dishes.Remove(dish);
-            Debug.Log($"✅ Dish cleaned. {dishes.Count} remaining.");
+            // Debug.Log($"✅ Dish cleaned. {dishes.Count} remaining.");
 
             if (dishes.Count == 0)
             {
-                Debug.Log("🍽️ All dishes cleaned. Chore complete!");
+                // Debug.Log("🍽️ All dishes cleaned. Chore complete!");
                 TaskEvents.InvokeChoreCompleted("Wash Dishes");
                 PeripheralGameManager.Current.EnableClock();
             }

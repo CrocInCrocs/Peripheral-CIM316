@@ -6,25 +6,29 @@ using UnityEngine;
 
 public class TaskController : MonoBehaviour
 {
+    public static TaskController Current;
+    
     [SerializeField] private GameObject choreListUI;
     [SerializeField] private string choreListItemName = "Paper";
     [SerializeField] private TextMeshProUGUI choreListText;
 
-    [SerializeField] private List<string> choreSequence = new List<string> { "Take out the rubbish", "Wash Dishes", "Feed Cat" };
-    private HashSet<string> completedChores = new HashSet<string>();
+    [SerializeField] private List<string> choreSequence = new List<string>
+        { "Take out the rubbish", "Wash Dishes", "Feed Cat" };
 
+    private HashSet<string> completedChores = new HashSet<string>();
     public Color greenColour = Color.white;
     public Color redColour = Color.red;
-
     private int choresRevealed = 1;
-    
-    [Header("Physical Paper References")]
+
+    [Header("Physical Paper References")] 
     [SerializeField] private TextMeshProUGUI takeOutRubbishText;
     [SerializeField] private TextMeshProUGUI washDishesText;
     [SerializeField] private TextMeshProUGUI feedCatText;
-
+    
     private void Awake()
     {
+        Current = this;
+
         if (choreListUI == null)
             choreListUI = GameObject.Find("TaskText_UI");
 
@@ -35,6 +39,21 @@ public class TaskController : MonoBehaviour
                 choreListText = textGO.GetComponent<TextMeshProUGUI>();
         }
     }
+    public void UpdateReferences(
+        GameObject choreListUIRef,
+        TextMeshProUGUI choreListTextRef,
+        TextMeshProUGUI takeOutRubbishRef,
+        TextMeshProUGUI washDishesRef,
+        TextMeshProUGUI feedCatRef
+    )
+    {
+        choreListUI = choreListUIRef;
+        choreListText = choreListTextRef;
+        takeOutRubbishText = takeOutRubbishRef;
+        washDishesText = washDishesRef;
+        feedCatText = feedCatRef;
+    }
+    
 
     private void Start()
     {
@@ -49,10 +68,10 @@ public class TaskController : MonoBehaviour
 
     private void Update()
     {
-        if(PeripheralGameManager.Current.IsGameRunning() == false) return;
-        // Always update physical paper first
+        if (PeripheralGameManager.Current.IsGameRunning() == false) return;
+
         UpdatePhysicalPaper();
-        
+
         GameObject itemGO = InventoryManager.Current != null
             ? InventoryManager.Current.ReturnSelectedItemInInventory()
             : null;
@@ -69,10 +88,7 @@ public class TaskController : MonoBehaviour
         }
 
 
-        
         choreListUI?.SetActive(false);
-        
-        
     }
 
     public void OnChoreCompleted(string choreName)
@@ -83,8 +99,8 @@ public class TaskController : MonoBehaviour
             return;
 
         completedChores.Add(choreName);
-        
-        // Reveal the next chore only if we haven’t reached the end
+
+
         if (choresRevealed < choreSequence.Count)
         {
             choresRevealed++;
@@ -112,17 +128,10 @@ public class TaskController : MonoBehaviour
                 displayText += $"<color=#{ColorUtility.ToHtmlStringRGB(greenColour)}>{chore}</color>\n";
             }
         }
-        
+
         choreListText.text = displayText;
-        
-
-
     }
-    
-    
 
-    
-    
     private void UpdatePhysicalPaper()
     {
         if (takeOutRubbishText != null)
@@ -140,7 +149,7 @@ public class TaskController : MonoBehaviour
         bool completed = completedChores.Contains(taskName);
         string color = ColorUtility.ToHtmlStringRGB(completed ? redColour : greenColour);
         string text = completed && strikeThroughForPhysicalPaper ? $"<s>{taskName}</s>" : taskName;
-        return $"{text}\n"; // no color tag
+        return $"{text}\n";
         return $"<color=#{color}>{text}</color>\n";
     }
 
