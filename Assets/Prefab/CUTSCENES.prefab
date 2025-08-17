@@ -1,5 +1,139 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2138106482037078810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 780481843563542686}
+  - component: {fileID: 201003684925108193}
+  - component: {fileID: 8816092266782531881}
+  - component: {fileID: 3378395882973164925}
+  - component: {fileID: 4702732780045576932}
+  m_Layer: 0
+  m_Name: Falling Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &780481843563542686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138106482037078810}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.19936788, z: -0, w: 0.97992474}
+  m_LocalPosition: {x: 10.972844, y: 0.004047394, z: 3.8452787}
+  m_LocalScale: {x: 0.41332006, y: 2.2278318, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3958806068862308284}
+  m_LocalEulerAnglesHint: {x: 0, y: 19.484, z: 0}
+--- !u!33 &201003684925108193
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138106482037078810}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &8816092266782531881
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138106482037078810}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3378395882973164925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138106482037078810}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!320 &4702732780045576932
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138106482037078810}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 7a963c6e721e8f04c9d0662a973f8778, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2435462282256812148, guid: 7a963c6e721e8f04c9d0662a973f8778, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3940542754689464054, guid: 7a963c6e721e8f04c9d0662a973f8778, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1182422091629839348, guid: 7a963c6e721e8f04c9d0662a973f8778, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1354876883504443743, guid: 7a963c6e721e8f04c9d0662a973f8778, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &3383099419480963744
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +256,8 @@ Transform:
   m_LocalPosition: {x: -4.796935, y: -2.8405242, z: -7.854333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 780481843563542686}
   m_Father: {fileID: 6628414153430303094}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &3517635528873014703
@@ -178,7 +313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5986443299639648310
 Transform:
   m_ObjectHideFlags: 0
@@ -237,15 +372,15 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -2708156120000528434, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 497580226410131270, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 9018208968151779970, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 1786626073977631289, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+  - key: {fileID: -7518876683287022154, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
     value: {fileID: 0}
   - key: {fileID: -8047850189315514916, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
     value: {fileID: 0}
-  - key: {fileID: -7518876683287022154, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+  - key: {fileID: 1786626073977631289, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 9018208968151779970, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 497580226410131270, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
