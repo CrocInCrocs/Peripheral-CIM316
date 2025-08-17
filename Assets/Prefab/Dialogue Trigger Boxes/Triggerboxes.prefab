@@ -523,6 +523,11 @@ PrefabInstance:
       propertyPath: dialogueText
       value: Shit what broke? It's so dark I don't want to check man
       objectReference: {fileID: 0}
+    - target: {fileID: 7536989444287370588, guid: 3ee7e219abfea6d45951294ebd4f21ab, type: 3}
+      propertyPath: dialogueText
+      value: The lights are out are you kidding me? Breakers in the garage I should
+        turn it on...
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
