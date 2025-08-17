@@ -24,19 +24,20 @@ public enum SoundType
     RainMusic,
     Static,
     Toilet,
-    ClockTick 
-    
+    ClockTick,
+    CardboardOpen,
+    CardboardClose
 }
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    [Header("Audio Source Prefab (Required)")]
-    [SerializeField] private AudioSource audioSourcePrefab;
+    [Header("Audio Source Prefab (Required)")] [SerializeField]
+    private AudioSource audioSourcePrefab;
 
-    [Header("Sound Library")]
-    [SerializeField] private List<SoundEntry> soundEntries = new List<SoundEntry>();
+    [Header("Sound Library")] [SerializeField]
+    private List<SoundEntry> soundEntries = new List<SoundEntry>();
 
     private Dictionary<SoundType, AudioClip[]> soundLibrary = new Dictionary<SoundType, AudioClip[]>();
     private Dictionary<SoundType, AudioSource> activeLoops = new Dictionary<SoundType, AudioSource>();
@@ -141,6 +142,4 @@ public class SoundManager : MonoBehaviour
             activeLoops[SoundType.Wind].volume = Mathf.Clamp01(volume);
         }
     }
-    
-
 }

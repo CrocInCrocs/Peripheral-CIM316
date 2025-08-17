@@ -200,7 +200,7 @@ namespace GreatArcStudios
         /// <summary>
         /// Event system
         /// </summary>
-        public EventSystem uiEventSystem;
+
         /// <summary>
         /// Defualt selected on the video panel
         /// </summary>
@@ -297,7 +297,7 @@ namespace GreatArcStudios
             lastMusicMult = audioMusicSlider.value;
             lastAudioMult = audioEffectsSlider.value;
             //Set the first selected item
-            uiEventSystem.firstSelectedGameObject = defualtSelectedMain;
+
             //Get the presets from the quality settings 
             presets = QualitySettings.names;
             presetLabel.text = presets[QualitySettings.GetQualityLevel()].ToString();
@@ -471,7 +471,7 @@ namespace GreatArcStudios
             if (Input.GetKeyDown(KeyCode.Escape) && mainPanel.active == false)
             {
 
-                uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
+  
                 mainPanel.SetActive(true);
                 vidPanel.SetActive(false);
                 audioPanel.SetActive(false);
@@ -535,7 +535,7 @@ namespace GreatArcStudios
         /// </summary>
         public void audioIn()
         {
-            uiEventSystem.SetSelectedGameObject(defualtSelectedAudio);
+  
             audioPanelAnimator.Play("Audio Panel In");
             audioMasterSlider.value = AudioListener.volume;
             //Perform modulo to find factor f to allow for non uniform music volumes
@@ -625,7 +625,7 @@ namespace GreatArcStudios
         public void applyAudio()
         {
             StartCoroutine(applyAudioMain());
-            uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
+  
            
         }
         /// <summary>
@@ -649,7 +649,7 @@ namespace GreatArcStudios
         /// </summary>
         public void cancelAudio()
         {
-            uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
+    
             StartCoroutine(cancelAudioMain());
         }
         /// <summary>
@@ -705,7 +705,7 @@ namespace GreatArcStudios
         /// </summary>
         public void videoIn()
         {
-            uiEventSystem.SetSelectedGameObject(defualtSelectedVideo);
+
             vidPanelAnimator.Play("Video Panel In");
 
             if (QualitySettings.antiAliasing == 0)
@@ -781,7 +781,7 @@ namespace GreatArcStudios
         /// </summary>
         public void cancelVideo()
         {
-            uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
+
             StartCoroutine(cancelVideoMain());
         }
         /// <summary>
@@ -842,8 +842,7 @@ namespace GreatArcStudios
         public void apply()
         {
             StartCoroutine(applyVideo());
-            uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
-  
+
         }
         /// <summary>
         /// Use an IEnumerator to first play the animation and then change the video settings.

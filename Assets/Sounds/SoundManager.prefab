@@ -99,11 +99,21 @@ MonoBehaviour:
   - type: 17
     clips:
     - {fileID: 8300000, guid: 89a7bc929c55a614b8b0464cbf173222, type: 3}
-  - type: 0
-    clips: []
+  - type: 19
+    clips:
+    - {fileID: 8300000, guid: ca59b1d5054e4d74f907d9280136d42c, type: 3}
   - type: 18
     clips:
     - {fileID: 8300000, guid: 37119365731143e4a92ddda810dbd768, type: 3}
-  - type: 19
+  - type: 20
     clips:
-    - {fileID: 8300000, guid: f21bd36360f5e4d43adc7a5e251d96f8, type: 3}
+    - {fileID: 8300000, guid: 7df0c70c4ea9a0b449e87d2dde8a55c6, type: 3}
+  - type: 21
+    clips:
+    - {fileID: 8300000, guid: c59a1365e68b9b4409dcad3d059ad9a9, type: 3}
+  - type: 22
+    clips:
+    - {fileID: 8300000, guid: f37c1dc8de1856f42bfe271b00add332, type: 3}
+  - type: 23
+    clips:
+    - {fileID: 8300000, guid: 55f43c9ee3cccd44fb2477501859b7f3, type: 3}

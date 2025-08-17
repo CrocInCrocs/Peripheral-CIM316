@@ -9,10 +9,10 @@ public class CardboardController : ChoreBase
 
     private void Awake()
     {
-        // Get all child colliders (excluding this object's own collider, if any)
+
         childColliders = GetComponentsInChildren<Collider>(includeInactive: true);
 
-        // Disable all child colliders at the start
+
         foreach (Collider col in childColliders)
         {
             if (col.gameObject != this.gameObject)
@@ -33,7 +33,9 @@ public class CardboardController : ChoreBase
                 cardboardAnimator.SetBool("Close", false);
                 Debug.Log("Cardboard opened.");
 
-                // Enable all child colliders
+    
+                SoundManager.Instance.PlaySound(SoundType.CardboardOpen, transform.position);
+
                 foreach (Collider col in childColliders)
                 {
                     if (col.gameObject != this.gameObject)
@@ -46,8 +48,13 @@ public class CardboardController : ChoreBase
                 cardboardAnimator.SetBool("Close", true);
                 cardboardAnimator.SetBool("Open", false);
                 Debug.Log("Cardboard closed.");
+                
 
-                // Disable all child colliders
+                SoundManager.Instance.PlaySound(SoundType.CardboardClose, transform.position);
+
+                
+
+
                 foreach (Collider col in childColliders)
                 {
                     if (col.gameObject != this.gameObject)
@@ -55,7 +62,7 @@ public class CardboardController : ChoreBase
                 }
             }
 
-            isOpen = !isOpen; // Toggle state
+            isOpen = !isOpen; 
         }
     }
 }
