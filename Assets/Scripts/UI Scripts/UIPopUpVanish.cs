@@ -1,8 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
-using TMPro;
-using UnityEditor.Rendering;
 
 public class UIPopUpVanish : PopUpBase
 {

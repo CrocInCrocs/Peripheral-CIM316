@@ -26,7 +26,14 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         ChangeSelectedSlot(0);
-        
+    }
+
+    public void UpdateReferences(InventorySlot[] inventorySlotsTemp)
+    {
+        for (int i = 0; i < inventorySlotsTemp.Length; i++)
+        {
+            inventorySlots[i] = inventorySlotsTemp[i];
+        }
     }
 
     private void Update()

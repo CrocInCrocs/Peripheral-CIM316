@@ -49,6 +49,7 @@ public class TaskController : MonoBehaviour
 
     private void Update()
     {
+        if(PeripheralGameManager.Current.IsGameRunning() == false) return;
         // Always update physical paper first
         UpdatePhysicalPaper();
         
