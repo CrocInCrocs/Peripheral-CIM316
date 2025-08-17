@@ -36,6 +36,20 @@ public class DialogueManager : MonoBehaviour
         typeWriter.StartCustomText(dialogueText);
     }
 
+    public void UpdateReferences(
+        BinChore binChoreTemp, 
+        DishChore dishTemp, 
+        TypeWriter typeWriterTemp, 
+        GameObject backDoorTemp, 
+        GameObject catFoodTemp)
+    {
+        binCheck = binChoreTemp;
+        dishCheck = dishTemp;
+        typeWriter = typeWriterTemp;
+        backDoorText = backDoorTemp;
+        catFoodText = catFoodTemp;
+    }
+
     public void Update()
     {
         if (binCheck.binChoreCheck)

@@ -4741,6 +4741,7 @@ Transform:
   - {fileID: 180166689}
   - {fileID: 1165692494}
   - {fileID: 299094392}
+  - {fileID: 697417490}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &481615545 stripped
@@ -6110,6 +6111,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9d6e34dbf58d5c84c8d5b0859fba43ce, type: 3}
   m_PrefabInstance: {fileID: 1087436420}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &697417489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 697417490}
+  - component: {fileID: 697417491}
+  m_Layer: 0
+  m_Name: DialogueRFH
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &697417490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697417489}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 474177964}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &697417491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697417489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c964c692b9451984dbd48e58752a8db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  binCheck: {fileID: 357382529}
+  dishCheck: {fileID: 1478400438}
+  typeWriter: {fileID: 1315085287}
+  backDoorText: {fileID: 2950110967616597925}
+  catFoodText: {fileID: 2255654053789188498}
 --- !u!4 &700614586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3640583019901448827, guid: 512547b521836a34e9ea65926873c0ee, type: 3}
