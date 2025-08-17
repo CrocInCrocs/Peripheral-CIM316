@@ -16,26 +16,31 @@ public class MinesweeperManager : MonoBehaviour
         }
     }
 
-    public Minesweeper Minesweeper;
+    public void UpdateReferences(Minesweeper minesweeperTemp)
+    {
+        minesweeper = minesweeperTemp;
+    }
+
+    public Minesweeper minesweeper;
     public void ThisCellClicked(int x, int y)
     {
-        Minesweeper.MineSweeperUpdate(x,y);
+        minesweeper.MineSweeperUpdate(x,y);
     }
 
     public void ThisCellFlagged(int x, int y)
     {
-        Minesweeper.MinesweeperFlagged(x,y);
+        minesweeper.MinesweeperFlagged(x,y);
     }
 
     public void ThisCellUnflagged(int x, int y)
     {
-        Minesweeper.MinesweeperUnflagged(x,y);
+        minesweeper.MinesweeperUnflagged(x,y);
     }
 
     public Action GameLostAction;
     public void ResetGame()
     {
         GameLostAction?.Invoke();
-        Minesweeper.ResetGame();
+        minesweeper.ResetGame();
     }
 }
