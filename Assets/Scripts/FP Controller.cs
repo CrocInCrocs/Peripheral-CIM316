@@ -197,12 +197,26 @@ public class FPController : MonoBehaviour
         {
             yaw -= mouseSensitivity * delta/1.5f;
         }
+
+        moveMouse();
     }
     
     public void MouseYMovement(float delta)
     {
         if (!cameraCanMove) {return;}
         pitch -= delta * mouseSensitivity;
+        moveMouse();
+    }
+
+    public void moveMouse()
+    {
+        if (cameraCanMove)
+        {
+            // Clamp pitch between lookAngle
+            pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
+            transform.localEulerAngles = new Vector3(0, yaw, 0);
+            playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
+        }
     }
     private void Awake()
     {
@@ -300,17 +314,6 @@ public class FPController : MonoBehaviour
 
     private void Update()
     {
-        #region Camera
-
-        // Control camera movement
-        if (cameraCanMove)
-        {
-            // Clamp pitch between lookAngle
-            pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
-            transform.localEulerAngles = new Vector3(0, yaw, 0);
-            playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
-        }
-
         #region Camera Zoom
 
         if (enableZoom)
@@ -353,8 +356,6 @@ public class FPController : MonoBehaviour
                 playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, fov, zoomStepTime * Time.deltaTime);
             }
         }
-
-        #endregion
 
         #endregion
 
@@ -409,18 +410,7 @@ public class FPController : MonoBehaviour
         }
 
         #endregion
-
-        #region Jump
-
-        // Gets input and calls jump method
-        if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
-        {
-            Jump();
-        }
-
-        #endregion
-
-
+        
         #region UITextPromt
 
         if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() == null)
@@ -584,8 +574,7 @@ public class FPController : MonoBehaviour
         }
 
         #endregion
-
-
+        
         #region Drop
 
         if (!isInspecting)
@@ -601,9 +590,9 @@ public class FPController : MonoBehaviour
                     {
                         pickupable.Drop(playerHandTransform);
                         heldItem = null;
-                    
-                        
-                        
+
+
+
                         // hides the q to drop feature in the ui
                         // InteractionUI.Instance.HidePrompt();
                     }
@@ -637,12 +626,12 @@ public class FPController : MonoBehaviour
 
         #endregion
 
-        CheckGround();
-
-        if (enableHeadBob && !isInspecting)
+        if (rb.linearVelocity.magnitude <= 0.1f)
         {
-            HeadBob();
+            isWalking = false;
         }
+        HeadBob();
+        
 
         #region Inspect
 
@@ -663,12 +652,12 @@ public class FPController : MonoBehaviour
             RotateInspectedObject();
             ZoomInspectedObject();
         }
-
         #endregion
+    }
 
         #region Inspect Functions
 
-        void TryStartInspectMode()
+        public void TryStartInspectMode()
         {
             targetInspectDistance = inspectDistance;
 
@@ -736,7 +725,7 @@ public class FPController : MonoBehaviour
             }
         }
 
-        void ExitInspectMode()
+        public void ExitInspectMode()
         {
             if (objectToInspect != null)
             {
@@ -774,7 +763,7 @@ public class FPController : MonoBehaviour
             Cursor.visible = false;
         }
 
-        void RotateInspectedObject()
+        public void RotateInspectedObject()
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -795,7 +784,7 @@ public class FPController : MonoBehaviour
             }
         }
 
-        void ZoomInspectedObject()
+        public void ZoomInspectedObject()
         {
             if (inspectHolder == null) return;
 
@@ -827,7 +816,6 @@ public class FPController : MonoBehaviour
         }
 
         #endregion
-    }
 
 
     void FixedUpdate()
@@ -840,7 +828,7 @@ public class FPController : MonoBehaviour
                 Vector3 horizontalVelocity = rb.linearVelocity;
                 horizontalVelocity.y = 0;
 
-                if ((targetVelocity.x != 0 || targetVelocity.z != 0) && isGrounded &&
+                if ((targetVelocity.x != 0 || targetVelocity.z != 0) &&
                     horizontalVelocity.magnitude > 0.1f)
                 {
                     isWalking = true;
@@ -1005,7 +993,7 @@ public class FPController : MonoBehaviour
         }
         else
         {
-            // Resets when play stops moving
+            // Resets when player stops moving
             timer = 0;
             joint.localPosition = new Vector3(
                 Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed),
