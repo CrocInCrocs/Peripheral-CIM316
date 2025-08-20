@@ -1040,12 +1040,12 @@ namespace GreatArcStudios
 
         public float currentSensitivity; // shows the value in inspector
 
-        public void OnSensitivitySliderChanged()
-        {
-            float newValue = sensitivitySlider.value;
-            currentSensitivity = newValue; // store it here for visibility
-            playerController.UpdateMouseSensitivity(newValue);
-        }
+        // public void OnSensitivitySliderChanged()
+        // {
+        //     float newValue = sensitivitySlider.value;
+        //     currentSensitivity = newValue; // store it here for visibility
+        //     playerController.UpdateMouseSensitivity(newValue);
+        // }
         /// <summary>
         /// Toggle on or off Depth of Field. This is meant to be used with a checkbox.
         /// </summary>
