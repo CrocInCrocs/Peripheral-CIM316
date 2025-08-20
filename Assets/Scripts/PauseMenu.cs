@@ -7,8 +7,8 @@ using UnityEngine.Video;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
-    [SerializeField] private MonoBehaviour FPController;
     [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private FPController FPController; // not MonoBehaviour
 
     private bool isPaused = false;
     // private float previousVolume;
@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
 
         if (FPController != null)
-            FPController.enabled = false;
+            FPController.DisableInput();
 
         if (videoPlayer != null)
             videoPlayer.Pause();
@@ -62,9 +62,10 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (FPController != null)
-            FPController.enabled = true;
 
+        if (FPController != null)
+            FPController.EnableInput();
+        
         if (videoPlayer != null)
             videoPlayer.Play();
 

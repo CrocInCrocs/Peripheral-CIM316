@@ -23,4 +23,12 @@ public class WindSoundManager : MonoBehaviour
             // Debug.Log($"Player exited indoor zone: wind volume set to {outdoorVolume}");
         }
     }
+    
+    
+    public void SetVolumes(float indoor, float outdoor)
+    {
+        indoorVolume = indoor;
+        outdoorVolume = outdoor;
+    }
+
 }

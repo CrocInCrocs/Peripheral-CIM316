@@ -575,7 +575,9 @@ namespace GreatArcStudios
         {
 
             //Controls volume of all audio listeners 
-            AudioListener.volume = f;
+            // AudioListener.volume = f;
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.SetMasterVolume(f);
         }
         /// <summary>
         /// Update music effects volume
@@ -583,18 +585,21 @@ namespace GreatArcStudios
         /// <param name="f"></param>
         public void updateMusicVol(float f)
         {
-            try
-            {
-                for (int _musicAmt = 0; _musicAmt < music.Length; _musicAmt++)
-                {
-                    music[_musicAmt].volume *= f;
-                }
-            }
-            catch
-            {
-                Debug.Log("Please assign music sources in the manager");
-            }
-            //_beforeMusic = music.volume;
+            
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.SetMusicVolume(f);
+            // try
+            // {
+            //     for (int _musicAmt = 0; _musicAmt < music.Length; _musicAmt++)
+            //     {
+            //         music[_musicAmt].volume *= f;
+            //     }
+            // }
+            // catch
+            // {
+            //     Debug.Log("Please assign music sources in the manager");
+            // }
+            // //_beforeMusic = music.volume;
         }
         /// <summary>
         /// Update the audio effects volume
@@ -602,21 +607,24 @@ namespace GreatArcStudios
         /// <param name="f"></param>
         public void updateEffectsVol(float f)
         {
-            try
-            {
-                for (_audioEffectAmt = 0; _audioEffectAmt < effects.Length; _audioEffectAmt++)
-                {
-                    //get the values for all effects before the change
-                    _beforeEffectVol[_audioEffectAmt] = effects[_audioEffectAmt].volume;
-
-                    //lower it by a factor of f because we don't want every effect to be set to a uniform volume
-                    effects[_audioEffectAmt].volume *= f;
-                }
-            }
-            catch
-            {
-                Debug.Log("Please assign audio effects sources in the manager.");
-            }
+            
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.SetSFXVolume(f);
+            // try
+            // {
+            //     for (_audioEffectAmt = 0; _audioEffectAmt < effects.Length; _audioEffectAmt++)
+            //     {
+            //         //get the values for all effects before the change
+            //         _beforeEffectVol[_audioEffectAmt] = effects[_audioEffectAmt].volume;
+            //
+            //         //lower it by a factor of f because we don't want every effect to be set to a uniform volume
+            //         effects[_audioEffectAmt].volume *= f;
+            //     }
+            // }
+            // catch
+            // {
+            //     Debug.Log("Please assign audio effects sources in the manager.");
+            // }
 
         }
         /// <summary> 
@@ -902,6 +910,15 @@ namespace GreatArcStudios
             }
 
         }
+        [SerializeField] private GameObject fpsCounter;
+
+        public void ToggleFPSCounter(bool isOn)
+        {
+            if (fpsCounter != null)
+            {
+                fpsCounter.SetActive(isOn);
+            }
+        }
         /// <summary>
         /// Update full high quality tree mesh amount.
         /// </summary>
@@ -1016,6 +1033,18 @@ namespace GreatArcStudios
         public void updateFOV(float fov)
         {
             mainCam.fieldOfView = fov;
+        }
+        
+        public FPController playerController; // Assign in inspector
+        public Slider sensitivitySlider; // Assign your UI slider
+
+        public float currentSensitivity; // shows the value in inspector
+
+        public void OnSensitivitySliderChanged()
+        {
+            float newValue = sensitivitySlider.value;
+            currentSensitivity = newValue; // store it here for visibility
+            playerController.UpdateMouseSensitivity(newValue);
         }
         /// <summary>
         /// Toggle on or off Depth of Field. This is meant to be used with a checkbox.
