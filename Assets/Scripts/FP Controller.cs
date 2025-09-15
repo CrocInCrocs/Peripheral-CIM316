@@ -186,6 +186,7 @@ public class FPController : MonoBehaviour
 
     void Start()
     {
+        PeripheralGameManager.Current.SetFPController(this);
         if (inspectCamera != null)
         {
             inspectCamera.enabled = false; // Disable on start
@@ -378,14 +379,42 @@ public class FPController : MonoBehaviour
 
         #endregion
 
+
+        #region UITextPromt
+
+        if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() == null)
+        {
+            GameObject target = RayCastFromCamera();
+
+            if (target != null)
+            {
+                // Show appropriate prompt
+                if (target.GetComponent<IPickupable>() != null)
+                {
+                    InteractionUI.Instance.ShowPrompt(InteractionUI.Instance.GetPickupInspectPrompt());
+                }
+                else
+                {
+                    InteractionUI.Instance.HidePrompt();
+                }
+            }
+            else
+            {
+                InteractionUI.Instance.HidePrompt();
+            }
+        }
+
+        #endregion
+        
+
         #region Pickup
 
         if (!isInspecting)
         {
-            // Gets input and calls pickup method and if the player can't pickup anything it will try to see if the player can interact with anything.
             if (Input.GetKeyDown(pickupKey))
             {
                 GameObject target = RayCastFromCamera();
+
                 if (target)
                 {
                     // --- Prioritize chores ---
@@ -411,7 +440,7 @@ public class FPController : MonoBehaviour
                                     currentChore = null;
                                 }
 
-                                return; // ✅ Done — don't fall through
+                                return;
                             }
                         }
                     }
@@ -429,8 +458,13 @@ public class FPController : MonoBehaviour
                     if (pickupable != null)
                     {
                         pickupable.Pickup(playerHandTransform);
+
+                        // 🐱 Additional check for cat food
+                        HandleCatFoodPickup(pickupable);
+
                         return;
                     }
+
 
                     // if (enableChores) // <- Only check for chores if enabled
                     // {
@@ -457,6 +491,13 @@ public class FPController : MonoBehaviour
                     //     return;
                     // }
                 }
+
+              
+            }
+
+            if (!isInspecting && InventoryManager.Current.ReturnSelectedItemInInventory() != null)
+            {
+                InteractionUI.Instance.ShowPrompt(InteractionUI.Instance.GetDropPrompt());
             }
         }
 
@@ -488,6 +529,8 @@ public class FPController : MonoBehaviour
                     {
                         pickupable.Drop(playerHandTransform);
                         heldItem = null;
+                        // ✅ Hide the prompt after drop
+                        InteractionUI.Instance.HidePrompt();
                     }
                 }
             }
@@ -589,6 +632,12 @@ public class FPController : MonoBehaviour
                 DisableInput();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+
+                Item item = target.GetComponent<Item>();
+                if (item != null && DialogueManager.Current != null)
+                {
+                    DialogueManager.Current.NewText(item.dialogueText);
+                }
             }
         }
 
@@ -688,6 +737,7 @@ public class FPController : MonoBehaviour
                     {
                         Debug.LogWarning("SoundManager.Instance is null! Cannot play footstep sound.");
                     }
+
                     footstepTimer = footstepInterval;
                 }
             }
@@ -860,6 +910,29 @@ public class FPController : MonoBehaviour
     }
 
 
+    // public IInteractable ReturnInteractableFromRayCast()
+
+    public GameObject ReturnInteractableFromRayCast()
+
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 2f))
+        {
+            IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                return hit.collider.gameObject;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        return null;
+    }
+
+
     // for computer 
     public void DisableInput()
     {
@@ -872,5 +945,25 @@ public class FPController : MonoBehaviour
         playerCanMove = true;
         cameraCanMove = true;
     }
-    
+
+    private void HandleCatFoodPickup(IPickupable pickupable)
+    {
+        GameObject obj = ((MonoBehaviour)pickupable).gameObject;
+
+        if (!obj.CompareTag("CatFood")) return;
+
+        Animator animator = obj.GetComponent<Animator>();
+        if (animator == null) return;
+
+        Collider[] nearbyTriggers = Physics.OverlapSphere(transform.position, 2f);
+        foreach (var trigger in nearbyTriggers)
+        {
+            FeedCat feedTrigger = trigger.GetComponent<FeedCat>();
+            if (feedTrigger != null)
+            {
+                feedTrigger.SetHeldCanAnimator(animator);
+                Debug.Log("Cat food animator set on FeedCatTrigger.");
+            }
+        }
+    }
 }

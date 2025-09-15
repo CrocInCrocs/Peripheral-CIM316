@@ -60,7 +60,7 @@ public class OutsideBins : MonoBehaviour
         {
             rb.isKinematic = true;
             // Fire the event
-            TaskEvents.InvokeChoreCompleted("Bin"); // or "Vacuum", "Dishes", etc.
+            TaskEvents.InvokeChoreCompleted("Take out the rubbish"); // or "Vacuum", "Dishes", etc.
             Debug.Log("Item dropped into bin.");
             
             //

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - BinBag
+  - CatFood
   layers:
   - Default
   - TransparentFX

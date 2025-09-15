@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: -0.14213198}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.22335026}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.27240995}
 --- !u!114 &-8270506406425502121
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -100,10 +100,10 @@ MonoBehaviour:
     m_Value: 0
   quality:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 2
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.2
   clamp:
     m_OverrideState: 1
     m_Value: 0.05
@@ -177,19 +177,19 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: -1
+    m_Value: -0.5
   contrast:
     m_OverrideState: 1
-    m_Value: 7.8
+    m_Value: -35
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.9292453, g: 0.9308809, b: 1, a: 1}
+    m_Value: {r: 0.9528302, g: 0.8558512, b: 0.8494571, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -10
 --- !u!114 &-6288072647309666549
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -230,7 +230,7 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 2
   neutralHDRRangeReductionMode:
     m_OverrideState: 1
     m_Value: 2
@@ -378,17 +378,17 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   threshold:
-    m_OverrideState: 1
-    m_Value: 0.9
-  intensity:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
+  intensity:
+    m_OverrideState: 0
+    m_Value: 2.57
   scatter:
-    m_OverrideState: 1
-    m_Value: 0.7
+    m_OverrideState: 0
+    m_Value: 0.419
   clamp:
     m_OverrideState: 1
-    m_Value: 65472
+    m_Value: 65454.27
   tint:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -567,7 +567,7 @@ MonoBehaviour:
     m_Value: {x: 0.88021797, y: 0.913254, z: 1, w: -0.030456852}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9646455, z: 0.88331723, w: 0.08121827}
+    m_Value: {x: 1, y: 0.9646455, z: 0.88331723, w: 0.49004906}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 1, y: 0.96390784, z: 0.89276546, w: 0.22335026}
@@ -804,10 +804,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   gaussianStart:
     m_OverrideState: 1
     m_Value: 10
@@ -816,7 +816,7 @@ MonoBehaviour:
     m_Value: 30
   gaussianMaxRadius:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.156
   highQualitySampling:
     m_OverrideState: 1
     m_Value: 0
@@ -904,7 +904,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.534
+    m_Value: 0.416
   smoothness:
     m_OverrideState: 1
     m_Value: 0.2
@@ -951,7 +951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfbdbb87d3286943a057f7791b43141, type: 3}
   m_Name: ChannelMixer
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   redOutRedIn:
     m_OverrideState: 1
     m_Value: 100

@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6811526618376138428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5235, z: 0.018}
   m_LocalScale: {x: 1, y: 0.6279, z: 1}
   m_ConstrainProportionsScale: 0
@@ -138,3 +138,6 @@ MonoBehaviour:
   scaleZ: 1
   scaleAmount: 0.75
   isAtClosedPosition: 1
+  openSound: {fileID: 8300000, guid: 162edc293539f904d95c8f3c13996cac, type: 3}
+  closeSound: {fileID: 8300000, guid: 20f1593fd32cec2488fd544cbc6531bd, type: 3}
+  playSoundAtWorldPosition: 1

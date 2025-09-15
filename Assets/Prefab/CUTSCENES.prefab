@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4546943443567082446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6628414153430303094}
+  m_Layer: 0
+  m_Name: CUTSCENES
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &6628414153430303094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4546943443567082446}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.879322, y: 4.0964403, z: 14.625307}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3958806068862308284}
+  - {fileID: 5986443299639648310}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5759070788551246694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3958806068862308284}
+  - component: {fileID: 3517635528873014703}
+  m_Layer: 0
+  m_Name: CutscenePlayerWakingup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
+--- !u!4 &3958806068862308284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759070788551246694}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.796935, y: -2.8405242, z: -7.854333}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6628414153430303094}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &3517635528873014703
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759070788551246694}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: b2fde4532ba544243aebaa5c256ae40a, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -8742397638710883790, guid: b2fde4532ba544243aebaa5c256ae40a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3151824110718121174, guid: b2fde4532ba544243aebaa5c256ae40a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5892799126417116428, guid: b2fde4532ba544243aebaa5c256ae40a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5265345620283349151, guid: b2fde4532ba544243aebaa5c256ae40a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4070530363384221827, guid: b2fde4532ba544243aebaa5c256ae40a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8355934428134372502, guid: b2fde4532ba544243aebaa5c256ae40a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1422209661669100969, guid: b2fde4532ba544243aebaa5c256ae40a, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!1 &6994001555645776873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5986443299639648310}
+  - component: {fileID: 4278691204150902517}
+  m_Layer: 0
+  m_Name: CutscenePlayerWalkingIntoHouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
+--- !u!4 &5986443299639648310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6994001555645776873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6628414153430303094}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &4278691204150902517
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6994001555645776873}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -7167387943646509651, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2648831481806146078, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8116748416244132120, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4309350369191172824, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3506571994003644391, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6340667003916942799, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5231235483606234863, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5517568336663042638, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 228925591917519760, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8772893372909994331, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6924926796886181809, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -941486241380253504, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2177471818972659473, guid: 9d45d99d66b2d4443a79ea61d3bd08ef, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []

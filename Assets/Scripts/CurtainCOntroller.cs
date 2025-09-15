@@ -31,6 +31,12 @@ public class CurtainCOntroller : ChoreBase
     private Vector3 openScale;
     [SerializeField] private bool isAtClosedPosition = true;
     private Coroutine autoReturnCoroutine;
+    
+    [Header("Sound Settings")]
+    [SerializeField] private AudioClip openSound;
+    [SerializeField] private AudioClip closeSound;
+    [SerializeField] private bool playSoundAtWorldPosition = true;
+    
 
     void Start()
     {
@@ -97,7 +103,28 @@ public class CurtainCOntroller : ChoreBase
         }
         
         // Play sound based on closing/opening
-        SoundManager.Instance.PlayCurtainSound(isAtClosedPosition, transform.position);
+        // SoundManager.Instance.PlayCurtainSound(isAtClosedPosition, transform.position);
+        
+        if (SoundManager.Instance != null)
+        {
+            AudioClip clipToPlay = isAtClosedPosition ? openSound : closeSound;
+
+            if (clipToPlay != null)
+            {
+                if (playSoundAtWorldPosition)
+                {
+                    SoundManager.Instance.PlaySoundAtPosition(clipToPlay, transform.position);
+                }
+                else
+                {
+                    SoundManager.Instance.PlaySoundGlobal(clipToPlay);
+                }
+            }
+        }
+        
+        
+        
+        
     
         isAtClosedPosition = !isAtClosedPosition;
 

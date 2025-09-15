@@ -10,13 +10,25 @@ public class computer : ChoreBase
     [SerializeField] private Canvas PlayerCanvas;
     [SerializeField] private Canvas InventoryCanvas;
 
-    private int currentCameraIndex = 0;
-    private bool isViewingCCTV = false;
-    private FPController playerController;
+    [SerializeField] private int currentCameraIndex = 0;
+    [SerializeField] private bool isViewingCCTV = false;
+    [SerializeField] private FPController playerController;
 
     private void Start()
     {
         playerController = FindObjectOfType<FPController>();
+
+        if (computerCanvas == null)
+            computerCanvas = GameObject.Find("Computer Canvas")?.GetComponent<Canvas>();
+
+        if (tutorialCanvas == null)
+            tutorialCanvas = GameObject.Find("Tutorial Canvas")?.GetComponent<Canvas>();
+
+        if (PlayerCanvas == null)
+            PlayerCanvas = GameObject.Find("Player Canvas")?.GetComponent<Canvas>();
+
+        if (InventoryCanvas == null)
+            InventoryCanvas = GameObject.Find("Inventory Canvas")?.GetComponent<Canvas>();
     }
 
     // Enables the computer UI and disables player controls
@@ -31,11 +43,12 @@ public class computer : ChoreBase
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             // Enable the player's HUD canvas here:
-      
-            
         }
-        // Play computer sound at player position
-        SoundManager.Instance.PlayComputerOnSound(playerController.transform.position);
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayComputerOnSound(playerController.transform.position);
+        }
 
         Debug.Log("Started computer chore. Canvas enabled.");
     }
@@ -52,30 +65,31 @@ public class computer : ChoreBase
     {
         Debug.Log("exited computer funtion called has been triggerecd, exiting computer");
         isViewingCCTV = false;
-        
+
         if (computerCanvas != null)
             computerCanvas.gameObject.SetActive(false);
-        
+
         foreach (var cam in cctvCameras)
             cam.gameObject.SetActive(false);
-        
+
         // Enable PlayerCanvas  if assigned
         if (PlayerCanvas != null)
             PlayerCanvas.gameObject.SetActive(true);
         // Enable PlayerCanvas  if assigned
         if (InventoryCanvas != null)
             InventoryCanvas.gameObject.SetActive(true);
-        
-        
+
+
         if (playerController != null)
         {
             playerController.EnableInput();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+
         // Play computer sound at player position
         SoundManager.Instance.PlayComputerOffSound(playerController.transform.position);
-        
+
 
         Debug.Log("Exited Computer");
     }
@@ -84,13 +98,21 @@ public class computer : ChoreBase
     public void ActivateCameras()
     {
         // Disable all canvases in the scene
-        foreach (var canvas in FindObjectsOfType<Canvas>())
-            canvas.gameObject.SetActive(false);
+        // foreach (var canvas in FindObjectsOfType<Canvas>())
+        //     canvas.gameObject.SetActive(false);
+
+
+        if (computerCanvas != null)
+            computerCanvas.gameObject.SetActive(false);
+
+        // Enable tutorial canvas if assigned
+        if (InventoryCanvas != null)
+            InventoryCanvas.gameObject.SetActive(false);
 
         // Enable tutorial canvas if assigned
         if (tutorialCanvas != null)
             tutorialCanvas.gameObject.SetActive(true);
-        
+
         if (playerController != null)
         {
             playerController.DisableInput();
@@ -107,25 +129,21 @@ public class computer : ChoreBase
         currentCameraIndex = 0;
         isViewingCCTV = true;
         ActivateCamera(currentCameraIndex);
-        
+
         SoundManager.Instance.PlayCCTVLoopSound(playerController.transform.position);
         Debug.Log("ActivateCameras called: CCTV sound should play");
-
-     
     }
 
     private void Update()
     {
         // if (Input.GetKeyDown(KeyCode.Z)) // its a button for now, but we want it ot be on the screen for the compouter, so u can only log off from the desktop. 
         //     ExitComputer();
-        
+
         if (!isViewingCCTV)
             return;
 
         HandleCameraCycleInput();
         HandleExitInput();
-        
-        
     }
 
     // Handles input for cycling through cameras
@@ -152,13 +170,11 @@ public class computer : ChoreBase
             // Enable tutorial canvas if assigned
             if (tutorialCanvas != null)
                 tutorialCanvas.gameObject.SetActive(false);
-            
+
             SoundManager.Instance.StopCCTVLoopSound();
             Debug.Log("CCTV sound stopped on exit");
-            
         }
     }
-    
 
 
     // Switches to a different camera index

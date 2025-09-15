@@ -2,25 +2,28 @@ using UnityEngine;
 
 public class DishChore : ChoreBase
 {
-    // if sink is turned on dishes take 50% faster wash time
-    
     [SerializeField] private float baseWashTime = 5f;
+
+    private void Start()
+    {
+        DishTracker.Instance.AddDish(gameObject);
+    }
 
     public override void StartChore()
     {
-        // Adjust time based on sink status
         timeToComplete = Sink.IsSinkOn ? baseWashTime * 0.5f : baseWashTime;
-
         Debug.Log("Dish chore started. Time to complete: " + timeToComplete + "s");
-
-        base.StartChore(); // Continue normal chore behaviour
+        base.StartChore();
     }
 
     public override void CompleteChore()
     {
         base.CompleteChore();
 
+        // Notify the DishTracker this dish is done
+        DishTracker.Instance.NotifyDishDone(gameObject);
+
         Debug.Log("Dish chore completed.");
-        Destroy(gameObject);
+        Destroy(gameObject); // Destroy dish object on completion
     }
 }

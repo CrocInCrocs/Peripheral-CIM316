@@ -117,6 +117,9 @@ MonoBehaviour:
   scaleZ: 1
   scaleAmount: 2.5
   isAtClosedPosition: 1
+  openSound: {fileID: 8300000, guid: 162edc293539f904d95c8f3c13996cac, type: 3}
+  closeSound: {fileID: 8300000, guid: 20f1593fd32cec2488fd544cbc6531bd, type: 3}
+  playSoundAtWorldPosition: 1
 --- !u!65 &2644310232407373817
 BoxCollider:
   m_ObjectHideFlags: 0
